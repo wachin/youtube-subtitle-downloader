@@ -73,3 +73,102 @@ def test_model_preferred_language_selection():
     model.auto_select_preferred("es")
     assert len(model.checked_tracks()) == 1
     assert model.checked_tracks()[0].language_code == "es"
+
+
+def test_setdata_accepts_int_check_states():
+    """Regression: PyQt6 6.9 hands check states to setData as plain ints."""
+    _app()
+    model = SubtitleTableModel()
+    model.set_tracks([SubtitleTrack("es", SubtitleKind.AUTOMATIC, "Spanish", ["vtt"])])
+    index = model.index(0, 0)
+
+    # The view delegate passes int 2 (== Qt.CheckState.Checked) and int 0.
+    assert model.setData(index, 2, Qt.ItemDataRole.CheckStateRole)
+    assert model.checked_count() == 1
+    assert (
+        model.data(index, Qt.ItemDataRole.CheckStateRole) == Qt.CheckState.Checked
+    )
+
+    assert model.setData(index, 0, Qt.ItemDataRole.CheckStateRole)
+    assert model.checked_count() == 0
+
+    # The enum form keeps working too.
+    assert model.setData(index, Qt.CheckState.Checked, Qt.ItemDataRole.CheckStateRole)
+    assert model.checked_count() == 1
+
+
+def test_clicking_a_row_checks_it():
+    """Clicking anywhere on a row toggles its checkbox (and enables download)."""
+    from PyQt6.QtTest import QTest
+
+    _app()
+    window = MainWindow(SettingsService())
+    window._model.set_tracks(
+        [SubtitleTrack("es", SubtitleKind.AUTOMATIC, "Spanish", ["vtt"])]
+    )
+    window.show()
+    _app().processEvents()
+
+    view = window._table
+    index = window._model.index(0, 1)  # the "Spanish" text cell
+    rect = view.visualRect(index)
+    QTest.mouseClick(
+        view.viewport(),
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+        rect.center(),
+    )
+    _app().processEvents()
+
+    assert window._model.checked_count() == 1
+    assert window._download_btn.isEnabled()
+
+    # Clicking the row again unchecks it.
+    QTest.mouseClick(
+        view.viewport(),
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+        rect.center(),
+    )
+    _app().processEvents()
+    assert window._model.checked_count() == 0
+    window.close()
+
+
+def test_clicking_the_checkbox_indicator_checks_it():
+    """Direct clicks on the checkbox indicator toggle the state once."""
+    from PyQt6.QtCore import QPoint
+    from PyQt6.QtWidgets import QStyle, QStyleOptionViewItem
+    from PyQt6.QtTest import QTest
+
+    _app()
+    window = MainWindow(SettingsService())
+    window._model.set_tracks(
+        [SubtitleTrack("es", SubtitleKind.AUTOMATIC, "Spanish", ["vtt"])]
+    )
+    window.show()
+    _app().processEvents()
+
+    view = window._table
+    model = window._model
+    index = model.index(0, 0)
+    opt = QStyleOptionViewItem()
+    opt.initFrom(view)
+    opt.rect = view.visualRect(index)
+    opt.checkState = model.data(index, Qt.ItemDataRole.CheckStateRole)
+    opt.state |= QStyle.StateFlag.State_Enabled
+    opt.features |= QStyleOptionViewItem.ViewItemFeature.HasCheckIndicator
+    indicator = view.style().subElementRect(
+        QStyle.SubElement.SE_ItemViewItemCheckIndicator, opt, view
+    )
+    QTest.mouseClick(
+        view.viewport(),
+        Qt.MouseButton.LeftButton,
+        Qt.KeyboardModifier.NoModifier,
+        indicator.center(),
+    )
+    _app().processEvents()
+
+    assert model.checked_count() == 1
+    assert window._download_btn.isEnabled()
+    window.close()

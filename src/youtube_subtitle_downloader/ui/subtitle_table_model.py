@@ -9,6 +9,17 @@ from ..models.subtitle import SubtitleKind, SubtitleTrack, searchable_names
 COLUMNS = ("", "Language", "Code", "Type", "Formats")
 
 
+def _is_checked(value) -> bool:
+    """Return True when *value* represents a checked checkbox.
+
+    The view delegate hands check states to ``setData`` as plain integers
+    (``2`` for checked, ``0`` for unchecked). On PyQt6 6.9+ the
+    ``Qt.CheckState`` enum no longer compares equal to integers, so compare
+    through the enum constructor instead of ``value == Qt.CheckState.Checked``.
+    """
+    return Qt.CheckState(value) == Qt.CheckState.Checked
+
+
 class SubtitleTableModel(QAbstractTableModel):
     """Table of subtitle tracks with a checkable first column."""
 
@@ -55,6 +66,13 @@ class SubtitleTableModel(QAbstractTableModel):
         return indices
 
     # -- selection helpers ------------------------------------------------
+    def track_at(self, row: int) -> SubtitleTrack | None:
+        """Return the track currently displayed at *row* (honoring the filter)."""
+        indices = self._visible_indices()
+        if 0 <= row < len(indices):
+            return self._tracks[indices[row]]
+        return None
+
     def checked_tracks(self) -> list[SubtitleTrack]:
         visible = set(self._visible_indices())
         return [self._tracks[i] for i in sorted(self._checked) if i in visible]
@@ -155,7 +173,7 @@ class SubtitleTableModel(QAbstractTableModel):
             and role == Qt.ItemDataRole.CheckStateRole
         ):
             original = self._visible_indices()[index.row()]
-            if value == Qt.CheckState.Checked:
+            if _is_checked(value):
                 self._checked.add(original)
             else:
                 self._checked.discard(original)

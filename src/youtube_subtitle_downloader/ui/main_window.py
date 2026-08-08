@@ -185,6 +185,7 @@ class MainWindow(QMainWindow):
         self._table.setColumnWidth(3, 110)
         self._table.setColumnWidth(4, 180)
         self._table.horizontalHeader().setStretchLastSection(True)
+        self._table.clicked.connect(self._on_table_clicked)
         self._table.doubleClicked.connect(self._on_table_double_clicked)
         root.addWidget(self._table, 1)
 
@@ -665,8 +666,30 @@ class MainWindow(QMainWindow):
             return
         PreviewDialog(tracks[0], self._video, self._settings, self).exec()
 
-    def _on_table_double_clicked(self, _index) -> None:
-        self._open_preview()
+    def _on_table_clicked(self, index) -> None:
+        """Toggle the row checkbox when the user clicks anywhere on the row.
+
+        Column 0 is the checkbox itself and is already handled by the item
+        view delegate, so only clicks on the other columns need handling.
+        """
+        if not index.isValid() or index.column() == 0:
+            return
+        check_index = self._model.index(index.row(), 0)
+        state = self._model.data(check_index, Qt.ItemDataRole.CheckStateRole)
+        new_state = (
+            Qt.CheckState.Unchecked
+            if state == Qt.CheckState.Checked
+            else Qt.CheckState.Checked
+        )
+        self._model.setData(check_index, new_state, Qt.ItemDataRole.CheckStateRole)
+
+    def _on_table_double_clicked(self, index) -> None:
+        """Preview the double-clicked subtitle directly."""
+        if self._video is None or not index.isValid():
+            return
+        track = self._model.track_at(index.row())
+        if track is not None:
+            PreviewDialog(track, self._video, self._settings, self).exec()
 
     # ------------------------------------------------------------------
     # Filters / tabs / log
