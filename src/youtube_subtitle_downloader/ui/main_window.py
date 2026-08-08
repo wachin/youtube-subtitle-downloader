@@ -36,7 +36,9 @@ from ..models.video import PlaylistEntry, VideoInfo
 from ..services.settings_service import SettingsService
 from ..services.ytdlp_service import YtDlpService, is_youtube_url
 from ..utils.filenames import DEFAULT_TEMPLATE, PRESET_TEMPLATES
+from ..utils.icons import APP_ICON_NAME, theme_icon
 from ..utils.logging import get_logger
+from ..utils.notifications import send_notification
 from ..utils.paths import default_download_dir
 from ..workers.download_worker import DownloadWorker
 from ..workers.video_info_worker import PlaylistWorker, VideoInfoWorker
@@ -66,6 +68,7 @@ class MainWindow(QMainWindow):
         self._language = settings.language()
 
         self.setWindowTitle(__app_name__)
+        self.setWindowIcon(theme_icon(APP_ICON_NAME))
         self.resize(860, 640)
 
         self._network = QNetworkAccessManager(self)
@@ -97,9 +100,11 @@ class MainWindow(QMainWindow):
         self._url_edit.returnPressed.connect(self._analyze)
         url_row.addWidget(self._url_edit, 1)
         self._paste_btn = QPushButton(central)
+        self._paste_btn.setIcon(theme_icon("edit-paste"))
         self._paste_btn.clicked.connect(self._paste_url)
         url_row.addWidget(self._paste_btn)
         self._analyze_btn = QPushButton(central)
+        self._analyze_btn.setIcon(theme_icon("system-search"))
         self._analyze_btn.setDefault(True)
         self._analyze_btn.clicked.connect(self._analyze)
         url_row.addWidget(self._analyze_btn)
@@ -138,8 +143,10 @@ class MainWindow(QMainWindow):
         self._search_edit.textChanged.connect(self._on_filter_changed)
         filter_row.addWidget(self._search_edit, 1)
         self._select_all_btn = QPushButton(central)
+        self._select_all_btn.setIcon(theme_icon("edit-select-all"))
         self._select_all_btn.clicked.connect(lambda: self._model.check_all(True))
         self._select_none_btn = QPushButton(central)
+        self._select_none_btn.setIcon(theme_icon("edit-select-none"))
         self._select_none_btn.clicked.connect(lambda: self._model.check_all(False))
         self._select_manual_btn = QPushButton(central)
         self._select_manual_btn.clicked.connect(
@@ -211,6 +218,7 @@ class MainWindow(QMainWindow):
         self._dir_edit = QLineEdit(self._options_box)
         row2.addWidget(self._dir_edit, 1)
         self._browse_btn = QPushButton(self._options_box)
+        self._browse_btn.setIcon(theme_icon("folder-open"))
         self._browse_btn.clicked.connect(self._browse_output_dir)
         row2.addWidget(self._browse_btn)
         self._template_label = QLabel(self._options_box)
@@ -225,14 +233,17 @@ class MainWindow(QMainWindow):
         # Progress + action buttons
         action_row = QHBoxLayout()
         self._preview_btn = QPushButton(central)
+        self._preview_btn.setIcon(theme_icon("document-preview"))
         self._preview_btn.clicked.connect(self._open_preview)
         action_row.addWidget(self._preview_btn)
         action_row.addStretch(1)
         self._cancel_btn = QPushButton(central)
+        self._cancel_btn.setIcon(theme_icon("process-stop"))
         self._cancel_btn.clicked.connect(self._cancel_current)
         self._cancel_btn.setEnabled(False)
         action_row.addWidget(self._cancel_btn)
         self._download_btn = QPushButton(central)
+        self._download_btn.setIcon(theme_icon("go-down"))
         self._download_btn.clicked.connect(self._download)
         action_row.addWidget(self._download_btn)
         root.addLayout(action_row)
@@ -244,12 +255,15 @@ class MainWindow(QMainWindow):
         # Log panel
         log_header = QHBoxLayout()
         self._log_toggle = QToolButton(central)
+        self._log_toggle.setIcon(theme_icon("view-list-details"))
         self._log_toggle.setCheckable(True)
         self._log_toggle.setChecked(False)
         self._log_toggle.toggled.connect(self._toggle_log)
         self._copy_log_btn = QPushButton(central)
+        self._copy_log_btn.setIcon(theme_icon("edit-copy"))
         self._copy_log_btn.clicked.connect(self._copy_log)
         self._clear_log_btn = QPushButton(central)
+        self._clear_log_btn.setIcon(theme_icon("edit-clear-all"))
         self._clear_log_btn.clicked.connect(lambda: self._log_edit.clear())
         log_header.addWidget(self._log_toggle)
         log_header.addWidget(self._copy_log_btn)
@@ -358,39 +372,48 @@ class MainWindow(QMainWindow):
 
         self._file_menu = menu_bar.addMenu("")
         self._new_url_action = QAction(self)
+        self._new_url_action.setIcon(theme_icon("document-new"))
         self._new_url_action.setShortcut(QKeySequence("Ctrl+N"))
         self._new_url_action.triggered.connect(self._new_url)
         self._file_menu.addAction(self._new_url_action)
         self._open_folder_action = QAction(self)
+        self._open_folder_action.setIcon(theme_icon("folder-open"))
         self._open_folder_action.triggered.connect(self._open_output_folder)
         self._file_menu.addAction(self._open_folder_action)
         self._history_action = QAction(self)
+        self._history_action.setIcon(theme_icon("document-open-recent"))
         self._history_action.triggered.connect(self._show_history)
         self._file_menu.addAction(self._history_action)
         self._file_menu.addSeparator()
         self._quit_action = QAction(self)
+        self._quit_action.setIcon(theme_icon("application-exit"))
         self._quit_action.setShortcut(QKeySequence("Ctrl+Q"))
         self._quit_action.triggered.connect(self.close)
         self._file_menu.addAction(self._quit_action)
 
         self._tools_menu = menu_bar.addMenu("")
         self._settings_action = QAction(self)
+        self._settings_action.setIcon(theme_icon("preferences-system"))
         self._settings_action.setShortcut(QKeySequence("Ctrl+,"))
         self._settings_action.triggered.connect(self._show_settings)
         self._tools_menu.addAction(self._settings_action)
         self._check_action = QAction(self)
+        self._check_action.setIcon(theme_icon("system-run"))
         self._check_action.triggered.connect(self._show_system_info)
         self._tools_menu.addAction(self._check_action)
 
         self._help_menu = menu_bar.addMenu("")
         self._help_action = QAction(self)
+        self._help_action.setIcon(theme_icon("help-contents"))
         self._help_action.setShortcut(QKeySequence("F1"))
         self._help_action.triggered.connect(self._show_help)
         self._help_menu.addAction(self._help_action)
         self._system_action = QAction(self)
+        self._system_action.setIcon(theme_icon("computer"))
         self._system_action.triggered.connect(self._show_system_info)
         self._help_menu.addAction(self._system_action)
         self._about_action = QAction(self)
+        self._about_action.setIcon(theme_icon("help-about"))
         self._about_action.triggered.connect(self._show_about)
         self._help_menu.addAction(self._about_action)
 
@@ -679,6 +702,15 @@ class MainWindow(QMainWindow):
         ok = [r for r in results if r.ok]
         if ok:
             self._save_history(results)
+            # Notify before the modal dialog so absent users get the alert
+            # immediately; attentive users (active window) get none.
+            if self._settings.notify_on_finish() and not self.isActiveWindow():
+                send_notification(
+                    self.tr("Download finished"),
+                    translate_args(
+                        self.tr("Downloaded %1 subtitle(s)."), len(ok)
+                    ),
+                )
             DownloadCompleteDialog(results, self._dir_edit.text().strip(), self).exec()
 
     def _save_history(self, results) -> None:

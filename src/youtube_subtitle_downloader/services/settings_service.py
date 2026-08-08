@@ -52,6 +52,12 @@ class SettingsService:
     def set_auto_analyze_after_paste(self, enabled: bool) -> None:
         self.set_value("general/auto_analyze_after_paste", enabled)
 
+    def notify_on_finish(self) -> bool:
+        return bool(self.value("general/notify_on_finish", True, type=bool))
+
+    def set_notify_on_finish(self, enabled: bool) -> None:
+        self.set_value("general/notify_on_finish", enabled)
+
     # -- YouTube / cookies -------------------------------------------------
     def cookies_browser(self) -> str:
         return str(self.value("youtube/cookies_browser", ""))

@@ -28,6 +28,11 @@ available subtitles, select one or more languages and download them.
 - Optional **cookies** support (from browser or `cookies.txt`) for restricted videos.
 - Drag & drop URLs, paste from clipboard, playlist detection (MVP).
 - System theme aware, keyboard shortcuts, tooltips, optional CLI.
+- System theme **icons** on buttons and menus (`QIcon.fromTheme`, falls back
+  to text when the active theme lacks an icon).
+- Optional **desktop notification** when a download finishes while the window
+  is not active (Settings → General; uses `notify-send` with a system-tray
+  fallback — no heavy dependencies).
 - No telemetry; everything runs locally.
 
 ## Requirements

@@ -16,8 +16,7 @@ Quiero que el proyecto tenga calidad suficiente para poder publicarlo como softw
 > Durante el proceso de construcción del programa, cada parte completada se marcará como `[x]`.
 > Las casillas del resumen de implementación de la sección 63 también se marcarán conforme se avance.
 >
-> **Progreso (2026-08-08):** base funcional completa — análisis, tabla de idiomas, descarga múltiple (SRT/VTT/TTML/JSON3/Original), TXT limpio con deduplicación, vista previa, historial, playlist (MVP), CLI, logs, cookies, traducción al español completa (sección 36) y 36 tests en verde.
-> Pendientes: iconos de tema (34) y notificación de escritorio (52).
+> **Progreso (2026-08-08):** base funcional completa — análisis, tabla de idiomas, descarga múltiple (SRT/VTT/TTML/JSON3/Original), TXT limpio con deduplicación, vista previa, historial, playlist (MVP), CLI, logs, cookies, traducción al español completa (sección 36), iconos del tema del sistema (34) y notificación de escritorio (52). **Todas las secciones 1–63 están marcadas como completadas.**
 
 ---
 
@@ -866,9 +865,9 @@ No utilizar colores codificados que hagan ilegible el programa bajo determinados
 
 ---
 
-# [ ] 34. Iconos
+# [x] 34. Iconos
 
-> Pendiente: integrar QIcon.fromTheme() para los iconos del sistema (hoy se usan botones de texto).
+> Hecho: botones y acciones de menú usan QIcon.fromTheme() (iconos estándar de Freedesktop como `edit-paste`, `folder-open`, `go-down`, `preferences-system`, …) y el texto del botón actúa como fallback natural cuando el tema no tiene el icono.
 
 Preferir iconos del tema del sistema mediante:
 
@@ -1278,9 +1277,9 @@ No abrir archivos automáticamente salvo que el usuario lo configure.
 
 ---
 
-# [ ] 52. Notificaciones
+# [x] 52. Notificaciones
 
-> Pendiente: notificación de escritorio opcional cuando la ventana no está activa.
+> Hecho: notificación de escritorio opcional (Configuración → General → «Mostrar una notificación de escritorio al finalizar una descarga si la ventana no está activa») usando `notify-send` (libnotify) con fallback a la burbuja de `QSystemTrayIcon`; sin dependencias pesadas.
 
 Opcionalmente emitir una notificación del escritorio cuando finalice una descarga y la ventana no esté activa.
 

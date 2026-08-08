@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="redGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff3b3b"/>
+      <stop offset="1" stop-color="#d90016"/>
+    </linearGradient>
+
+    <linearGradient id="darkGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34495e"/>
+      <stop offset="1" stop-color="#14202d"/>
+    </linearGradient>
+
+    <linearGradient id="trayGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#60758a"/>
+      <stop offset="1" stop-color="#29394a"/>
+    </linearGradient>
+
+    <linearGradient id="arrowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dce5ee"/>
+    </linearGradient>
+
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#36b9ff"/>
+      <stop offset="1" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Video panel -->
+  <rect x="112" y="94" width="288" height="244" rx="36"
+        fill="url(#darkGrad)" stroke="#0d1722" stroke-width="12"/>
+
+  <!-- Film strip top -->
+  <rect x="141" y="119" width="46" height="31" rx="7" fill="#6e8194"/>
+  <rect x="207" y="119" width="46" height="31" rx="7" fill="#6e8194"/>
+  <rect x="273" y="119" width="46" height="31" rx="7" fill="#6e8194"/>
+  <rect x="339" y="119" width="34" height="31" rx="7" fill="#6e8194"/>
+
+  <!-- Video screen detail -->
+  <path d="M143 170 H369 V271
+           C333 230 291 201 243 183
+           C208 170 174 166 143 170 Z"
+        fill="#4c6277"/>
+
+  <!-- Blue network/download arc -->
+  <path d="M100 226
+           C137 135 224 76 322 86
+           C384 92 431 130 455 183"
+        fill="none" stroke="url(#blueGrad)" stroke-width="22"/>
+
+  <!-- YouTube-like red media badge -->
+  <rect x="55" y="185" width="260" height="152" rx="48"
+        fill="url(#redGrad)" stroke="#b50b1c" stroke-width="8"/>
+
+  <!-- Play symbol -->
+  <polygon points="148,222 148,302 219,262"
+           fill="#ffffff"/>
+
+  <!-- Main download arrow outline -->
+  <path d="M286 183
+           C274 183 264 193 264 205
+           V258
+           H229
+           C218 258 211 271 218 280
+           L274 345
+           C283 356 299 356 308 345
+           L364 280
+           C371 271 364 258 353 258
+           H318
+           V205
+           C318 193 308 183 296 183 Z"
+        fill="#111c28" stroke="#0a1119" stroke-width="8"/>
+
+  <!-- Main download arrow -->
+  <path d="M290 196
+           C283 196 278 201 278 208
+           V272
+           H241
+           L291 330
+           L341 272
+           H304
+           V208
+           C304 201 299 196 292 196 Z"
+        fill="url(#arrowGrad)"/>
+
+  <!-- Download tray -->
+  <path d="M82 330
+           L120 330
+           L142 370
+           H370
+           L392 330
+           H430
+           L401 414
+           C397 426 386 434 373 434
+           H139
+           C126 434 115 426 111 414 Z"
+        fill="url(#trayGrad)" stroke="#13202c" stroke-width="10"/>
+
+  <!-- Tray rim -->
+  <path d="M99 352
+           H122
+           L148 392
+           H364
+           L390 352
+           H413"
+        fill="none" stroke="#eef4fa" stroke-width="14"/>
+
+  <!-- Small secondary download mark -->
+  <path d="M168 294 V344 H145 L181 382 L217 344 H194 V294 Z"
+        fill="#ffffff" stroke="#d7e1ea" stroke-width="4"/>
+
+  <!-- Globe -->
+  <circle cx="358" cy="363" r="45"
+          fill="#ffffff" stroke="#152332" stroke-width="8"/>
+  <ellipse cx="358" cy="363" rx="18" ry="41"
+           fill="none" stroke="#36516c" stroke-width="7"/>
+  <path d="M318 363 H398
+           M325 342 H391
+           M325 384 H391"
+        fill="none" stroke="#36516c" stroke-width="7"/>
+
+  <!-- Small file tab -->
+  <rect x="386" y="291" width="45" height="34" rx="6"
+        fill="#ffffff" stroke="#172432" stroke-width="6"/>
+</svg>

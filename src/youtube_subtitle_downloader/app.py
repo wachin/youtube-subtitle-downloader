@@ -7,6 +7,7 @@ import sys
 from PyQt6.QtWidgets import QApplication
 
 from . import __app_name__, __org_name__, __version__
+from .utils.icons import APP_ICON_NAME, theme_icon
 from .utils.logging import setup_logging
 
 
@@ -16,6 +17,7 @@ def main(argv: list[str] | None = None) -> int:
     app.setApplicationName(__app_name__)
     app.setApplicationVersion(__version__)
     app.setOrganizationName(__org_name__)
+    app.setWindowIcon(theme_icon(APP_ICON_NAME))
 
     setup_logging()
 

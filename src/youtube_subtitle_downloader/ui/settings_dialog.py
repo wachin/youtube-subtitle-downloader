@@ -73,9 +73,17 @@ class SettingsDialog(QDialog):
         self._auto_paste_check = QCheckBox(
             self.tr("Analyze automatically after pasting a URL"), widget
         )
+        self._notify_check = QCheckBox(
+            self.tr(
+                "Show a desktop notification when a download finishes and "
+                "the window is not active"
+            ),
+            widget,
+        )
         form.addRow(self.tr("Language:"), self._language_combo)
         form.addRow(self.tr("Preferred subtitle language:"), self._preferred_combo)
         form.addRow("", self._auto_paste_check)
+        form.addRow("", self._notify_check)
         return widget
 
     def _youtube_tab(self) -> QWidget:
@@ -168,6 +176,7 @@ class SettingsDialog(QDialog):
         self._set_combo_data(self._language_combo, settings.language())
         self._set_combo_data(self._preferred_combo, settings.preferred_language())
         self._auto_paste_check.setChecked(settings.auto_analyze_after_paste())
+        self._notify_check.setChecked(settings.notify_on_finish())
         self._set_combo_data(self._browser_combo, settings.cookies_browser())
         self._cookies_file_edit.setText(settings.cookies_file())
         self._set_combo_data(self._format_combo, settings.subtitle_format())
@@ -188,6 +197,7 @@ class SettingsDialog(QDialog):
         settings.set_language(self._language_combo.currentData())
         settings.set_preferred_language(self._preferred_combo.currentData())
         settings.set_auto_analyze_after_paste(self._auto_paste_check.isChecked())
+        settings.set_notify_on_finish(self._notify_check.isChecked())
         settings.set_cookies_browser(self._browser_combo.currentData())
         settings.set_cookies_file(self._cookies_file_edit.text().strip())
         settings.set_subtitle_format(self._format_combo.currentData())
