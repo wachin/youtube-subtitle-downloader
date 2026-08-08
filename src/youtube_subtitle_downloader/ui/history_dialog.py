@@ -25,12 +25,20 @@ class HistoryDialog(QDialog):
     def __init__(self, settings: SettingsService, parent=None) -> None:
         super().__init__(parent)
         self._settings = settings
-        self.setWindowTitle("History")
+        self.setWindowTitle(self.tr("History"))
         self.resize(760, 420)
 
         layout = QVBoxLayout(self)
         self._table = QTableWidget(0, len(COLUMNS), self)
-        self._table.setHorizontalHeaderLabels(COLUMNS)
+        self._table.setHorizontalHeaderLabels(
+            [
+                self.tr("Date"),
+                self.tr("Title"),
+                self.tr("URL"),
+                self.tr("Languages"),
+                self.tr("Folder"),
+            ]
+        )
         self._table.horizontalHeader().setStretchLastSection(True)
         self._table.setSelectionBehavior(
             QTableWidget.SelectionBehavior.SelectRows
@@ -41,21 +49,21 @@ class HistoryDialog(QDialog):
         layout.addWidget(self._table, 1)
 
         buttons = QHBoxLayout()
-        open_url = QPushButton("Open URL", self)
+        open_url = QPushButton(self.tr("Open URL"), self)
         open_url.clicked.connect(self._open_selected_url)
-        open_folder = QPushButton("Open folder", self)
+        open_folder = QPushButton(self.tr("Open folder"), self)
         open_folder.clicked.connect(self._open_selected_folder)
-        copy_url = QPushButton("Copy URL", self)
+        copy_url = QPushButton(self.tr("Copy URL"), self)
         copy_url.clicked.connect(self._copy_selected_url)
         buttons.addWidget(open_url)
         buttons.addWidget(open_folder)
         buttons.addWidget(copy_url)
         buttons.addStretch(1)
-        delete_button = QPushButton("Delete entry", self)
+        delete_button = QPushButton(self.tr("Delete entry"), self)
         delete_button.clicked.connect(self._delete_selected)
-        clear_button = QPushButton("Clear all", self)
+        clear_button = QPushButton(self.tr("Clear all"), self)
         clear_button.clicked.connect(self._clear_all)
-        close_button = QPushButton("Close", self)
+        close_button = QPushButton(self.tr("Close"), self)
         close_button.clicked.connect(self.accept)
         buttons.addWidget(delete_button)
         buttons.addWidget(clear_button)
@@ -79,7 +87,7 @@ class HistoryDialog(QDialog):
                 self._table.setItem(row, column, QTableWidgetItem(str(value)))
         if not items:
             self._table.setRowCount(1)
-            self._table.setItem(0, 1, QTableWidgetItem("No history yet."))
+            self._table.setItem(0, 1, QTableWidgetItem(self.tr("No history yet.")))
 
     def _selected_row(self) -> int:
         rows = self._table.selectionModel().selectedRows()
@@ -118,8 +126,8 @@ class HistoryDialog(QDialog):
             return
         answer = QMessageBox.question(
             self,
-            "Clear history",
-            "Delete the whole history? This cannot be undone.",
+            self.tr("Clear history"),
+            self.tr("Delete the whole history? This cannot be undone."),
         )
         if answer == QMessageBox.StandardButton.Yes:
             self._settings.clear_history()

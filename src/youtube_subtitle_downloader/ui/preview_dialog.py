@@ -18,6 +18,7 @@ from PyQt6.QtWidgets import (
     QMessageBox,
 )
 
+from ..i18n import kind_display_name, translate_args
 from ..models.subtitle import SubtitleTrack
 from ..models.video import VideoInfo
 from ..services.settings_service import SettingsService
@@ -41,7 +42,7 @@ class PreviewDialog(QDialog):
         self._settings = settings
         self._worker: PreviewWorker | None = None
         self._text = ""
-        self.setWindowTitle("Subtitle preview")
+        self.setWindowTitle(self.tr("Subtitle preview"))
         self.resize(680, 520)
         self._build_ui()
         self._start_loading()
@@ -52,40 +53,40 @@ class PreviewDialog(QDialog):
         info = QLabel(
             f"<b>{sanitize_filename(self._video.title)}</b><br>"
             f"{self._track.display_name} · {self._track.language_code} · "
-            f"{self._track.kind.display_name}"
+            f"{kind_display_name(self._track.kind.value)}"
         )
         info.setWordWrap(True)
         layout.addWidget(info)
 
         self._editor = QPlainTextEdit(self)
         self._editor.setReadOnly(True)
-        self._editor.setPlaceholderText("Loading…")
+        self._editor.setPlaceholderText(self.tr("Loading…"))
         layout.addWidget(self._editor, 1)
 
         find_row = QHBoxLayout()
-        find_row.addWidget(QLabel("Find:"))
+        find_row.addWidget(QLabel(self.tr("Find:")))
         self._find_edit = QLineEdit(self)
         self._find_edit.setClearButtonEnabled(True)
         self._find_edit.returnPressed.connect(self._find_next)
         find_row.addWidget(self._find_edit, 1)
-        prev_button = QPushButton("Previous", self)
+        prev_button = QPushButton(self.tr("Previous"), self)
         prev_button.clicked.connect(self._find_previous)
-        next_button = QPushButton("Next", self)
+        next_button = QPushButton(self.tr("Next"), self)
         next_button.clicked.connect(self._find_next)
         find_row.addWidget(prev_button)
         find_row.addWidget(next_button)
         layout.addLayout(find_row)
 
         buttons = QHBoxLayout()
-        copy_button = QPushButton("Copy", self)
+        copy_button = QPushButton(self.tr("Copy"), self)
         copy_button.clicked.connect(self._copy_text)
-        copy_clean_button = QPushButton("Copy clean text", self)
+        copy_clean_button = QPushButton(self.tr("Copy clean text"), self)
         copy_clean_button.clicked.connect(self._copy_text)
-        select_all_button = QPushButton("Select all", self)
+        select_all_button = QPushButton(self.tr("Select all"), self)
         select_all_button.clicked.connect(self._select_all)
-        save_button = QPushButton("Save as…", self)
+        save_button = QPushButton(self.tr("Save as…"), self)
         save_button.clicked.connect(self._save_as)
-        close_button = QPushButton("Close", self)
+        close_button = QPushButton(self.tr("Close"), self)
         close_button.clicked.connect(self.accept)
         buttons.addWidget(copy_button)
         buttons.addWidget(copy_clean_button)
@@ -109,7 +110,9 @@ class PreviewDialog(QDialog):
         self._editor.setPlainText(text)
 
     def _on_failed(self, message: str) -> None:
-        self._editor.setPlainText(f"Could not load the subtitle:\n{message}")
+        self._editor.setPlainText(
+            translate_args(self.tr("Could not load the subtitle:\n%1"), message)
+        )
 
     # -- actions ----------------------------------------------------------
     def _copy_text(self) -> None:
@@ -139,13 +142,17 @@ class PreviewDialog(QDialog):
         )
         path, _ = QFileDialog.getSaveFileName(
             self,
-            "Save subtitle as…",
+            self.tr("Save subtitle as…"),
             str(Path(self._settings.output_dir()) / suggested),
-            "Text files (*.txt);;All files (*)",
+            self.tr("Text files (*.txt);;All files (*)"),
         )
         if not path:
             return
         try:
             Path(path).write_text(self._editor.toPlainText(), encoding="utf-8")
         except OSError as exc:
-            QMessageBox.warning(self, "Error", f"Cannot write the file:\n{exc}")
+            QMessageBox.warning(
+                self,
+                self.tr("Error"),
+                translate_args(self.tr("Cannot write the file:\n%1"), str(exc)),
+            )

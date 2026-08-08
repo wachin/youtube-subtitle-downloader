@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from PyQt6.QtCore import QAbstractTableModel, QModelIndex, Qt, pyqtSignal
 
+from ..i18n import kind_display_name
 from ..models.subtitle import SubtitleKind, SubtitleTrack, searchable_names
 
 COLUMNS = ("", "Language", "Code", "Type", "Formats")
@@ -145,7 +146,7 @@ class SubtitleTableModel(QAbstractTableModel):
             if column == 2:
                 return track.language_code
             if column == 3:
-                return track.kind.display_name
+                return kind_display_name(track.kind.value)
             if column == 4:
                 return ", ".join(track.formats)
             return None

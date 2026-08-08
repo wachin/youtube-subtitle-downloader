@@ -30,6 +30,7 @@ from PyQt6.QtWidgets import (
 )
 
 from .. import __app_name__, __version__
+from ..i18n import translate_args
 from ..models.subtitle import SubtitleKind
 from ..models.video import PlaylistEntry, VideoInfo
 from ..services.settings_service import SettingsService
@@ -50,11 +51,6 @@ from .subtitle_table_model import SubtitleTableModel
 log = get_logger()
 
 FORMATS = [("SRT", "srt"), ("VTT", "vtt"), ("TTML", "ttml"), ("JSON3", "json3"), ("Original", "original")]
-TXT_MODES = [
-    ("Continuous text", "continuous"),
-    ("Paragraphs", "paragraphs"),
-    ("One line per subtitle", "lines"),
-]
 
 
 class MainWindow(QMainWindow):
@@ -67,6 +63,7 @@ class MainWindow(QMainWindow):
         self._worker = None
         self._pending_playlist_entries: list[PlaylistEntry] = []
         self._thumbnail_reply: QNetworkReply | None = None
+        self._language = settings.language()
 
         self.setWindowTitle(__app_name__)
         self.resize(860, 640)
@@ -79,6 +76,7 @@ class MainWindow(QMainWindow):
         self._build_shortcuts()
         self.setAcceptDrops(True)
         self._restore_window_state()
+        self._apply_texts()
         self._apply_settings_to_ui()
         self._update_state()
         self._check_environment()
@@ -92,21 +90,17 @@ class MainWindow(QMainWindow):
 
         # URL row
         url_row = QHBoxLayout()
-        url_row.addWidget(QLabel("URL:"))
+        self._url_label = QLabel(central)
+        url_row.addWidget(self._url_label)
         self._url_edit = QLineEdit(central)
-        self._url_edit.setPlaceholderText(
-            "https://www.youtube.com/watch?v=… or any supported YouTube URL"
-        )
         self._url_edit.setClearButtonEnabled(True)
         self._url_edit.returnPressed.connect(self._analyze)
         url_row.addWidget(self._url_edit, 1)
-        self._paste_btn = QPushButton("Paste URL", central)
-        self._paste_btn.setToolTip("Paste a YouTube URL from the clipboard")
+        self._paste_btn = QPushButton(central)
         self._paste_btn.clicked.connect(self._paste_url)
         url_row.addWidget(self._paste_btn)
-        self._analyze_btn = QPushButton("Analyze", central)
+        self._analyze_btn = QPushButton(central)
         self._analyze_btn.setDefault(True)
-        self._analyze_btn.setToolTip("Fetch the video info and its subtitles (Ctrl+L focuses the URL)")
         self._analyze_btn.clicked.connect(self._analyze)
         url_row.addWidget(self._analyze_btn)
         root.addLayout(url_row)
@@ -116,18 +110,17 @@ class MainWindow(QMainWindow):
         self._thumb_label = QLabel(central)
         self._thumb_label.setFixedSize(160, 90)
         self._thumb_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self._thumb_label.setText("No image")
         self._thumb_label.setStyleSheet("background: rgba(0,0,0,0.06); border-radius: 4px;")
         info_row.addWidget(self._thumb_label)
         info_col = QVBoxLayout()
-        self._title_label = QLabel("No video analyzed yet.", central)
+        self._title_label = QLabel(central)
         self._title_label.setWordWrap(True)
         self._title_label.setTextInteractionFlags(
             Qt.TextInteractionFlag.TextSelectableByMouse
         )
-        self._channel_label = QLabel("", central)
+        self._channel_label = QLabel(central)
         self._channel_label.setStyleSheet("font-weight: bold;")
-        self._meta_label = QLabel("", central)
+        self._meta_label = QLabel(central)
         self._meta_label.setStyleSheet("color: gray;")
         info_col.addWidget(self._title_label)
         info_col.addWidget(self._channel_label)
@@ -138,21 +131,21 @@ class MainWindow(QMainWindow):
 
         # Search / filter
         filter_row = QHBoxLayout()
-        filter_row.addWidget(QLabel("Search language:"))
+        self._search_label = QLabel(central)
+        filter_row.addWidget(self._search_label)
         self._search_edit = QLineEdit(central)
-        self._search_edit.setPlaceholderText("Spanish, Español, es, es-orig …")
         self._search_edit.setClearButtonEnabled(True)
         self._search_edit.textChanged.connect(self._on_filter_changed)
         filter_row.addWidget(self._search_edit, 1)
-        self._select_all_btn = QPushButton("Select all", central)
+        self._select_all_btn = QPushButton(central)
         self._select_all_btn.clicked.connect(lambda: self._model.check_all(True))
-        self._select_none_btn = QPushButton("Select none", central)
+        self._select_none_btn = QPushButton(central)
         self._select_none_btn.clicked.connect(lambda: self._model.check_all(False))
-        self._select_manual_btn = QPushButton("Manual only", central)
+        self._select_manual_btn = QPushButton(central)
         self._select_manual_btn.clicked.connect(
             lambda: self._model.check_kind(SubtitleKind.MANUAL, True)
         )
-        self._select_auto_btn = QPushButton("Automatic only", central)
+        self._select_auto_btn = QPushButton(central)
         self._select_auto_btn.clicked.connect(
             lambda: self._model.check_kind(SubtitleKind.AUTOMATIC, True)
         )
@@ -167,9 +160,12 @@ class MainWindow(QMainWindow):
 
         # Tabs + table
         self._tabs = QTabWidget(central)
-        self._tabs.addTab(QWidget(central), "All")
-        self._tabs.addTab(QWidget(central), "Subtitles")
-        self._tabs.addTab(QWidget(central), "Automatic")
+        self._tab_all = QWidget(central)
+        self._tab_manual = QWidget(central)
+        self._tab_auto = QWidget(central)
+        self._tabs.addTab(self._tab_all, "")
+        self._tabs.addTab(self._tab_manual, "")
+        self._tabs.addTab(self._tab_auto, "")
         self._tabs.currentChanged.connect(self._on_tab_changed)
         root.addWidget(self._tabs)
 
@@ -190,53 +186,53 @@ class MainWindow(QMainWindow):
         root.addWidget(self._table, 1)
 
         # Options
-        options = QGroupBox("Options", central)
-        opt_layout = QVBoxLayout(options)
+        self._options_box = QGroupBox(central)
+        opt_layout = QVBoxLayout(self._options_box)
         row1 = QHBoxLayout()
-        row1.addWidget(QLabel("Format:"))
-        self._format_combo = QComboBox(options)
+        self._format_label = QLabel(self._options_box)
+        row1.addWidget(self._format_label)
+        self._format_combo = QComboBox(self._options_box)
         for name, code in FORMATS:
             self._format_combo.addItem(name, code)
         row1.addWidget(self._format_combo)
-        self._txt_check = QCheckBox("Also create clean TXT file", options)
+        self._txt_check = QCheckBox(self._options_box)
         row1.addWidget(self._txt_check)
-        row1.addWidget(QLabel("TXT mode:"))
-        self._txt_mode_combo = QComboBox(options)
-        for name, code in TXT_MODES:
-            self._txt_mode_combo.addItem(name, code)
+        self._txt_mode_label = QLabel(self._options_box)
+        row1.addWidget(self._txt_mode_label)
+        self._txt_mode_combo = QComboBox(self._options_box)
+        # Translated items are (re)built in _apply_texts().
         row1.addWidget(self._txt_mode_combo)
         row1.addStretch(1)
         opt_layout.addLayout(row1)
 
         row2 = QHBoxLayout()
-        row2.addWidget(QLabel("Save to:"))
-        self._dir_edit = QLineEdit(options)
+        self._dir_label = QLabel(self._options_box)
+        row2.addWidget(self._dir_label)
+        self._dir_edit = QLineEdit(self._options_box)
         row2.addWidget(self._dir_edit, 1)
-        browse_btn = QPushButton("Browse…", options)
-        browse_btn.clicked.connect(self._browse_output_dir)
-        row2.addWidget(browse_btn)
-        row2.addWidget(QLabel("File name:"))
-        self._template_combo = QComboBox(options)
+        self._browse_btn = QPushButton(self._options_box)
+        self._browse_btn.clicked.connect(self._browse_output_dir)
+        row2.addWidget(self._browse_btn)
+        self._template_label = QLabel(self._options_box)
+        row2.addWidget(self._template_label)
+        self._template_combo = QComboBox(self._options_box)
         self._template_combo.setEditable(True)
-        for name, template in PRESET_TEMPLATES.items():
-            self._template_combo.addItem(f"{name}  →  {template}", template)
-        self._template_combo.addItem("Custom", None)
+        # Translated items are (re)built in _apply_texts().
         row2.addWidget(self._template_combo, 1)
         opt_layout.addLayout(row2)
-        root.addWidget(options)
+        root.addWidget(self._options_box)
 
         # Progress + action buttons
         action_row = QHBoxLayout()
-        self._preview_btn = QPushButton("Preview", central)
-        self._preview_btn.setToolTip("Preview the selected subtitle (double-click a row)")
+        self._preview_btn = QPushButton(central)
         self._preview_btn.clicked.connect(self._open_preview)
         action_row.addWidget(self._preview_btn)
         action_row.addStretch(1)
-        self._cancel_btn = QPushButton("Cancel", central)
+        self._cancel_btn = QPushButton(central)
         self._cancel_btn.clicked.connect(self._cancel_current)
         self._cancel_btn.setEnabled(False)
         action_row.addWidget(self._cancel_btn)
-        self._download_btn = QPushButton("Download selected", central)
+        self._download_btn = QPushButton(central)
         self._download_btn.clicked.connect(self._download)
         action_row.addWidget(self._download_btn)
         root.addLayout(action_row)
@@ -248,13 +244,12 @@ class MainWindow(QMainWindow):
         # Log panel
         log_header = QHBoxLayout()
         self._log_toggle = QToolButton(central)
-        self._log_toggle.setText("Details / Log")
         self._log_toggle.setCheckable(True)
         self._log_toggle.setChecked(False)
         self._log_toggle.toggled.connect(self._toggle_log)
-        self._copy_log_btn = QPushButton("Copy log", central)
+        self._copy_log_btn = QPushButton(central)
         self._copy_log_btn.clicked.connect(self._copy_log)
-        self._clear_log_btn = QPushButton("Clear log", central)
+        self._clear_log_btn = QPushButton(central)
         self._clear_log_btn.clicked.connect(lambda: self._log_edit.clear())
         log_header.addWidget(self._log_toggle)
         log_header.addWidget(self._copy_log_btn)
@@ -269,48 +264,153 @@ class MainWindow(QMainWindow):
         root.addWidget(self._log_edit)
 
         self.setCentralWidget(central)
-        self.statusBar().showMessage("Ready.")
+
+    def _apply_texts(self) -> None:
+        """(Re)apply every static, user visible text (called on language change)."""
+        self.setWindowTitle(self.tr(__app_name__))
+
+        self._url_label.setText(self.tr("URL:"))
+        self._url_edit.setPlaceholderText(
+            self.tr("https://www.youtube.com/watch?v=… or any supported YouTube URL")
+        )
+        self._paste_btn.setText(self.tr("Paste URL"))
+        self._paste_btn.setToolTip(self.tr("Paste a YouTube URL from the clipboard"))
+        self._analyze_btn.setText(self.tr("Analyze"))
+        self._analyze_btn.setToolTip(
+            self.tr("Fetch the video info and its subtitles (Ctrl+L focuses the URL)")
+        )
+
+        if self._thumb_label.pixmap() is None:
+            self._thumb_label.setText(self.tr("No image"))
+        if self._video is None:
+            self._title_label.setText(self.tr("No video analyzed yet."))
+            self._channel_label.setText("")
+            self._meta_label.setText("")
+        else:
+            self._update_meta_label()
+
+        self._search_label.setText(self.tr("Search language:"))
+        self._search_edit.setPlaceholderText(self.tr("Spanish, Español, es, es-orig …"))
+        self._select_all_btn.setText(self.tr("Select all"))
+        self._select_none_btn.setText(self.tr("Select none"))
+        self._select_manual_btn.setText(self.tr("Manual only"))
+        self._select_auto_btn.setText(self.tr("Automatic only"))
+
+        self._tabs.setTabText(0, self.tr("All"))
+        self._tabs.setTabText(1, self.tr("Subtitles"))
+        self._tabs.setTabText(2, self.tr("Automatic"))
+
+        self._options_box.setTitle(self.tr("Options"))
+        self._format_label.setText(self.tr("Format:"))
+        self._txt_check.setText(self.tr("Also create clean TXT file"))
+        self._txt_mode_label.setText(self.tr("TXT mode:"))
+        self._dir_label.setText(self.tr("Save to:"))
+        self._browse_btn.setText(self.tr("Browse…"))
+        self._template_label.setText(self.tr("File name:"))
+
+        self._preview_btn.setText(self.tr("Preview"))
+        self._preview_btn.setToolTip(
+            self.tr("Preview the selected subtitle (double-click a row)")
+        )
+        self._cancel_btn.setText(self.tr("Cancel"))
+        self._download_btn.setText(self.tr("Download selected"))
+
+        self._log_toggle.setText(self.tr("Details / Log"))
+        self._copy_log_btn.setText(self.tr("Copy log"))
+        self._clear_log_btn.setText(self.tr("Clear log"))
+
+        # Rebuild translatable combo items, keeping the current selection.
+        current_mode = self._txt_mode_combo.currentData()
+        self._txt_mode_combo.clear()
+        self._txt_mode_combo.addItem(self.tr("Continuous text"), "continuous")
+        self._txt_mode_combo.addItem(self.tr("Paragraphs"), "paragraphs")
+        self._txt_mode_combo.addItem(self.tr("One line per subtitle"), "lines")
+        self._set_combo_data(self._txt_mode_combo, current_mode)
+
+        current_template = (
+            self._template_combo.currentText().strip()
+            or self._template_combo.currentData()
+        )
+        self._template_combo.clear()
+        presets = PRESET_TEMPLATES
+        self._template_combo.addItem(
+            f"{self.tr('Title - Language')}  →  {presets['Title - Language']}",
+            presets["Title - Language"],
+        )
+        self._template_combo.addItem(
+            f"{self.tr('Title [ID] - Language')}  →  {presets['Title [ID] - Language']}",
+            presets["Title [ID] - Language"],
+        )
+        self._template_combo.addItem(
+            f"{self.tr('ID - Language')}  →  {presets['ID - Language']}",
+            presets["ID - Language"],
+        )
+        self._template_combo.addItem(self.tr("Custom"), None)
+        index = self._template_combo.findData(current_template)
+        if index >= 0:
+            self._template_combo.setCurrentIndex(index)
+        elif current_template:
+            self._template_combo.setCurrentIndex(self._template_combo.count() - 1)
+            self._template_combo.setEditText(current_template)
 
     def _build_menus(self) -> None:
         menu_bar = self.menuBar()
 
-        file_menu = menu_bar.addMenu("&File")
-        new_action = QAction("&New URL", self)
-        new_action.setShortcut(QKeySequence("Ctrl+N"))
-        new_action.triggered.connect(self._new_url)
-        file_menu.addAction(new_action)
-        open_folder = QAction("Open &downloads folder", self)
-        open_folder.triggered.connect(self._open_output_folder)
-        file_menu.addAction(open_folder)
-        history_action = QAction("&History…", self)
-        history_action.triggered.connect(self._show_history)
-        file_menu.addAction(history_action)
-        file_menu.addSeparator()
-        quit_action = QAction("&Quit", self)
-        quit_action.setShortcut(QKeySequence("Ctrl+Q"))
-        quit_action.triggered.connect(self.close)
-        file_menu.addAction(quit_action)
+        self._file_menu = menu_bar.addMenu("")
+        self._new_url_action = QAction(self)
+        self._new_url_action.setShortcut(QKeySequence("Ctrl+N"))
+        self._new_url_action.triggered.connect(self._new_url)
+        self._file_menu.addAction(self._new_url_action)
+        self._open_folder_action = QAction(self)
+        self._open_folder_action.triggered.connect(self._open_output_folder)
+        self._file_menu.addAction(self._open_folder_action)
+        self._history_action = QAction(self)
+        self._history_action.triggered.connect(self._show_history)
+        self._file_menu.addAction(self._history_action)
+        self._file_menu.addSeparator()
+        self._quit_action = QAction(self)
+        self._quit_action.setShortcut(QKeySequence("Ctrl+Q"))
+        self._quit_action.triggered.connect(self.close)
+        self._file_menu.addAction(self._quit_action)
 
-        tools_menu = menu_bar.addMenu("&Tools")
-        settings_action = QAction("&Settings…", self)
-        settings_action.setShortcut(QKeySequence("Ctrl+,"))
-        settings_action.triggered.connect(self._show_settings)
-        tools_menu.addAction(settings_action)
-        check_action = QAction("&Check yt-dlp", self)
-        check_action.triggered.connect(self._show_system_info)
-        tools_menu.addAction(check_action)
+        self._tools_menu = menu_bar.addMenu("")
+        self._settings_action = QAction(self)
+        self._settings_action.setShortcut(QKeySequence("Ctrl+,"))
+        self._settings_action.triggered.connect(self._show_settings)
+        self._tools_menu.addAction(self._settings_action)
+        self._check_action = QAction(self)
+        self._check_action.triggered.connect(self._show_system_info)
+        self._tools_menu.addAction(self._check_action)
 
-        help_menu = menu_bar.addMenu("&Help")
-        help_action = QAction("&Help", self)
-        help_action.setShortcut(QKeySequence("F1"))
-        help_action.triggered.connect(self._show_help)
-        help_menu.addAction(help_action)
-        system_action = QAction("&System info", self)
-        system_action.triggered.connect(self._show_system_info)
-        help_menu.addAction(system_action)
-        about_action = QAction("&About", self)
-        about_action.triggered.connect(self._show_about)
-        help_menu.addAction(about_action)
+        self._help_menu = menu_bar.addMenu("")
+        self._help_action = QAction(self)
+        self._help_action.setShortcut(QKeySequence("F1"))
+        self._help_action.triggered.connect(self._show_help)
+        self._help_menu.addAction(self._help_action)
+        self._system_action = QAction(self)
+        self._system_action.triggered.connect(self._show_system_info)
+        self._help_menu.addAction(self._system_action)
+        self._about_action = QAction(self)
+        self._about_action.triggered.connect(self._show_about)
+        self._help_menu.addAction(self._about_action)
+
+        self._apply_menu_texts()
+
+    def _apply_menu_texts(self) -> None:
+        self._file_menu.setTitle(self.tr("&File"))
+        self._new_url_action.setText(self.tr("&New URL"))
+        self._open_folder_action.setText(self.tr("Open &downloads folder"))
+        self._history_action.setText(self.tr("&History…"))
+        self._quit_action.setText(self.tr("&Quit"))
+
+        self._tools_menu.setTitle(self.tr("&Tools"))
+        self._settings_action.setText(self.tr("&Settings…"))
+        self._check_action.setText(self.tr("&Check yt-dlp"))
+
+        self._help_menu.setTitle(self.tr("&Help"))
+        self._help_action.setText(self.tr("&Help"))
+        self._system_action.setText(self.tr("&System info"))
+        self._about_action.setText(self.tr("&About"))
 
     def _build_shortcuts(self) -> None:
         # Shortcuts that do not conflict with normal text editing.
@@ -365,16 +465,20 @@ class MainWindow(QMainWindow):
         service = YtDlpService(self._settings)
         if service.is_available():
             version = service.installed_version
-            self.statusBar().showMessage(f"Ready — yt-dlp {version or 'unknown'}")
+            self.statusBar().showMessage(
+                translate_args(self.tr("Ready — yt-dlp %1"), version or self.tr("unknown"))
+            )
         else:
-            self._append_log("yt-dlp is not installed.")
+            self._append_log(self.tr("yt-dlp is not installed."))
             QMessageBox.warning(
                 self,
-                "yt-dlp not found",
-                "yt-dlp was not found.\n\n"
-                "This application uses yt-dlp to communicate with YouTube.\n"
-                "On Debian/Ubuntu you can install it with your package manager "
-                "or by following the official yt-dlp documentation.",
+                self.tr("yt-dlp not found"),
+                self.tr(
+                    "yt-dlp was not found.\n\n"
+                    "This application uses yt-dlp to communicate with YouTube.\n"
+                    "On Debian/Ubuntu you can install it with your package manager "
+                    "or by following the official yt-dlp documentation."
+                ),
             )
 
     # ------------------------------------------------------------------
@@ -383,7 +487,7 @@ class MainWindow(QMainWindow):
     def _analyze(self) -> None:
         url = self._url_edit.text().strip()
         if not url:
-            self.statusBar().showMessage("Enter a YouTube URL first.")
+            self.statusBar().showMessage(self.tr("Enter a YouTube URL first."))
             return
         if self._worker is not None and self._worker.isRunning():
             return
@@ -391,8 +495,8 @@ class MainWindow(QMainWindow):
         self._video = None
         self._pending_playlist_entries = []
         self._model.set_tracks([])
-        self._thumb_label.setText("No image")
-        self._title_label.setText("Analyzing…")
+        self._thumb_label.setText(self.tr("No image"))
+        self._title_label.setText(self.tr("Analyzing…"))
         self._channel_label.setText("")
         self._meta_label.setText("")
 
@@ -400,7 +504,7 @@ class MainWindow(QMainWindow):
         self._start_worker(worker)
         worker.info_ready.connect(self._on_info_ready)
         worker.playlist_detected.connect(self._on_playlist_detected)
-        self._set_busy(True, "Analyzing video…")
+        self._set_busy(True, self.tr("Analyzing video…"))
         worker.start()
 
     def _on_info_ready(self, info: VideoInfo) -> None:
@@ -413,21 +517,28 @@ class MainWindow(QMainWindow):
         self._set_busy(False, f"{info.title}")
         self._update_state()
         self._append_log(
-            f"{len(info.manual_tracks)} manual / {len(info.automatic_tracks)} "
-            "automatic subtitle track(s)."
+            translate_args(
+                self.tr("%1 manual / %2 automatic subtitle track(s)."),
+                len(info.manual_tracks),
+                len(info.automatic_tracks),
+            )
         )
 
     def _on_playlist_detected(self, title: str, count: int) -> None:
         box = QMessageBox(self)
-        box.setWindowTitle("Playlist detected")
+        box.setWindowTitle(self.tr("Playlist detected"))
         box.setText(
-            f"This URL belongs to the playlist “{title}” with {count} video(s)."
+            translate_args(
+                self.tr("This URL belongs to the playlist “%1” with %2 video(s)."),
+                title,
+                count,
+            )
         )
         only_button = box.addButton(
-            "Analyze only this video", QMessageBox.ButtonRole.AcceptRole
+            self.tr("Analyze only this video"), QMessageBox.ButtonRole.AcceptRole
         )
         all_button = box.addButton(
-            "Analyze entire playlist", QMessageBox.ButtonRole.ActionRole
+            self.tr("Analyze entire playlist"), QMessageBox.ButtonRole.ActionRole
         )
         box.setDefaultButton(only_button)
         box.exec()
@@ -446,19 +557,25 @@ class MainWindow(QMainWindow):
             return
         entries = dialog.selected_entries()
         if not entries:
-            self.statusBar().showMessage("No videos selected from the playlist.")
+            self.statusBar().showMessage(self.tr("No videos selected from the playlist."))
             return
         self._pending_playlist_entries = entries
         self._append_log(
-            f"Playlist: {len(entries)} video(s) selected; "
-            "analyzing the first one for subtitle selection."
+            translate_args(
+                self.tr(
+                    "Playlist: %1 video(s) selected; analyzing the first one for subtitle selection."
+                ),
+                len(entries),
+            )
         )
         first = entries[0]
         worker = VideoInfoWorker(first.url, self._settings, self)
         self._start_worker(worker)
         worker.info_ready.connect(self._on_info_ready)
         worker.playlist_detected.connect(self._on_playlist_detected)
-        self._set_busy(True, f"Analyzing video 1/{len(entries)}…")
+        self._set_busy(
+            True, translate_args(self.tr("Analyzing video %1/%2…"), 1, len(entries))
+        )
         worker.start()
 
     # ------------------------------------------------------------------
@@ -468,11 +585,13 @@ class MainWindow(QMainWindow):
         if self._worker is not None and self._worker.isRunning():
             return
         if self._video is None:
-            self.statusBar().showMessage("Analyze a video first.")
+            self.statusBar().showMessage(self.tr("Analyze a video first."))
             return
         tracks = self._model.checked_tracks()
         if not tracks:
-            self.statusBar().showMessage("Select at least one subtitle to download.")
+            self.statusBar().showMessage(
+                self.tr("Select at least one subtitle to download.")
+            )
             return
 
         outdir_text = self._dir_edit.text().strip() or str(default_download_dir())
@@ -480,7 +599,13 @@ class MainWindow(QMainWindow):
         try:
             outdir.mkdir(parents=True, exist_ok=True)
         except OSError as exc:
-            QMessageBox.warning(self, "Error", f"Cannot create the destination folder:\n{exc}")
+            QMessageBox.warning(
+                self,
+                self.tr("Error"),
+                translate_args(
+                    self.tr("Cannot create the destination folder:\n%1"), str(exc)
+                ),
+            )
             return
 
         urls = (
@@ -507,29 +632,47 @@ class MainWindow(QMainWindow):
         total = len(urls) * len(tracks)
         self._progress.setRange(0, total)
         self._progress.setValue(0)
-        self._set_busy(True, "Downloading…")
+        self._set_busy(True, self.tr("Downloading…"))
         self._append_log(
-            f"Downloading {len(tracks)} track(s) for {len(urls)} video(s) into "
-            f"{outdir}…"
+            translate_args(
+                self.tr("Downloading %1 track(s) for %2 video(s) into %3…"),
+                len(tracks),
+                len(urls),
+                str(outdir),
+            )
         )
         worker.start()
 
     def _on_progress(self, done: int, total: int) -> None:
         self._progress.setRange(0, max(total, 1))
         self._progress.setValue(done)
-        self.statusBar().showMessage(f"Progress: {done}/{total}")
+        self.statusBar().showMessage(
+            translate_args(self.tr("Progress: %1/%2"), done, total)
+        )
 
     def _on_track_finished(self, result) -> None:
         if result.ok:
-            self._append_log(f"Completed: {result.language_name} → {result.path}")
+            self._append_log(
+                translate_args(
+                    self.tr("Completed: %1 → %2"), result.language_name, result.path
+                )
+            )
         elif result.skipped:
-            self._append_log(f"Skipped: {result.language_name} — {result.error}")
+            self._append_log(
+                translate_args(
+                    self.tr("Skipped: %1 — %2"), result.language_name, result.error
+                )
+            )
         else:
-            self._append_log(f"Failed: {result.language_name} — {result.error}")
+            self._append_log(
+                translate_args(
+                    self.tr("Failed: %1 — %2"), result.language_name, result.error
+                )
+            )
         self._update_state()
 
     def _on_batch_finished(self, results) -> None:
-        self._set_busy(False, "Download finished.")
+        self._set_busy(False, self.tr("Download finished."))
         self._progress.setVisible(False)
         self._update_state()
 
@@ -557,23 +700,33 @@ class MainWindow(QMainWindow):
     def _cancel_current(self) -> None:
         if self._worker is not None and self._worker.isRunning():
             self._worker.cancel()
-            self._append_log("Cancellation requested…")
-            self.statusBar().showMessage("Cancelling…")
+            self._append_log(self.tr("Cancellation requested…"))
+            self.statusBar().showMessage(self.tr("Cancelling…"))
 
     # ------------------------------------------------------------------
     # Video info display
     # ------------------------------------------------------------------
+    def _update_meta_label(self) -> None:
+        """Rebuild the video metadata line (also used on language change)."""
+        if self._video is None:
+            return
+        meta_parts = []
+        if self._video.formatted_duration:
+            meta_parts.append(self._video.formatted_duration)
+        if self._video.formatted_upload_date:
+            meta_parts.append(
+                translate_args(
+                    self.tr("Published %1"), self._video.formatted_upload_date
+                )
+            )
+        if self._video.video_id:
+            meta_parts.append(translate_args(self.tr("ID: %1"), self._video.video_id))
+        self._meta_label.setText(" · ".join(meta_parts))
+
     def _set_video_info(self, info: VideoInfo) -> None:
         self._title_label.setText(info.title)
         self._channel_label.setText(info.channel)
-        meta_parts = []
-        if info.formatted_duration:
-            meta_parts.append(info.formatted_duration)
-        if info.formatted_upload_date:
-            meta_parts.append(f"Published {info.formatted_upload_date}")
-        if info.video_id:
-            meta_parts.append(f"ID: {info.video_id}")
-        self._meta_label.setText(" · ".join(meta_parts))
+        self._update_meta_label()
         if info.thumbnail_url:
             request = QNetworkRequest(QUrl(info.thumbnail_url))
             self._thumbnail_reply = self._network.get(request)
@@ -590,7 +743,7 @@ class MainWindow(QMainWindow):
                     )
                 )
         else:
-            self._thumb_label.setText("No image")
+            self._thumb_label.setText(self.tr("No image"))
         reply.deleteLater()
         self._thumbnail_reply = None
 
@@ -601,27 +754,31 @@ class MainWindow(QMainWindow):
         text = QApplication.clipboard().text().strip()
         if is_youtube_url(text):
             self._url_edit.setText(text)
-            self._append_log("Pasted a YouTube URL from the clipboard.")
+            self._append_log(self.tr("Pasted a YouTube URL from the clipboard."))
             if self._settings.auto_analyze_after_paste():
                 self._analyze()
         else:
-            self.statusBar().showMessage("The clipboard does not contain a YouTube URL.")
+            self.statusBar().showMessage(
+                self.tr("The clipboard does not contain a YouTube URL.")
+            )
 
     def _new_url(self) -> None:
         self._video = None
         self._pending_playlist_entries = []
         self._url_edit.clear()
         self._model.set_tracks([])
-        self._thumb_label.setText("No image")
-        self._title_label.setText("No video analyzed yet.")
+        self._thumb_label.setText(self.tr("No image"))
+        self._title_label.setText(self.tr("No video analyzed yet."))
         self._channel_label.setText("")
         self._meta_label.setText("")
-        self.statusBar().showMessage("Ready.")
+        self.statusBar().showMessage(self.tr("Ready."))
         self._url_edit.setFocus()
 
     def _browse_output_dir(self) -> None:
         path = QFileDialog.getExistingDirectory(
-            self, "Select destination folder", self._dir_edit.text() or str(Path.home())
+            self,
+            self.tr("Select destination folder"),
+            self._dir_edit.text() or str(Path.home()),
         )
         if path:
             self._dir_edit.setText(path)
@@ -633,6 +790,15 @@ class MainWindow(QMainWindow):
     def _show_settings(self) -> None:
         dialog = SettingsDialog(self._settings, self)
         if dialog.exec() == SettingsDialog.DialogCode.Accepted:
+            new_language = self._settings.language()
+            if new_language != self._language:
+                from ..i18n import install_translator
+
+                install_translator(QApplication.instance(), new_language)
+                self._language = new_language
+                self._apply_texts()
+                self._apply_menu_texts()
+                self.statusBar().showMessage(self.tr("Ready."))
             self._apply_settings_to_ui()
 
     def _show_history(self) -> None:
@@ -647,14 +813,16 @@ class MainWindow(QMainWindow):
     def _show_help(self) -> None:
         QMessageBox.information(
             self,
-            "Help",
-            "1. Paste a YouTube URL (or drag & drop it onto the window).\n"
-            "2. Press Analyze to fetch the video and its subtitles.\n"
-            "3. Check the languages you want (tabs filter manual/automatic).\n"
-            "4. Choose format, TXT option, destination folder and file name.\n"
-            "5. Press Download selected.\n\n"
-            "Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · "
-            "Ctrl+, settings · Ctrl+Q quit.",
+            self.tr("Help"),
+            self.tr(
+                "1. Paste a YouTube URL (or drag & drop it onto the window).\n"
+                "2. Press Analyze to fetch the video and its subtitles.\n"
+                "3. Check the languages you want (tabs filter manual/automatic).\n"
+                "4. Choose format, TXT option, destination folder and file name.\n"
+                "5. Press Download selected.\n\n"
+                "Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · "
+                "Ctrl+, settings · Ctrl+Q quit."
+            ),
         )
 
     def _open_preview(self) -> None:
@@ -662,7 +830,9 @@ class MainWindow(QMainWindow):
             return
         tracks = self._model.checked_tracks()
         if len(tracks) != 1:
-            self.statusBar().showMessage("Select exactly one subtitle to preview.")
+            self.statusBar().showMessage(
+                self.tr("Select exactly one subtitle to preview.")
+            )
             return
         PreviewDialog(tracks[0], self._video, self._settings, self).exec()
 
@@ -714,7 +884,9 @@ class MainWindow(QMainWindow):
         )
         self._preview_btn.setEnabled(count == 1)
         if not count:
-            self.statusBar().showMessage("Select at least one subtitle to download.")
+            self.statusBar().showMessage(
+                self.tr("Select at least one subtitle to download.")
+            )
 
     def _append_log(self, message: str) -> None:
         self._log_edit.appendPlainText(message)
@@ -737,17 +909,17 @@ class MainWindow(QMainWindow):
         worker.finished.connect(lambda: self._on_worker_finished(worker))
 
     def _on_worker_failed(self, message: str) -> None:
-        self._set_busy(False, "Error")
+        self._set_busy(False, self.tr("Error"))
         self._progress.setVisible(False)
         self._update_state()
         self._append_log(f"Error: {message}")
-        QMessageBox.warning(self, "Error", message)
+        QMessageBox.warning(self, self.tr("Error"), message)
 
     def _on_worker_cancelled(self) -> None:
-        self._set_busy(False, "Cancelled.")
+        self._set_busy(False, self.tr("Cancelled."))
         self._progress.setVisible(False)
         self._update_state()
-        self._append_log("Operation cancelled.")
+        self._append_log(self.tr("Operation cancelled."))
 
     def _on_worker_finished(self, worker) -> None:
         if self._worker is worker:
@@ -765,7 +937,7 @@ class MainWindow(QMainWindow):
         if text:
             self._url_edit.setText(text)
             event.acceptProposedAction()
-            self._append_log("Dropped a URL onto the window.")
+            self._append_log(self.tr("Dropped a URL onto the window."))
 
     def closeEvent(self, event) -> None:  # noqa: N802
         if self._worker is not None and self._worker.isRunning():

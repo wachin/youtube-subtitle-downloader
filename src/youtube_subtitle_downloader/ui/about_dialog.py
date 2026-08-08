@@ -17,6 +17,7 @@ from PyQt6.QtWidgets import (
 )
 
 from .. import __app_name__, __version__
+from ..i18n import translate_args
 from ..services.ytdlp_service import YtDlpService, ffmpeg_version, version
 
 
@@ -26,13 +27,13 @@ class AboutDialog(QDialog):
     def __init__(self, settings=None, parent=None) -> None:
         super().__init__(parent)
         self._settings = settings
-        self.setWindowTitle("About")
+        self.setWindowTitle(self.tr("About"))
         self.resize(460, 360)
 
         tabs = QTabWidget(self)
-        tabs.addTab(self._about_tab(), "About")
-        tabs.addTab(self._system_tab(), "System info")
-        close_button = QPushButton("Close", self)
+        tabs.addTab(self._about_tab(), self.tr("About"))
+        tabs.addTab(self._system_tab(), self.tr("System info"))
+        close_button = QPushButton(self.tr("Close"), self)
         close_button.clicked.connect(self.accept)
 
         layout = QVBoxLayout(self)
@@ -44,11 +45,13 @@ class AboutDialog(QDialog):
         layout = QVBoxLayout(widget)
         label = QLabel(
             f"<h2>{__app_name__}</h2>"
-            f"<p>Version {__version__}</p>"
-            "<p>A desktop application (Python 3 + PyQt6) that downloads YouTube "
-            "subtitles using the <b>yt-dlp</b> library. English is the primary "
-            "language; Spanish translation is planned.</p>"
-            "<p>Licensed under the <b>GNU GPL v3 or later</b>.</p>"
+            f"<p>{translate_args(self.tr('Version %1'), __version__)}</p>"
+            + self.tr(
+                "<p>A desktop application (Python 3 + PyQt6) that downloads YouTube "
+                "subtitles using the <b>yt-dlp</b> library. English is the primary "
+                "language; Spanish is the first translation.</p>"
+            )
+            + self.tr("<p>Licensed under the <b>GNU GPL v3 or later</b>.</p>")
         )
         label.setWordWrap(True)
         label.setOpenExternalLinks(True)
@@ -59,15 +62,16 @@ class AboutDialog(QDialog):
     def _system_tab(self) -> QWidget:
         widget = QWidget(self)
         form = QFormLayout(widget)
+        not_found = self.tr("not found")
         info = [
-            ("Python", platform.python_version()),
-            ("Qt", QT_VERSION_STR),
-            ("PyQt6", PYQT_VERSION_STR),
-            ("yt-dlp", version() or "not found"),
-            ("FFmpeg", ffmpeg_version() or "not found"),
-            ("Operating system", platform.platform()),
-            ("Architecture", platform.machine()),
-            ("Executable", sys.executable),
+            (self.tr("Python"), platform.python_version()),
+            (self.tr("Qt"), QT_VERSION_STR),
+            (self.tr("PyQt6"), PYQT_VERSION_STR),
+            (self.tr("yt-dlp"), version() or not_found),
+            (self.tr("FFmpeg"), ffmpeg_version() or not_found),
+            (self.tr("Operating system"), platform.platform()),
+            (self.tr("Architecture"), platform.machine()),
+            (self.tr("Executable"), sys.executable),
         ]
         for name, value in info:
             label = QLabel(str(value))

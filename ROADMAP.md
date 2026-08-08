@@ -16,8 +16,8 @@ Quiero que el proyecto tenga calidad suficiente para poder publicarlo como softw
 > Durante el proceso de construcción del programa, cada parte completada se marcará como `[x]`.
 > Las casillas del resumen de implementación de la sección 63 también se marcarán conforme se avance.
 >
-> **Progreso (2026-08-08):** base funcional completa — análisis, tabla de idiomas, descarga múltiple (SRT/VTT/TTML/JSON3/Original), TXT limpio con deduplicación, vista previa, historial, playlist (MVP), CLI, logs, cookies y 29 tests en verde.
-> Pendientes: traducción al español (sección 36), iconos de tema (34) y notificación de escritorio (52).
+> **Progreso (2026-08-08):** base funcional completa — análisis, tabla de idiomas, descarga múltiple (SRT/VTT/TTML/JSON3/Original), TXT limpio con deduplicación, vista previa, historial, playlist (MVP), CLI, logs, cookies, traducción al español completa (sección 36) y 36 tests en verde.
+> Pendientes: iconos de tema (34) y notificación de escritorio (52).
 
 ---
 
@@ -908,9 +908,9 @@ No interceptar `Ctrl+V` globalmente de manera que impida pegar normalmente en ot
 
 ---
 
-# [ ] 36. Internacionalización
+# [x] 36. Internacionalización
 
-> Pendiente: envolver todos los textos visibles con tr() y generar la traducción al español con Qt Linguist (pylupdate6/lrelease).
+> Hecho: todos los textos visibles envueltos con tr(), traducción al español completa generada con Qt Linguist (pylupdate6/lrelease) y cambio de idioma en caliente desde Configuración → General → Idioma.
 
 El **idioma principal de la aplicación es el inglés**.
 
@@ -1516,19 +1516,19 @@ No intentes escribir toda la aplicación en un único archivo.
 
 Primero:
 
-- [ ] 1. inspecciona el entorno y versiones disponibles;
-- [ ] 2. diseña la arquitectura;
-- [ ] 3. crea la estructura del proyecto;
-- [ ] 4. implementa los modelos;
-- [ ] 5. implementa el servicio yt-dlp;
-- [ ] 6. implementa workers;
-- [ ] 7. crea la GUI;
-- [ ] 8. implementa procesamiento de subtítulos;
-- [ ] 9. crea tests;
-- [ ] 10. crea documentación;
-- [ ] 11. ejecuta tests;
-- [ ] 12. ejecuta una prueba básica de la aplicación;
-- [ ] 13. corrige errores encontrados.
+- [x] 1. inspecciona el entorno y versiones disponibles;
+- [x] 2. diseña la arquitectura;
+- [x] 3. crea la estructura del proyecto;
+- [x] 4. implementa los modelos;
+- [x] 5. implementa el servicio yt-dlp;
+- [x] 6. implementa workers;
+- [x] 7. crea la GUI;
+- [x] 8. implementa procesamiento de subtítulos;
+- [x] 9. crea tests;
+- [x] 10. crea documentación;
+- [x] 11. ejecuta tests;
+- [x] 12. ejecuta una prueba básica de la aplicación;
+- [x] 13. corrige errores encontrados.
 
 Si encuentras una decisión importante que no esté especificada, elige la alternativa que produzca una aplicación mantenible y explica la decisión en la documentación.
 

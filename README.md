@@ -7,8 +7,8 @@ aimed mainly at Linux (Debian, Ubuntu, MX Linux and derivatives).
 You do not need to know the command line: paste a video URL, inspect the
 available subtitles, select one or more languages and download them.
 
-> The primary language of the application is **English**. Spanish translation
-> (via Qt Linguist) is planned as the first additional language.
+> The primary language of the application is **English**. A Spanish translation
+> (via Qt Linguist) is available and can be selected in Settings → General → Language.
 
 <!-- Add a screenshot of the main window here once available: ![Screenshot](docs/screenshot.png) -->
 
@@ -150,8 +150,11 @@ Architecture notes are in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## Translations
 
-English is the primary language. Spanish is the first planned translation,
-using Qt Linguist (`pylupdate6` → `.ts` → `lrelease` → `.qm`). See
+English is the primary language of the application. A full **Spanish**
+translation is bundled and can be enabled from **Settings → General →
+Language** (it applies immediately, without restarting). Adding more
+languages is a matter of translating the `.ts` file with Qt Linguist
+(`pylupdate6` → `.ts` → `lrelease` → `.qm`). See
 [`src/youtube_subtitle_downloader/resources/translations/README.md`](src/youtube_subtitle_downloader/resources/translations/README.md).
 
 ## Packaging

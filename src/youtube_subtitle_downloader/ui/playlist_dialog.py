@@ -14,6 +14,7 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
 )
 
+from ..i18n import translate_args
 from ..models.video import PlaylistEntry, PlaylistInfo
 
 
@@ -24,13 +25,16 @@ class PlaylistDialog(QDialog):
         super().__init__(parent)
         self._playlist = playlist
         self._items: list[tuple[QListWidgetItem, PlaylistEntry]] = []
-        self.setWindowTitle("Playlist")
+        self.setWindowTitle(self.tr("Playlist"))
         self.resize(680, 480)
 
         layout = QVBoxLayout(self)
         title = QLabel(
-            f"<b>{playlist.title}</b> ({playlist.count} video(s)) — "
-            "select the videos to process"
+            f"<b>{playlist.title}</b> "
+            + translate_args(
+                self.tr("(%1 video(s)) — select the videos to process"),
+                playlist.count,
+            )
         )
         title.setWordWrap(True)
         layout.addWidget(title)
@@ -40,9 +44,9 @@ class PlaylistDialog(QDialog):
             duration = (
                 f"{entry.duration // 60}:{entry.duration % 60:02d}"
                 if entry.duration
-                else "?"
+                else self.tr("?")
             )
-            channel = entry.channel or "unknown channel"
+            channel = entry.channel or self.tr("unknown channel")
             item = QListWidgetItem(f"{entry.title}  —  {channel}  ({duration})")
             item.setFlags(item.flags() | Qt.ItemFlag.ItemIsUserCheckable)
             item.setCheckState(Qt.CheckState.Unchecked)
@@ -52,9 +56,9 @@ class PlaylistDialog(QDialog):
         layout.addWidget(self._list, 1)
 
         select_row = QHBoxLayout()
-        all_button = QPushButton("Select all", self)
+        all_button = QPushButton(self.tr("Select all"), self)
         all_button.clicked.connect(lambda: self._set_all(Qt.CheckState.Checked))
-        none_button = QPushButton("Select none", self)
+        none_button = QPushButton(self.tr("Select none"), self)
         none_button.clicked.connect(lambda: self._set_all(Qt.CheckState.Unchecked))
         select_row.addWidget(all_button)
         select_row.addWidget(none_button)
