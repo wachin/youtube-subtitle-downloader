@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=YouTube Subtitle Downloader
+GenericName=Subtitle downloader
+GenericName[es]=Descargador de subtítulos
+Comment=Download subtitles from YouTube videos using yt-dlp
+Comment[es]=Descarga subtítulos de vídeos de YouTube usando yt-dlp
+Exec=youtube-subtitle-downloader
+TryExec=youtube-subtitle-downloader
+Icon=youtube-subtitle-downloader
+Terminal=false
+Categories=AudioVideo;
+Keywords=YouTube;subtitles;captions;download;yt-dlp
+Keywords[es]=YouTube;subtítulos;subtitulos;descarga;yt-dlp
+StartupNotify=true

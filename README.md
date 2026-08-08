@@ -165,6 +165,19 @@ languages is a matter of translating the `.ts` file with Qt Linguist
 (`pylupdate6` → `.ts` → `lrelease` → `.qm`). See
 [`src/youtube_subtitle_downloader/resources/translations/README.md`](src/youtube_subtitle_downloader/resources/translations/README.md).
 
+## Desktop launcher
+
+A Freedesktop launcher (`.desktop`) for the application menu is installed at
+`~/.local/share/applications/youtube-subtitle-downloader.desktop` and runs the
+project's `run.py` (no installation required). The packaged template lives at
+`packaging/youtube-subtitle-downloader.desktop`.
+
+To install or refresh it after changes:
+
+```bash
+scripts/install-desktop-entry.sh
+```
+
 ## Packaging
 
 Debian packaging notes live in [`packaging/debian/README.md`](packaging/debian/README.md).

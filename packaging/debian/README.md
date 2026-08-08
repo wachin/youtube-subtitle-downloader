@@ -17,6 +17,21 @@ sudo apt install python3 python3-pyqt6 python3-pip ffmpeg python3-yt-dlp
 `python3-pyqt6` and `python3-yt-dlp` are available in Debian trixie
 (verified `python3-pyqt6 6.9.0-2`).
 
+## Desktop entry
+
+The Freedesktop launcher template lives at
+`packaging/youtube-subtitle-downloader.desktop` and must be installed to
+`/usr/share/applications/` at build time:
+
+```bash
+install -Dm644 packaging/youtube-subtitle-downloader.desktop \
+    /usr/share/applications/youtube-subtitle-downloader.desktop
+```
+
+It uses the ``youtube-subtitle-downloader`` entry point installed by the
+package (``Terminal=false``), and the icon name matches the SVG installed in
+the hicolor theme. Validate changes with ``desktop-file-validate``.
+
 ## Application icon
 
 The bundled logo (`src/youtube_subtitle_downloader/resources/icons/
