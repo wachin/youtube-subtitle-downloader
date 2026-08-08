@@ -903,7 +903,15 @@ No interceptar `Ctrl+V` globalmente de manera que impida pegar normalmente en ot
 
 # [ ] 36. Internacionalización
 
-Preparar desde el principio soporte multiidioma mediante:
+El **idioma principal de la aplicación es el inglés**.
+
+La aplicación se desarrolla primero por completo en inglés.
+
+Una vez terminada y funcional, se añade la traducción a otros idiomas mediante internacionalización con **Qt Linguist**.
+
+La primera traducción será al **español**.
+
+Soporte multiidioma desde el principio mediante:
 
 ```text
 Qt Linguist
@@ -913,13 +921,13 @@ QTranslator
 .qm
 ```
 
-Todos los textos visibles deben utilizar `tr()` o el mecanismo apropiado.
+Todos los textos visibles deben utilizar `tr()` o el mecanismo apropiado desde el principio, de modo que añadir traducciones después resulte sencillo.
 
 Idiomas iniciales:
 
 ```text
-Español
-English
+English (idioma principal)
+Español (primera traducción)
 ```
 
 La arquitectura debe permitir añadir fácilmente:
@@ -932,7 +940,7 @@ Italiano
 etc.
 ```
 
-Detectar inicialmente el locale del sistema.
+El idioma por defecto es el **inglés**; mientras no exista traducción a otro idioma, la aplicación se muestra siempre en inglés.
 
 Permitir cambiar el idioma desde:
 
