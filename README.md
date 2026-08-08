@@ -57,13 +57,15 @@ pip install -e .
 Run the application:
 
 ```bash
-youtube-subtitle-downloader
+python3 run.py
 ```
 
-or from the source tree:
+(also works without installing: `PYTHONPATH=src python3 -m youtube_subtitle_downloader`).
+
+After `pip install -e .` you can also use the installed command:
 
 ```bash
-PYTHONPATH=src python3 -m youtube_subtitle_downloader
+youtube-subtitle-downloader
 ```
 
 ## Usage
