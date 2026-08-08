@@ -17,6 +17,22 @@ sudo apt install python3 python3-pyqt6 python3-pip ffmpeg python3-yt-dlp
 `python3-pyqt6` and `python3-yt-dlp` are available in Debian trixie
 (verified `python3-pyqt6 6.9.0-2`).
 
+## Application icon
+
+The bundled logo (`src/youtube_subtitle_downloader/resources/icons/
+youtube-subtitle-downloader.svg`) should be installed into the Freedesktop
+icon theme at build time:
+
+```bash
+install -Dm644 src/youtube_subtitle_downloader/resources/icons/youtube-subtitle-downloader.svg \
+    /usr/share/icons/hicolor/scalable/apps/youtube-subtitle-downloader.svg
+```
+
+Run `gtk-update-icon-cache` on the hicolor theme afterwards (the Debian
+`hicolor-icon-theme` package ships the theme indexes). The same icon name
+(`youtube-subtitle-downloader`) is used by the application itself, so the
+window and tray icons match the launcher icon.
+
 ## Placeholders
 
 A real `debian/` control directory (`control`, `rules`, `copyright`, ...)

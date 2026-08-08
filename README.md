@@ -29,7 +29,10 @@ available subtitles, select one or more languages and download them.
 - Drag & drop URLs, paste from clipboard, playlist detection (MVP).
 - System theme aware, keyboard shortcuts, tooltips, optional CLI.
 - System theme **icons** on buttons and menus (`QIcon.fromTheme`, falls back
-  to text when the active theme lacks an icon).
+  to text when the active theme lacks an icon), and a **custom application
+  logo** (`resources/icons/youtube-subtitle-downloader.svg`) used in the
+  window and system tray. The same icon is installed to the user icon theme
+  at `~/.local/share/icons/hicolor/scalable/apps/`.
 - Optional **desktop notification** when a download finishes while the window
   is not active (Settings → General; uses `notify-send` with a system-tray
   fallback — no heavy dependencies).

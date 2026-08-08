@@ -8,8 +8,15 @@ from PyQt6.QtGui import QIcon  # noqa: E402
 from PyQt6.QtWidgets import QApplication  # noqa: E402
 
 from youtube_subtitle_downloader.services.settings_service import SettingsService  # noqa: E402
-from youtube_subtitle_downloader.utils.icons import APP_ICON_NAME, theme_icon  # noqa: E402
-from youtube_subtitle_downloader.utils.notifications import send_notification  # noqa: E402
+from youtube_subtitle_downloader.utils.icons import (  # noqa: E402
+    APP_ICON_NAME,
+    app_icon,
+    icon_path,
+    theme_icon,
+)
+from youtube_subtitle_downloader.utils.notifications import (  # noqa: E402
+    send_notification,
+)
 
 _APP: QApplication | None = None
 
@@ -90,3 +97,40 @@ def test_theme_icon_returns_qicon() -> None:
     _app()
     assert isinstance(theme_icon("edit-paste"), QIcon)
     assert APP_ICON_NAME  # the app icon name is defined and non-empty
+
+
+# -- bundled logo ----------------------------------------------------------
+def test_bundled_icon_path_exists() -> None:
+    path = icon_path()
+    assert path.is_file()
+    assert path.suffix == ".svg"
+    assert path.name == f"{APP_ICON_NAME}.svg"
+
+
+def test_app_icon_returns_qicon() -> None:
+    _app()
+    assert isinstance(app_icon(), QIcon)
+
+
+def test_bundled_icon_svg_is_valid_xml() -> None:
+    import xml.etree.ElementTree as ET
+
+    ET.parse(icon_path())  # raises if the SVG is not well-formed XML
+
+
+def test_app_icon_uses_bundled_logo(monkeypatch) -> None:
+    """app_icon() prefers the bundled SVG over the theme fallback.
+
+    Note: this relies on the Qt SVG image-format plugin being available in
+    the test environment (it is: ``PyQt6.QtSvg`` ships with PyQt6). If the
+    bundled SVG ever failed to load, ``app_icon()`` would legitimately fall
+    back to the theme and this assertion would need to change.
+    """
+    _app()
+    loaded: list[str] = []
+    monkeypatch.setattr(
+        "youtube_subtitle_downloader.utils.icons.QIcon.fromTheme",
+        lambda name: loaded.append(name) or QIcon(),
+    )
+    app_icon()
+    assert loaded == []  # the bundled icon was used; the theme was never asked

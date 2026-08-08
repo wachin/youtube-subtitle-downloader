@@ -36,7 +36,7 @@ from ..models.video import PlaylistEntry, VideoInfo
 from ..services.settings_service import SettingsService
 from ..services.ytdlp_service import YtDlpService, is_youtube_url
 from ..utils.filenames import DEFAULT_TEMPLATE, PRESET_TEMPLATES
-from ..utils.icons import APP_ICON_NAME, theme_icon
+from ..utils.icons import app_icon, theme_icon
 from ..utils.logging import get_logger
 from ..utils.notifications import send_notification
 from ..utils.paths import default_download_dir
@@ -68,7 +68,7 @@ class MainWindow(QMainWindow):
         self._language = settings.language()
 
         self.setWindowTitle(__app_name__)
-        self.setWindowIcon(theme_icon(APP_ICON_NAME))
+        self.setWindowIcon(app_icon())
         self.resize(860, 640)
 
         self._network = QNetworkAccessManager(self)

@@ -46,6 +46,7 @@ where = ["src"]
 youtube_subtitle_downloader = [
     "resources/translations/*.ts",
     "resources/translations/*.qm",
+    "resources/icons/*.svg",
 ]
 
 [tool.pytest.ini_options]

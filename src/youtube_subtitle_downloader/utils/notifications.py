@@ -14,7 +14,7 @@ import subprocess
 from PyQt6.QtWidgets import QApplication, QSystemTrayIcon
 
 from .. import __app_name__
-from .icons import APP_ICON_NAME, theme_icon
+from .icons import APP_ICON_NAME, app_icon
 
 _TRAY_ATTR = "_youtube_subtitle_tray_icon"
 
@@ -32,7 +32,7 @@ def _notify_send(title: str, message: str) -> bool:
                 "--app-name",
                 __app_name__,
                 "--icon",
-                "emblem-downloads",
+                APP_ICON_NAME,
                 title,
                 message,
             ],
@@ -48,7 +48,7 @@ def _tray_icon(app) -> QSystemTrayIcon:
     """Create (once) the hidden tray icon used as the Qt fallback."""
     tray = getattr(app, _TRAY_ATTR, None)
     if tray is None:
-        tray = QSystemTrayIcon(theme_icon(APP_ICON_NAME), app)
+        tray = QSystemTrayIcon(app_icon(), app)
         setattr(app, _TRAY_ATTR, tray)
     return tray
 
