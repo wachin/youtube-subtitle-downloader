@@ -15,10 +15,13 @@ Quiero que el proyecto tenga calidad suficiente para poder publicarlo como softw
 > Cada parte numerada de este documento dispone de una casilla de verificación `[ ]` en su encabezado.
 > Durante el proceso de construcción del programa, cada parte completada se marcará como `[x]`.
 > Las casillas del resumen de implementación de la sección 63 también se marcarán conforme se avance.
+>
+> **Progreso (2026-08-08):** base funcional completa — análisis, tabla de idiomas, descarga múltiple (SRT/VTT/TTML/JSON3/Original), TXT limpio con deduplicación, vista previa, historial, playlist (MVP), CLI, logs, cookies y 29 tests en verde.
+> Pendientes: traducción al español (sección 36), iconos de tema (34) y notificación de escritorio (52).
 
 ---
 
-## [ ] 1. Filosofía del proyecto
+## [x] 1. Filosofía del proyecto
 
 No quiero simplemente una pequeña ventana que ejecute un comando.
 
@@ -45,7 +48,7 @@ Siempre que sea razonable, utiliza Python y Qt en lugar de añadir bibliotecas e
 
 ---
 
-# [ ] 2. Flujo principal
+# [x] 2. Flujo principal
 
 La interfaz principal debe ser extremadamente sencilla de entender.
 
@@ -71,7 +74,7 @@ También debe ser posible pegar la URL y presionar Enter.
 
 ---
 
-# [ ] 3. Información del video
+# [x] 3. Información del video
 
 Después de analizar la URL mostrar, cuando yt-dlp proporcione los datos:
 
@@ -89,7 +92,7 @@ Si no puede obtenerse la imagen, la aplicación debe seguir funcionando normalme
 
 ---
 
-# [ ] 4. Lista de subtítulos
+# [x] 4. Lista de subtítulos
 
 Esta es una de las partes más importantes.
 
@@ -135,7 +138,7 @@ o una organización equivalente claramente comprensible.
 
 ---
 
-# [ ] 5. Tabla de idiomas
+# [x] 5. Tabla de idiomas
 
 Utilizar una tabla `QTableView` o un componente adecuado.
 
@@ -175,7 +178,7 @@ y otros que yt-dlp pueda devolver.
 
 ---
 
-# [ ] 6. Selección de subtítulos
+# [x] 6. Selección de subtítulos
 
 Permitir:
 
@@ -208,7 +211,7 @@ en la medida en que los datos disponibles lo permitan.
 
 ---
 
-# [ ] 7. Distinguir idioma original
+# [x] 7. Distinguir idioma original
 
 Cuando yt-dlp devuelva algo como:
 
@@ -233,7 +236,7 @@ sin hacer difícil la lectura de la tabla.
 
 ---
 
-# [ ] 8. Formato de descarga
+# [x] 8. Formato de descarga
 
 Permitir elegir:
 
@@ -253,7 +256,7 @@ No debe asumir que todos los videos tienen exactamente los mismos formatos.
 
 ---
 
-# [ ] 9. Texto limpio TXT
+# [x] 9. Texto limpio TXT
 
 Añadir una opción muy importante:
 
@@ -301,7 +304,7 @@ Implementa esta funcionalidad en un módulo independiente para que posteriorment
 
 ---
 
-# [ ] 10. Modos para TXT
+# [x] 10. Modos para TXT
 
 Añadir varias posibilidades:
 
@@ -329,7 +332,7 @@ Mantener una estructura cercana al subtítulo original, pero sin timestamps.
 
 ---
 
-# [ ] 11. Carpeta de destino
+# [x] 11. Carpeta de destino
 
 Permitir elegir la carpeta de descarga mediante:
 
@@ -348,7 +351,7 @@ Utilizar APIs de Qt/Python para encontrar las carpetas del usuario.
 
 ---
 
-# [ ] 12. Nombre del archivo
+# [x] 12. Nombre del archivo
 
 Permitir elegir una plantilla.
 
@@ -370,7 +373,7 @@ Sanear nombres de archivo correctamente.
 
 ---
 
-# [ ] 13. Vista previa
+# [x] 13. Vista previa
 
 Añadir un botón:
 
@@ -393,7 +396,7 @@ La ventana debe contener:
 
 ---
 
-# [ ] 14. Descarga múltiple
+# [x] 14. Descarga múltiple
 
 Si selecciono:
 
@@ -417,7 +420,7 @@ English                  Descargando...
 
 ---
 
-# [ ] 15. Barra de progreso
+# [x] 15. Barra de progreso
 
 Mostrar:
 
@@ -429,7 +432,7 @@ Aunque la descarga de subtítulos normalmente sea muy rápida, quiero una arquit
 
 ---
 
-# [ ] 16. No congelar la GUI
+# [x] 16. No congelar la GUI
 
 REQUISITO IMPORTANTE.
 
@@ -452,7 +455,7 @@ La interfaz debe permanecer responsiva mientras yt-dlp:
 
 ---
 
-# [ ] 17. Cancelar operaciones
+# [x] 17. Cancelar operaciones
 
 Añadir botón:
 
@@ -470,7 +473,7 @@ Implementar una bandera/token de cancelación y hacer que los workers finalicen 
 
 ---
 
-# [ ] 18. Registro de actividad
+# [x] 18. Registro de actividad
 
 Añadir un panel desplegable:
 
@@ -498,7 +501,7 @@ Permitir:
 
 ---
 
-# [ ] 19. Manejo de errores
+# [x] 19. Manejo de errores
 
 Crear mensajes amigables para problemas como:
 
@@ -524,7 +527,7 @@ Guardar información técnica en el log.
 
 ---
 
-# [ ] 20. Cookies de navegador
+# [x] 20. Cookies de navegador
 
 Preparar soporte opcional para:
 
@@ -555,7 +558,7 @@ Usar las capacidades de yt-dlp.
 
 ---
 
-# [ ] 21. Archivo cookies.txt
+# [x] 21. Archivo cookies.txt
 
 Opcionalmente permitir:
 
@@ -570,7 +573,7 @@ Tratarlo como información sensible.
 
 ---
 
-# [ ] 22. Configuración de yt-dlp
+# [x] 22. Configuración de yt-dlp
 
 La aplicación debe detectar si `yt-dlp` está disponible.
 
@@ -602,7 +605,7 @@ Debian GNU/Linux
 
 ---
 
-# [ ] 23. API Python de yt-dlp
+# [x] 23. API Python de yt-dlp
 
 Siempre que sea razonable, preferir:
 
@@ -625,7 +628,7 @@ No dependas de detalles privados de yt-dlp innecesariamente.
 
 ---
 
-# [ ] 24. Compatibilidad con actualizaciones
+# [x] 24. Compatibilidad con actualizaciones
 
 yt-dlp cambia con cierta frecuencia.
 
@@ -646,7 +649,7 @@ Debe ser posible adaptar el proyecto a cambios futuros de yt-dlp modificando pri
 
 ---
 
-# [ ] 25. Arquitectura
+# [x] 25. Arquitectura
 
 Quiero una estructura aproximada como:
 
@@ -707,7 +710,7 @@ Puedes mejorar esta estructura si tienes una razón técnica clara.
 
 ---
 
-# [ ] 26. MVC/MVVM
+# [x] 26. MVC/MVVM
 
 Separar claramente:
 
@@ -722,7 +725,7 @@ No crear un archivo de miles de líneas.
 
 ---
 
-# [ ] 27. Configuración persistente
+# [x] 27. Configuración persistente
 
 Utilizar `QSettings`.
 
@@ -741,7 +744,7 @@ Usar correctamente organización y nombre de aplicación.
 
 ---
 
-# [ ] 28. Historial
+# [x] 28. Historial
 
 Añadir historial opcional de videos procesados.
 
@@ -767,7 +770,7 @@ Permitir desactivar el historial desde Configuración → Privacidad.
 
 ---
 
-# [ ] 29. Drag & Drop
+# [x] 29. Drag & Drop
 
 Permitir arrastrar hacia la ventana texto que contenga una URL de YouTube.
 
@@ -775,7 +778,7 @@ Si se detecta una URL válida, colocarla automáticamente en el campo.
 
 ---
 
-# [ ] 30. Portapapeles
+# [x] 30. Portapapeles
 
 Añadir botón:
 
@@ -795,7 +798,7 @@ en Configuración.
 
 ---
 
-# [ ] 31. URLs soportadas
+# [x] 31. URLs soportadas
 
 No asumir únicamente:
 
@@ -819,7 +822,9 @@ La validación definitiva debe hacerla yt-dlp.
 
 ---
 
-# [ ] 32. Playlists
+# [x] 32. Playlists
+
+> Nota: implementado como MVP — aviso de playlist, «analizar solo este video» y diálogo de selección de videos; la selección de idiomas se toma del primer video analizado.
 
 Preparar arquitectura para playlists.
 
@@ -846,7 +851,7 @@ Sin embargo, la funcionalidad de un video individual tiene prioridad.
 
 ---
 
-# [ ] 33. Tema
+# [x] 33. Tema
 
 La aplicación debe respetar el tema Qt/escritorio del sistema.
 
@@ -863,6 +868,8 @@ No utilizar colores codificados que hagan ilegible el programa bajo determinados
 
 # [ ] 34. Iconos
 
+> Pendiente: integrar QIcon.fromTheme() para los iconos del sistema (hoy se usan botones de texto).
+
 Preferir iconos del tema del sistema mediante:
 
 ```python
@@ -875,7 +882,7 @@ Proporcionar fallback únicamente cuando sea necesario.
 
 ---
 
-# [ ] 35. Accesibilidad
+# [x] 35. Accesibilidad
 
 Añadir:
 
@@ -902,6 +909,8 @@ No interceptar `Ctrl+V` globalmente de manera que impida pegar normalmente en ot
 ---
 
 # [ ] 36. Internacionalización
+
+> Pendiente: envolver todos los textos visibles con tr() y generar la traducción al español con Qt Linguist (pylupdate6/lrelease).
 
 El **idioma principal de la aplicación es el inglés**.
 
@@ -950,7 +959,7 @@ Configuración → General → Idioma
 
 ---
 
-# [ ] 37. Ventana principal
+# [x] 37. Ventana principal
 
 Diseñar una ventana limpia.
 
@@ -992,7 +1001,7 @@ Es solamente una guía. Mejora el diseño cuando sea conveniente.
 
 ---
 
-# [ ] 38. Barra de estado
+# [x] 38. Barra de estado
 
 Mostrar mensajes como:
 
@@ -1006,7 +1015,7 @@ Descarga completada
 
 ---
 
-# [ ] 39. Menús
+# [x] 39. Menús
 
 ## Archivo
 
@@ -1034,7 +1043,7 @@ Acerca de
 
 ---
 
-# [ ] 40. Actualización de yt-dlp
+# [x] 40. Actualización de yt-dlp
 
 No implementar actualizaciones automáticas destructivas.
 
@@ -1061,7 +1070,7 @@ En su lugar explicar al usuario cómo actualizar según su instalación.
 
 ---
 
-# [ ] 41. Debian
+# [x] 41. Debian
 
 Diseñar el proyecto pensando en futuras políticas Debian.
 
@@ -1077,7 +1086,7 @@ Las dependencias deben declararse correctamente.
 
 ---
 
-# [ ] 42. Instalación para desarrollo
+# [x] 42. Instalación para desarrollo
 
 Documentar al menos:
 
@@ -1091,7 +1100,7 @@ Para entorno virtual proporcionar instrucciones apropiadas.
 
 ---
 
-# [ ] 43. pyproject.toml
+# [x] 43. pyproject.toml
 
 Utilizar un `pyproject.toml` moderno.
 
@@ -1118,7 +1127,7 @@ youtube-subtitle-downloader
 
 ---
 
-# [ ] 44. Licencia
+# [x] 44. Licencia
 
 Preparar el proyecto como software libre.
 
@@ -1138,7 +1147,7 @@ LICENSE
 
 ---
 
-# [ ] 45. README.md
+# [x] 45. README.md
 
 Crear un README profesional incluyendo:
 
@@ -1163,7 +1172,7 @@ Explicar claramente que la aplicación utiliza yt-dlp.
 
 ---
 
-# [ ] 46. Privacidad
+# [x] 46. Privacidad
 
 La aplicación debe funcionar localmente.
 
@@ -1176,7 +1185,7 @@ Explicar que:
 
 ---
 
-# [ ] 47. Logs
+# [x] 47. Logs
 
 Guardar logs técnicos utilizando el módulo estándar `logging`.
 
@@ -1190,7 +1199,7 @@ No registrar datos sensibles innecesariamente.
 
 ---
 
-# [ ] 48. Pruebas
+# [x] 48. Pruebas
 
 Implementar pruebas para la lógica que pueda probarse sin GUI.
 
@@ -1210,7 +1219,7 @@ Usar mocks/fixtures.
 
 ---
 
-# [ ] 49. Dataset de prueba para subtítulos automáticos
+# [x] 49. Dataset de prueba para subtítulos automáticos
 
 Crear fixtures pequeños que reproduzcan el problema de frases solapadas de YouTube.
 
@@ -1237,7 +1246,7 @@ Añadir pruebas para estos casos.
 
 ---
 
-# [ ] 50. Seguridad
+# [x] 50. Seguridad
 
 No construir comandos shell concatenando directamente URLs suministradas por el usuario.
 
@@ -1251,7 +1260,7 @@ No permitir path traversal mediante títulos de YouTube.
 
 ---
 
-# [ ] 51. Operaciones al terminar
+# [x] 51. Operaciones al terminar
 
 Después de descargar mostrar:
 
@@ -1271,13 +1280,15 @@ No abrir archivos automáticamente salvo que el usuario lo configure.
 
 # [ ] 52. Notificaciones
 
+> Pendiente: notificación de escritorio opcional cuando la ventana no está activa.
+
 Opcionalmente emitir una notificación del escritorio cuando finalice una descarga y la ventana no esté activa.
 
 Implementar esto únicamente si puede hacerse correctamente sin añadir dependencias pesadas.
 
 ---
 
-# [ ] 53. CLI opcional
+# [x] 53. CLI opcional
 
 Como la lógica debe estar separada, considerar proporcionar además una pequeña CLI:
 
@@ -1289,7 +1300,7 @@ pero la GUI es la prioridad.
 
 ---
 
-# [ ] 54. Calidad de código
+# [x] 54. Calidad de código
 
 Aplicar:
 
@@ -1311,7 +1322,7 @@ y otros patrones que silencien errores.
 
 ---
 
-# [ ] 55. Estilo
+# [x] 55. Estilo
 
 Preparar configuración para herramientas como:
 
@@ -1330,7 +1341,7 @@ Son dependencias de desarrollo.
 
 ---
 
-# [ ] 56. Primera ejecución
+# [x] 56. Primera ejecución
 
 Si falta yt-dlp, mostrar algo como:
 
@@ -1347,7 +1358,7 @@ No instalarlo automáticamente.
 
 ---
 
-# [ ] 57. FFmpeg
+# [x] 57. FFmpeg
 
 Los subtítulos pueden descargarse directamente en determinados formatos, así que FFmpeg no debe ser requisito absoluto si no hace falta.
 
@@ -1357,7 +1368,7 @@ Explicar qué funcionalidades requieren FFmpeg si alguna característica realmen
 
 ---
 
-# [ ] 58. Casos reales que debe soportar
+# [x] 58. Casos reales que debe soportar
 
 Debes comprobar conceptualmente este caso real.
 
@@ -1399,7 +1410,7 @@ si `automatic_captions` contiene elementos.
 
 ---
 
-# [ ] 59. Prioridad del idioma original
+# [x] 59. Prioridad del idioma original
 
 Cuando exista algo equivalente a:
 
@@ -1427,7 +1438,7 @@ English
 
 ---
 
-# [ ] 60. Exportación avanzada
+# [x] 60. Exportación avanzada
 
 Preparar arquitectura para que en una versión posterior puedan añadirse:
 
@@ -1454,7 +1465,7 @@ si los datos originales necesarios están disponibles.
 
 ---
 
-# [ ] 61. Copiar transcripción
+# [x] 61. Copiar transcripción
 
 Añadir una acción:
 
@@ -1468,7 +1479,7 @@ Esto resulta especialmente útil para pegar posteriormente una transcripción en
 
 ---
 
-# [ ] 62. Resumen de objetivos
+# [x] 62. Resumen de objetivos
 
 La aplicación final debe permitir este flujo:
 
@@ -1499,7 +1510,7 @@ Vista previa / copiar / abrir carpeta
 
 ---
 
-# [ ] 63. Forma de trabajar
+# [x] 63. Forma de trabajar
 
 No intentes escribir toda la aplicación en un único archivo.
 

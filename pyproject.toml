@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "youtube-subtitle-downloader"
+version = "0.1.0"
+description = "Desktop application (PyQt6) to download YouTube subtitles using yt-dlp"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "GPL-3.0-or-later" }
+authors = [{ name = "youtube-subtitle-downloader contributors" }]
+maintainers = [{ name = "youtube-subtitle-downloader contributors" }]
+keywords = ["youtube", "subtitles", "captions", "yt-dlp", "pyqt6", "desktop", "gui"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "PyQt6>=6.4",
+    "yt-dlp>=2023.10.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "ruff",
+    "black",
+    "mypy",
+]
+
+[project.scripts]
+youtube-subtitle-downloader = "youtube_subtitle_downloader.app:main"
+youtube-subtitle-downloader-cli = "youtube_subtitle_downloader.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+youtube_subtitle_downloader = [
+    "resources/translations/*.ts",
+    "resources/translations/*.qm",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+extend-exclude = ["tests/fixtures"]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true

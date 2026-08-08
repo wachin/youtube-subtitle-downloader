@@ -1,0 +1,78 @@
+"""About and system information dialog."""
+
+from __future__ import annotations
+
+import platform
+import sys
+
+from PyQt6.QtCore import PYQT_VERSION_STR, QT_VERSION_STR, Qt
+from PyQt6.QtWidgets import (
+    QDialog,
+    QFormLayout,
+    QLabel,
+    QPushButton,
+    QTabWidget,
+    QVBoxLayout,
+    QWidget,
+)
+
+from .. import __app_name__, __version__
+from ..services.ytdlp_service import YtDlpService, ffmpeg_version, version
+
+
+class AboutDialog(QDialog):
+    """About tab plus a system information tab."""
+
+    def __init__(self, settings=None, parent=None) -> None:
+        super().__init__(parent)
+        self._settings = settings
+        self.setWindowTitle("About")
+        self.resize(460, 360)
+
+        tabs = QTabWidget(self)
+        tabs.addTab(self._about_tab(), "About")
+        tabs.addTab(self._system_tab(), "System info")
+        close_button = QPushButton("Close", self)
+        close_button.clicked.connect(self.accept)
+
+        layout = QVBoxLayout(self)
+        layout.addWidget(tabs, 1)
+        layout.addWidget(close_button)
+
+    def _about_tab(self) -> QWidget:
+        widget = QWidget(self)
+        layout = QVBoxLayout(widget)
+        label = QLabel(
+            f"<h2>{__app_name__}</h2>"
+            f"<p>Version {__version__}</p>"
+            "<p>A desktop application (Python 3 + PyQt6) that downloads YouTube "
+            "subtitles using the <b>yt-dlp</b> library. English is the primary "
+            "language; Spanish translation is planned.</p>"
+            "<p>Licensed under the <b>GNU GPL v3 or later</b>.</p>"
+        )
+        label.setWordWrap(True)
+        label.setOpenExternalLinks(True)
+        layout.addWidget(label)
+        layout.addStretch(1)
+        return widget
+
+    def _system_tab(self) -> QWidget:
+        widget = QWidget(self)
+        form = QFormLayout(widget)
+        info = [
+            ("Python", platform.python_version()),
+            ("Qt", QT_VERSION_STR),
+            ("PyQt6", PYQT_VERSION_STR),
+            ("yt-dlp", version() or "not found"),
+            ("FFmpeg", ffmpeg_version() or "not found"),
+            ("Operating system", platform.platform()),
+            ("Architecture", platform.machine()),
+            ("Executable", sys.executable),
+        ]
+        for name, value in info:
+            label = QLabel(str(value))
+            label.setTextInteractionFlags(
+                label.textInteractionFlags() | Qt.TextInteractionFlag.TextSelectableByMouse
+            )
+            form.addRow(f"{name}:", label)
+        return widget
