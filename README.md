@@ -165,6 +165,24 @@ languages is a matter of translating the `.ts` file with Qt Linguist
 (`pylupdate6` → `.ts` → `lrelease` → `.qm`). See
 [`src/youtube_subtitle_downloader/resources/translations/README.md`](src/youtube_subtitle_downloader/resources/translations/README.md).
 
+## Double-click launcher
+
+For a quick launch without installing anything, use the **`launch.sh`**
+script (a launcher is placed on the Desktop as a symlink to it). It resolves
+its own location, so it works from anywhere — just double-click it (or run
+`./launch.sh`). Use `./launch.sh --cli` to run the command line interface
+instead. Note: if you move the project folder, refresh the Desktop launcher
+with `scripts/install-desktop-entry.sh` (or recreate the symlink).
+
+```bash
+./launch.sh          # GUI
+./launch.sh --cli    # command line interface
+```
+
+If double-clicking opens the script in a text editor instead of running it,
+right-click the file → *Properties* → *Permissions* → *Allow executing file
+as program* (some file managers need this once).
+
 ## Desktop launcher
 
 A Freedesktop launcher (`.desktop`) for the application menu is installed at
