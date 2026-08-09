@@ -1,0 +1,15 @@
+Package: youtube-subtitle-downloader
+Version: %%VERSION%%
+Section: video
+Priority: optional
+Architecture: all
+Maintainer: youtube-subtitle-downloader contributors <noreply@example.org>
+Installed-Size: %%INSTALLED_SIZE%%
+Depends: python3 (>= 3.9), python3-pyqt6, python3-pyqt6.qtsvg, yt-dlp | python3-yt-dlp
+Recommends: ffmpeg
+Description: download subtitles from YouTube using yt-dlp
+ Desktop application (Python 3 + PyQt6) that fetches YouTube subtitles
+ with yt-dlp and lets the user pick manual and automatic tracks, in
+ SRT, VTT, TTML, JSON3 or the original format. Includes a clean TXT
+ export, preview, history, playlists (MVP), an optional CLI and a full
+ Spanish translation.

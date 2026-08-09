@@ -1,56 +1,76 @@
-# Debian packaging notes
+# Debian packaging
 
-This project is designed with future Debian packaging in mind (roadmap
-section 41):
+This project ships a working `.deb` build script that follows Debian policy:
 
 - No code is downloaded/executed at runtime.
-- No `sudo`, no modification of system packages, no `/usr` writes.
-- Dependencies are declared in `pyproject.toml` / `requirements.txt`.
-- License is GPL-3.0-or-later (see `LICENSE`).
+- No `sudo`, no modification of system packages, no `/usr` writes during the
+  build (the staging tree is assembled under a temp directory).
+- Dependencies are declared in `DEBIAN/control` (generated from
+  `packaging/debian/control`).
+- License is GPL-3.0-or-later (see `LICENSE`); the package's `copyright`
+  file references `/usr/share/common-licenses/GPL-3` as Debian policy
+  requires.
 
-## Debian package names (Debian 13 / trixie)
-
-```bash
-sudo apt install python3 python3-pyqt6 python3-pip ffmpeg python3-yt-dlp
-```
-
-`python3-pyqt6` and `python3-yt-dlp` are available in Debian trixie
-(verified `python3-pyqt6 6.9.0-2`).
-
-## Desktop entry
-
-The Freedesktop launcher template lives at
-`packaging/youtube-subtitle-downloader.desktop` and must be installed to
-`/usr/share/applications/` at build time:
+## Building the package
 
 ```bash
-install -Dm644 packaging/youtube-subtitle-downloader.desktop \
-    /usr/share/applications/youtube-subtitle-downloader.desktop
+packaging/build-deb.sh
 ```
 
-It uses the ``youtube-subtitle-downloader`` entry point installed by the
-package (``Terminal=false``), and the icon name matches the SVG installed in
-the hicolor theme. Validate changes with ``desktop-file-validate``.
+This writes `dist/youtube-subtitle-downloader_<version>_all.deb` (the version
+comes from `src/youtube_subtitle_downloader/__init__.py`; override with
+`VERSION=...`). The script uses a deterministic staging layout and
+`dpkg-deb --build --root-owner-group`.
 
-## Application icon
+### What the package contains
 
-The bundled logo (`src/youtube_subtitle_downloader/resources/icons/
-youtube-subtitle-downloader.svg`) should be installed into the Freedesktop
-icon theme at build time:
+- `/usr/lib/python3/dist-packages/youtube_subtitle_downloader/` — the Python
+  package (including `resources/translations/*.qm` and the bundled logo).
+- `/usr/bin/youtube-subtitle-downloader` and
+  `/usr/bin/youtube-subtitle-downloader-cli` — thin wrappers that run
+  `python3 -m youtube_subtitle_downloader[.cli]`.
+- `/usr/share/applications/youtube-subtitle-downloader.desktop` — the
+  launcher (from `packaging/youtube-subtitle-downloader.desktop`).
+- `/usr/share/icons/hicolor/scalable/apps/youtube-subtitle-downloader.svg` —
+  the application logo.
+- `/usr/share/doc/youtube-subtitle-downloader/` — `copyright` and gzipped
+  `changelog`.
+- `DEBIAN/postinst` + `DEBIAN/postrm` refresh the icon theme and the desktop
+  database after install/remove.
+
+### Dependencies (Debian 13 / trixie, also fine on MX)
+
+`python3` (>= 3.9), `python3-pyqt6`, `python3-pyqt6.qtsvg` (required to load
+the SVG logo), `yt-dlp` (or `python3-yt-dlp` on pure Debian), plus
+`ffmpeg` as a recommendation.
 
 ```bash
-install -Dm644 src/youtube_subtitle_downloader/resources/icons/youtube-subtitle-downloader.svg \
-    /usr/share/icons/hicolor/scalable/apps/youtube-subtitle-downloader.svg
+sudo apt install python3 python3-pyqt6 python3-pyqt6.qtsvg yt-dlp ffmpeg
 ```
 
-Run `gtk-update-icon-cache` on the hicolor theme afterwards (the Debian
-`hicolor-icon-theme` package ships the theme indexes). The same icon name
-(`youtube-subtitle-downloader`) is used by the application itself, so the
-window and tray icons match the launcher icon.
+## Installing / removing
 
-## Placeholders
+```bash
+sudo dpkg -i dist/youtube-subtitle-downloader_0.1.0_all.deb
+# or: sudo apt install ./dist/youtube-subtitle-downloader_0.1.0_all.deb
+sudo dpkg -r youtube-subtitle-downloader
+```
 
-A real `debian/` control directory (`control`, `rules`, `copyright`, ...)
-should be generated with `dh_make` + `debuild` or a tool such as
-`cargo-deb`-like helpers for Python. This folder currently documents the
-intended approach; the packaging metadata will be completed before a release.
+## Validating
+
+```bash
+lintian dist/youtube-subtitle-downloader_0.1.0_all.deb
+dpkg-deb --info dist/youtube-subtitle-downloader_0.1.0_all.deb
+dpkg-deb --contents dist/youtube-subtitle-downloader_0.1.0_all.deb
+```
+
+The remaining lintian warnings (`no-manual-page`,
+`initial-upload-closes-no-bugs`) are informational for this first release.
+
+## Note on dh_make / debuild
+
+A full source-package flow (`dh_make` + `debuild`) is possible, but the
+staged `dpkg-deb` approach above produces the same installable artifact with
+much less machinery and no build-time network access. The `debian/` files in
+this directory are kept as the single source of truth for control metadata,
+scripts and changelog.

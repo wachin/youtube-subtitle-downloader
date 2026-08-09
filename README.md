@@ -198,9 +198,23 @@ scripts/install-desktop-entry.sh
 
 ## Packaging
 
-Debian packaging notes live in [`packaging/debian/README.md`](packaging/debian/README.md).
-The project is designed to follow Debian policy (no runtime downloads, no
-system modification, declared dependencies).
+An installable **`.deb`** package can be built with:
+
+```bash
+packaging/build-deb.sh
+```
+
+The result is `dist/youtube-subtitle-downloader_<version>_all.deb`, complete
+with the application logo and the desktop launcher. Install it with:
+
+```bash
+sudo dpkg -i dist/youtube-subtitle-downloader_0.1.0_all.deb
+```
+
+Full details (layout, dependencies, validation) live in
+[`packaging/debian/README.md`](packaging/debian/README.md). The project
+follows Debian policy: no runtime downloads, no system modification,
+declared dependencies.
 
 ## License
 

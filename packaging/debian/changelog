@@ -1,0 +1,10 @@
+youtube-subtitle-downloader (0.1.0-1) trixie; urgency=medium
+
+  * Initial release: complete GUI (PyQt6) and CLI to download YouTube
+    subtitles with yt-dlp.
+  * SRT/VTT/TTML/JSON3/original formats, clean TXT export, preview,
+    history, playlists (MVP), cookies support, desktop notifications.
+  * Full Spanish translation (Qt Linguist) and system-theme icons.
+  * Bundled logo and desktop launcher for the application menu.
+
+ -- youtube-subtitle-downloader contributors <noreply@example.org>  Sat, 08 Aug 2026 00:00:00 +0000
