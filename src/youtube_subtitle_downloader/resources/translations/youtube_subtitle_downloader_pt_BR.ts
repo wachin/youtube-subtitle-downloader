@@ -224,277 +224,283 @@
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../../ui/main_window.py" line="286" />
+      <location filename="../../ui/main_window.py" line="294" />
       <source>URL:</source>
       <translation>URL:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="288" />
+      <location filename="../../ui/main_window.py" line="296" />
       <source>https://www.youtube.com/watch?v=… or any supported YouTube URL</source>
       <translation>https://www.youtube.com/watch?v=… ou qualquer URL do YouTube compatível</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="290" />
+      <location filename="../../ui/main_window.py" line="298" />
       <source>Paste URL</source>
       <translation>Colar URL</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="291" />
+      <location filename="../../ui/main_window.py" line="299" />
       <source>Paste a YouTube URL from the clipboard</source>
       <translation>Colar uma URL do YouTube da área de transferência</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="292" />
+      <location filename="../../ui/main_window.py" line="300" />
       <source>Analyze</source>
       <translation>Analisar</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="294" />
+      <location filename="../../ui/main_window.py" line="302" />
       <source>Fetch the video info and its subtitles (Ctrl+L focuses the URL)</source>
       <translation>Buscar as informações do vídeo e suas legendas (Ctrl+L foca o campo de URL)</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="802" />
-      <location filename="../../ui/main_window.py" line="778" />
-      <location filename="../../ui/main_window.py" line="521" />
-      <location filename="../../ui/main_window.py" line="298" />
+      <location filename="../../ui/main_window.py" line="902" />
+      <location filename="../../ui/main_window.py" line="878" />
+      <location filename="../../ui/main_window.py" line="621" />
+      <location filename="../../ui/main_window.py" line="306" />
       <source>No image</source>
       <translation>Sem imagem</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="803" />
-      <location filename="../../ui/main_window.py" line="300" />
+      <location filename="../../ui/main_window.py" line="903" />
+      <location filename="../../ui/main_window.py" line="308" />
       <source>No video analyzed yet.</source>
       <translation>Nenhum vídeo analisado ainda.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="306" />
+      <location filename="../../ui/main_window.py" line="314" />
       <source>Search language:</source>
       <translation>Pesquisar idioma:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="307" />
+      <location filename="../../ui/main_window.py" line="315" />
       <source>Spanish, Español, es, es-orig …</source>
       <translation>Português, Portuguese, pt, pt-orig …</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="308" />
+      <location filename="../../ui/main_window.py" line="316" />
       <source>Select all</source>
       <translation>Selecionar tudo</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="309" />
+      <location filename="../../ui/main_window.py" line="317" />
       <source>Select none</source>
       <translation>Selecionar nenhum</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="310" />
+      <location filename="../../ui/main_window.py" line="318" />
       <source>Manual only</source>
       <translation>Apenas manuais</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="311" />
+      <location filename="../../ui/main_window.py" line="319" />
       <source>Automatic only</source>
       <translation>Apenas automáticas</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="313" />
+      <location filename="../../ui/main_window.py" line="321" />
       <source>All</source>
       <translation>Todas</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="314" />
+      <location filename="../../ui/main_window.py" line="322" />
       <source>Subtitles</source>
       <translation>Legendas</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="315" />
+      <location filename="../../ui/main_window.py" line="323" />
       <source>Automatic</source>
       <translation>Automáticas</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="317" />
+      <location filename="../../ui/main_window.py" line="325" />
       <source>Options</source>
       <translation>Opções</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="318" />
+      <location filename="../../ui/main_window.py" line="326" />
       <source>Format:</source>
       <translation>Formato:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="319" />
+      <location filename="../../ui/main_window.py" line="327" />
       <source>Also create clean TXT file</source>
       <translation>Criar também arquivo TXT limpo</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="320" />
+      <location filename="../../ui/main_window.py" line="328" />
       <source>TXT mode:</source>
       <translation>Modo TXT:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="321" />
+      <location filename="../../ui/main_window.py" line="329" />
       <source>Save to:</source>
       <translation>Salvar em:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="322" />
+      <location filename="../../ui/main_window.py" line="330" />
       <source>Browse…</source>
       <translation>Procurar…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="323" />
+      <location filename="../../ui/main_window.py" line="331" />
       <source>File name:</source>
       <translation>Nome do arquivo:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="325" />
+      <location filename="../../ui/main_window.py" line="333" />
       <source>Preview</source>
       <translation>Pré-visualizar</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="327" />
+      <location filename="../../ui/main_window.py" line="335" />
       <source>Preview the selected subtitle (double-click a row)</source>
       <translation>Pré-visualizar a legenda selecionada (duplo clique em uma linha)</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="329" />
+      <location filename="../../ui/main_window.py" line="337" />
       <source>Cancel</source>
       <translation>Cancelar</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="330" />
+      <location filename="../../ui/main_window.py" line="338" />
       <source>Download selected</source>
       <translation>Baixar selecionados</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="332" />
+      <location filename="../../ui/main_window.py" line="340" />
       <source>Details / Log</source>
       <translation>Detalhes / Registro</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="333" />
+      <location filename="../../ui/main_window.py" line="341" />
       <source>Copy log</source>
       <translation>Copiar registro</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="334" />
+      <location filename="../../ui/main_window.py" line="342" />
       <source>Clear log</source>
       <translation>Limpar registro</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="339" />
+      <location filename="../../ui/main_window.py" line="347" />
       <source>Continuous text</source>
       <translation>Texto contínuo</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="340" />
+      <location filename="../../ui/main_window.py" line="348" />
       <source>Paragraphs</source>
       <translation>Parágrafos</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="341" />
+      <location filename="../../ui/main_window.py" line="349" />
       <source>One line per subtitle</source>
       <translation>Uma linha por legenda</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="351" />
+      <location filename="../../ui/main_window.py" line="359" />
       <source>Title - Language</source>
       <translation>Título - Idioma</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="355" />
+      <location filename="../../ui/main_window.py" line="363" />
       <source>Title [ID] - Language</source>
       <translation>Título [ID] - Idioma</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="359" />
+      <location filename="../../ui/main_window.py" line="367" />
       <source>ID - Language</source>
       <translation>ID - Idioma</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="362" />
+      <location filename="../../ui/main_window.py" line="370" />
       <source>Custom</source>
       <translation>Personalizado</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="423" />
+      <location filename="../../ui/main_window.py" line="437" />
       <source>&amp;File</source>
       <translation>&amp;Arquivo</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="424" />
+      <location filename="../../ui/main_window.py" line="438" />
       <source>&amp;New URL</source>
       <translation>&amp;Nova URL</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="425" />
+      <location filename="../../ui/main_window.py" line="439" />
       <source>Open &amp;downloads folder</source>
       <translation>Abrir pasta de &amp;downloads</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="426" />
+      <location filename="../../ui/main_window.py" line="440" />
       <source>&amp;History…</source>
       <translation>&amp;Histórico…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="427" />
+      <location filename="../../ui/main_window.py" line="441" />
       <source>&amp;Quit</source>
       <translation>&amp;Sair</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="429" />
+      <location filename="../../ui/main_window.py" line="443" />
       <source>&amp;Tools</source>
       <translation>&amp;Ferramentas</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="430" />
+      <location filename="../../ui/main_window.py" line="444" />
       <source>&amp;Settings…</source>
       <translation>&amp;Configurações…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="431" />
+      <location filename="../../ui/main_window.py" line="445" />
       <source>&amp;Check yt-dlp</source>
       <translation>&amp;Verificar yt-dlp</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="434" />
-      <location filename="../../ui/main_window.py" line="433" />
+      <location filename="../../ui/main_window.py" line="446" />
+      <source>&amp;Check for yt-dlp update</source>
+      <translation>&amp;Verificar atualização do yt-dlp</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="449" />
+      <location filename="../../ui/main_window.py" line="448" />
       <source>&amp;Help</source>
       <translation>&amp;Ajuda</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="435" />
+      <location filename="../../ui/main_window.py" line="450" />
       <source>&amp;System info</source>
       <translation>&amp;Informações do sistema</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="436" />
+      <location filename="../../ui/main_window.py" line="451" />
       <source>&amp;About</source>
       <translation>&amp;Sobre</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="492" />
+      <location filename="../../ui/main_window.py" line="507" />
       <source>Ready — yt-dlp %1</source>
       <translation>Pronto — yt-dlp %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="492" />
+      <location filename="../../ui/main_window.py" line="548" />
+      <location filename="../../ui/main_window.py" line="507" />
       <source>unknown</source>
       <translation>desconhecido</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="495" />
+      <location filename="../../ui/main_window.py" line="510" />
       <source>yt-dlp is not installed.</source>
       <translation>O yt-dlp não está instalado.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="498" />
+      <location filename="../../ui/main_window.py" line="513" />
       <source>yt-dlp not found</source>
       <translation>yt-dlp não encontrado</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="499" />
+      <location filename="../../ui/main_window.py" line="514" />
       <source>yt-dlp was not found.
 
 This application uses yt-dlp to communicate with YouTube.
@@ -505,178 +511,228 @@ Este aplicativo usa o yt-dlp para se comunicar com o YouTube.
 No Debian/Ubuntu você pode instalá-lo com o gerenciador de pacotes ou seguindo a documentação oficial do yt-dlp.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="513" />
+      <location filename="../../ui/main_window.py" line="534" />
+      <source>Checking for yt-dlp updates…</source>
+      <translation>Verificando atualizações do yt-dlp…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="566" />
+      <location filename="../../ui/main_window.py" line="552" />
+      <source>A new version of yt-dlp is available: %1 (you have %2).
+
+To update it, open a terminal and run:
+
+    yt-dlp --update</source>
+      <translation>Uma nova versão do yt-dlp está disponível: %1 (você tem %2).
+
+Para atualizar, abra um terminal e execute:
+
+    yt-dlp --update</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="564" />
+      <source>yt-dlp update available</source>
+      <translation>Atualização do yt-dlp disponível</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="578" />
+      <source>A new version of yt-dlp is available: %1 (you have %2). To update it, open a terminal and run: yt-dlp --update</source>
+      <translation>Uma nova versão do yt-dlp está disponível: %1 (você tem %2). Para atualizar, abra um terminal e execute: yt-dlp --update</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="589" />
+      <source>yt-dlp up to date</source>
+      <translation>yt-dlp está atualizado</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="590" />
+      <source>yt-dlp is up to date (version %1).</source>
+      <translation>yt-dlp está atualizado (versão %1).</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="600" />
+      <location filename="../../ui/main_window.py" line="594" />
+      <source>Could not check for yt-dlp updates.</source>
+      <translation>Não foi possível verificar as atualizações do yt-dlp.</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="599" />
+      <source>yt-dlp update check</source>
+      <translation>Verificação de atualização do yt-dlp</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="613" />
       <source>Enter a YouTube URL first.</source>
       <translation>Digite primeiro uma URL do YouTube.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="522" />
+      <location filename="../../ui/main_window.py" line="622" />
       <source>Analyzing…</source>
       <translation>Analisando…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="530" />
+      <location filename="../../ui/main_window.py" line="630" />
       <source>Analyzing video…</source>
       <translation>Analisando vídeo…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="544" />
+      <location filename="../../ui/main_window.py" line="644" />
       <source>%1 manual / %2 automatic subtitle track(s).</source>
       <translation>%1 trilha(s) de legenda manual(is) / %2 automática(s).</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="552" />
+      <location filename="../../ui/main_window.py" line="652" />
       <source>Playlist detected</source>
       <translation>Lista de reprodução detectada</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="555" />
+      <location filename="../../ui/main_window.py" line="655" />
       <source>This URL belongs to the playlist “%1” with %2 video(s).</source>
       <translation>Esta URL pertence à lista de reprodução “%1” com %2 vídeo(s).</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="561" />
+      <location filename="../../ui/main_window.py" line="661" />
       <source>Analyze only this video</source>
       <translation>Analisar apenas este vídeo</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="564" />
+      <location filename="../../ui/main_window.py" line="664" />
       <source>Analyze entire playlist</source>
       <translation>Analisar a lista inteira</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="583" />
+      <location filename="../../ui/main_window.py" line="683" />
       <source>No videos selected from the playlist.</source>
       <translation>Nenhum vídeo selecionado da lista de reprodução.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="588" />
+      <location filename="../../ui/main_window.py" line="688" />
       <source>Playlist: %1 video(s) selected; analyzing the first one for subtitle selection.</source>
       <translation>Lista: %1 vídeo(s) selecionado(s); analisando o primeiro para a seleção de legendas.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="600" />
+      <location filename="../../ui/main_window.py" line="700" />
       <source>Analyzing video %1/%2…</source>
       <translation>Analisando vídeo %1/%2…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="611" />
+      <location filename="../../ui/main_window.py" line="711" />
       <source>Analyze a video first.</source>
       <translation>Analise um vídeo primeiro.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="920" />
-      <location filename="../../ui/main_window.py" line="616" />
+      <location filename="../../ui/main_window.py" line="1020" />
+      <location filename="../../ui/main_window.py" line="716" />
       <source>Select at least one subtitle to download.</source>
       <translation>Selecione pelo menos uma legenda para baixar.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="948" />
-      <location filename="../../ui/main_window.py" line="944" />
-      <location filename="../../ui/main_window.py" line="627" />
+      <location filename="../../ui/main_window.py" line="1048" />
+      <location filename="../../ui/main_window.py" line="1044" />
+      <location filename="../../ui/main_window.py" line="727" />
       <source>Error</source>
       <translation>Erro</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="629" />
+      <location filename="../../ui/main_window.py" line="729" />
       <source>Cannot create the destination folder:
 %1</source>
       <translation>Não foi possível criar a pasta de destino:
 %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="658" />
+      <location filename="../../ui/main_window.py" line="758" />
       <source>Downloading…</source>
       <translation>Baixando…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="661" />
+      <location filename="../../ui/main_window.py" line="761" />
       <source>Downloading %1 track(s) for %2 video(s) into %3…</source>
       <translation>Baixando %1 trilha(s) de %2 vídeo(s) em %3…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="673" />
+      <location filename="../../ui/main_window.py" line="773" />
       <source>Progress: %1/%2</source>
       <translation>Progresso: %1/%2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="680" />
+      <location filename="../../ui/main_window.py" line="780" />
       <source>Completed: %1 → %2</source>
       <translation>Concluído: %1 → %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="686" />
+      <location filename="../../ui/main_window.py" line="786" />
       <source>Skipped: %1 — %2</source>
       <translation>Ignorado: %1 — %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="692" />
+      <location filename="../../ui/main_window.py" line="792" />
       <source>Failed: %1 — %2</source>
       <translation>Falhou: %1 — %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="698" />
+      <location filename="../../ui/main_window.py" line="798" />
       <source>Download finished.</source>
       <translation>Download concluído.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="709" />
+      <location filename="../../ui/main_window.py" line="809" />
       <source>Download finished</source>
       <translation>Download concluído</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="711" />
+      <location filename="../../ui/main_window.py" line="811" />
       <source>Downloaded %1 subtitle(s).</source>
       <translation>%1 legenda(s) baixada(s).</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="735" />
+      <location filename="../../ui/main_window.py" line="835" />
       <source>Cancellation requested…</source>
       <translation>Cancelamento solicitado…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="736" />
+      <location filename="../../ui/main_window.py" line="836" />
       <source>Cancelling…</source>
       <translation>Cancelando…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="751" />
+      <location filename="../../ui/main_window.py" line="851" />
       <source>Published %1</source>
       <translation>Publicado em %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="755" />
+      <location filename="../../ui/main_window.py" line="855" />
       <source>ID: %1</source>
       <translation>ID: %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="789" />
+      <location filename="../../ui/main_window.py" line="889" />
       <source>Pasted a YouTube URL from the clipboard.</source>
       <translation>Uma URL do YouTube foi colada da área de transferência.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="794" />
+      <location filename="../../ui/main_window.py" line="894" />
       <source>The clipboard does not contain a YouTube URL.</source>
       <translation>A área de transferência não contém uma URL do YouTube.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="833" />
-      <location filename="../../ui/main_window.py" line="806" />
+      <location filename="../../ui/main_window.py" line="933" />
+      <location filename="../../ui/main_window.py" line="906" />
       <source>Ready.</source>
       <translation>Pronto.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="812" />
+      <location filename="../../ui/main_window.py" line="912" />
       <source>Select destination folder</source>
       <translation>Selecionar pasta de destino</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="848" />
+      <location filename="../../ui/main_window.py" line="948" />
       <source>Help</source>
       <translation>Ajuda</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="849" />
+      <location filename="../../ui/main_window.py" line="949" />
       <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).
 2. Press Analyze to fetch the video and its subtitles.
 3. Check the languages you want (tabs filter manual/automatic).
@@ -693,22 +749,22 @@ Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · 
 Atalhos: Ctrl+L URL · Ctrl+F pesquisar · Ctrl+D baixar · Ctrl+, configurações · Ctrl+Q sair.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="866" />
+      <location filename="../../ui/main_window.py" line="966" />
       <source>Select exactly one subtitle to preview.</source>
       <translation>Selecione exatamente uma legenda para pré-visualizar.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="951" />
+      <location filename="../../ui/main_window.py" line="1051" />
       <source>Cancelled.</source>
       <translation>Cancelado.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="954" />
+      <location filename="../../ui/main_window.py" line="1054" />
       <source>Operation cancelled.</source>
       <translation>Operação cancelada.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="972" />
+      <location filename="../../ui/main_window.py" line="1072" />
       <source>Dropped a URL onto the window.</source>
       <translation>Uma URL foi solta na janela.</translation>
     </message>

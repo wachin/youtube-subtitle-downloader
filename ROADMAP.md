@@ -1067,6 +1067,15 @@ porque podría romper paquetes administrados por Debian.
 
 En su lugar explicar al usuario cómo actualizar según su instalación.
 
+> Hecho: al abrir la ventana se comprueba en segundo plano (worker Qt) la
+> última versión estable de yt-dlp en GitHub (`latest_version()`/`check_update()`
+> en `ytdlp_service.py`, `UpdateCheckWorker` en `workers/update_worker.py`). Si
+> hay una versión más nueva se avisa al usuario con la instrucción manual
+> `yt-dlp --update` (diálogo o barra de estado) y hay una acción en el menú
+> Herramientas → "Comprobar actualización de yt-dlp" para hacerlo bajo demanda.
+> Nunca se instala ni modifica nada automáticamente; la acción de actualizar es
+> siempre manual, respetando el método de instalación (apt, pip, pipx…).
+
 ---
 
 # [x] 41. Debian

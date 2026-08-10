@@ -178,6 +178,15 @@ def test_about_dialog_shows_author_links_and_big_icon():
     dialog.close()
 
 
+def test_tools_menu_has_update_check_action():
+    """The Tools menu offers the manual 'Check for yt-dlp update' action."""
+    _app()
+    window = MainWindow(SettingsService())
+    texts = [action.text() for action in window._tools_menu.actions()]
+    assert any("yt-dlp update" in text for text in texts)
+    window.close()
+
+
 def test_clicking_the_checkbox_indicator_checks_it():
     """Direct clicks on the checkbox indicator toggle the state once."""
     from PyQt6.QtCore import QPoint

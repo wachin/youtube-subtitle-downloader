@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
+import sys
 from datetime import datetime
 from pathlib import Path
 
-from PyQt6.QtCore import QUrl, Qt
+from PyQt6.QtCore import QTimer, QUrl, Qt
 from PyQt6.QtGui import QAction, QDesktopServices, QKeySequence, QPixmap
 from PyQt6.QtNetwork import QNetworkAccessManager, QNetworkReply, QNetworkRequest
 from PyQt6.QtWidgets import (
@@ -41,6 +42,7 @@ from ..utils.logging import get_logger
 from ..utils.notifications import send_notification
 from ..utils.paths import default_download_dir
 from ..workers.download_worker import DownloadWorker
+from ..workers.update_worker import UpdateCheckWorker
 from ..workers.video_info_worker import PlaylistWorker, VideoInfoWorker
 from .about_dialog import AboutDialog
 from .download_complete_dialog import DownloadCompleteDialog
@@ -63,6 +65,12 @@ class MainWindow(QMainWindow):
         self._settings = settings
         self._video: VideoInfo | None = None
         self._worker = None
+        self._update_worker = None
+        self._update_timer = QTimer(self)
+        self._update_timer.setSingleShot(True)
+        self._update_timer.setInterval(3000)
+        self._update_timer.timeout.connect(self._check_for_update)
+        self._update_check_queued = False
         self._pending_playlist_entries: list[PlaylistEntry] = []
         self._thumbnail_reply: QNetworkReply | None = None
         self._language = settings.language()
@@ -401,6 +409,12 @@ class MainWindow(QMainWindow):
         self._check_action.setIcon(theme_icon("system-run"))
         self._check_action.triggered.connect(self._show_system_info)
         self._tools_menu.addAction(self._check_action)
+        self._update_check_action = QAction(self)
+        self._update_check_action.setIcon(theme_icon("system-software-update"))
+        self._update_check_action.triggered.connect(
+            lambda: self._check_for_update(interactive=True)
+        )
+        self._tools_menu.addAction(self._update_check_action)
 
         self._help_menu = menu_bar.addMenu("")
         self._help_action = QAction(self)
@@ -429,6 +443,7 @@ class MainWindow(QMainWindow):
         self._tools_menu.setTitle(self.tr("&Tools"))
         self._settings_action.setText(self.tr("&Settings…"))
         self._check_action.setText(self.tr("&Check yt-dlp"))
+        self._update_check_action.setText(self.tr("&Check for yt-dlp update"))
 
         self._help_menu.setTitle(self.tr("&Help"))
         self._help_action.setText(self.tr("&Help"))
@@ -503,6 +518,91 @@ class MainWindow(QMainWindow):
                     "or by following the official yt-dlp documentation."
                 ),
             )
+
+    # ------------------------------------------------------------------
+    # yt-dlp update check (roadmap section 40)
+    # ------------------------------------------------------------------
+    def _check_for_update(self, interactive: bool = False) -> None:
+        """Check for a newer yt-dlp release in the background.
+
+        Non-destructive: only queries the GitHub API and tells the user the
+        manual update command; it never installs or modifies anything.
+        """
+        if self._update_worker is not None and self._update_worker.isRunning():
+            return
+        if interactive:
+            self.statusBar().showMessage(self.tr("Checking for yt-dlp updates…"))
+        worker = UpdateCheckWorker(self)
+        self._update_worker = worker
+        worker.check_done.connect(
+            lambda available, latest: self._on_update_checked(available, latest, interactive)
+        )
+        worker.failed.connect(
+            lambda message: self._on_update_check_failed(message, interactive)
+        )
+        worker.finished.connect(lambda: self._on_update_worker_finished(worker))
+        worker.start()
+
+    def _on_update_checked(self, available: bool, latest, interactive: bool) -> None:
+        """Handle the background update check result."""
+        installed = YtDlpService(self._settings).installed_version or self.tr("unknown")
+        if available:
+            self._append_log(
+                translate_args(
+                    self.tr(
+                        "A new version of yt-dlp is available: %1 (you have %2).\n\n"
+                        "To update it, open a terminal and run:\n\n"
+                        "    yt-dlp --update"
+                    ),
+                    latest,
+                    installed,
+                )
+            )
+            if interactive:
+                QMessageBox.information(
+                    self,
+                    self.tr("yt-dlp update available"),
+                    translate_args(
+                        self.tr(
+                            "A new version of yt-dlp is available: %1 (you have %2).\n\n"
+                            "To update it, open a terminal and run:\n\n"
+                            "    yt-dlp --update"
+                        ),
+                        latest,
+                        installed,
+                    ),
+                )
+            else:
+                self.statusBar().showMessage(
+                    translate_args(
+                        self.tr(
+                            "A new version of yt-dlp is available: %1 (you have %2). "
+                            "To update it, open a terminal and run: yt-dlp --update"
+                        ),
+                        latest,
+                        installed,
+                    )
+                )
+        elif interactive:
+            QMessageBox.information(
+                self,
+                self.tr("yt-dlp up to date"),
+                translate_args(self.tr("yt-dlp is up to date (version %1)."), installed),
+            )
+
+    def _on_update_check_failed(self, message: str, interactive: bool = False) -> None:
+        self.statusBar().showMessage(self.tr("Could not check for yt-dlp updates."))
+        self._append_log(f"yt-dlp update check failed: {message}")
+        if interactive:
+            QMessageBox.warning(
+                self,
+                self.tr("yt-dlp update check"),
+                self.tr("Could not check for yt-dlp updates."),
+            )
+
+    def _on_update_worker_finished(self, worker) -> None:
+        if self._update_worker is worker:
+            self._update_worker = None
 
     # ------------------------------------------------------------------
     # Video analysis
@@ -971,7 +1071,20 @@ class MainWindow(QMainWindow):
             event.acceptProposedAction()
             self._append_log(self.tr("Dropped a URL onto the window."))
 
+    def showEvent(self, event) -> None:  # noqa: N802
+        super().showEvent(event)
+        # Deferred non-blocking update check, once per window. Skipped under
+        # pytest so GUI smoke tests never trigger a real network request.
+        if not self._update_check_queued and "pytest" not in sys.modules:
+            self._update_check_queued = True
+            self._update_timer.start()
+
     def closeEvent(self, event) -> None:  # noqa: N802
+        if self._update_timer is not None:
+            self._update_timer.stop()
+        if self._update_worker is not None and self._update_worker.isRunning():
+            self._update_worker.cancel()
+            self._update_worker.wait(3000)
         if self._worker is not None and self._worker.isRunning():
             self._worker.cancel()
             self._worker.wait(3000)

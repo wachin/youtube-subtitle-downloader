@@ -224,277 +224,283 @@
   <context>
     <name>MainWindow</name>
     <message>
-      <location filename="../../ui/main_window.py" line="286" />
+      <location filename="../../ui/main_window.py" line="294" />
       <source>URL:</source>
       <translation>URL:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="288" />
+      <location filename="../../ui/main_window.py" line="296" />
       <source>https://www.youtube.com/watch?v=… or any supported YouTube URL</source>
       <translation>https://www.youtube.com/watch?v=… 또는 지원되는 YouTube URL</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="290" />
+      <location filename="../../ui/main_window.py" line="298" />
       <source>Paste URL</source>
       <translation>URL 붙여넣기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="291" />
+      <location filename="../../ui/main_window.py" line="299" />
       <source>Paste a YouTube URL from the clipboard</source>
       <translation>클립보드에서 YouTube URL 붙여넣기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="292" />
+      <location filename="../../ui/main_window.py" line="300" />
       <source>Analyze</source>
       <translation>분석</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="294" />
+      <location filename="../../ui/main_window.py" line="302" />
       <source>Fetch the video info and its subtitles (Ctrl+L focuses the URL)</source>
       <translation>동영상 정보와 자막을 가져옵니다 (Ctrl+L로 URL 필드에 포커스)</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="802" />
-      <location filename="../../ui/main_window.py" line="778" />
-      <location filename="../../ui/main_window.py" line="521" />
-      <location filename="../../ui/main_window.py" line="298" />
+      <location filename="../../ui/main_window.py" line="902" />
+      <location filename="../../ui/main_window.py" line="878" />
+      <location filename="../../ui/main_window.py" line="621" />
+      <location filename="../../ui/main_window.py" line="306" />
       <source>No image</source>
       <translation>이미지 없음</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="803" />
-      <location filename="../../ui/main_window.py" line="300" />
+      <location filename="../../ui/main_window.py" line="903" />
+      <location filename="../../ui/main_window.py" line="308" />
       <source>No video analyzed yet.</source>
       <translation>아직 분석된 동영상이 없습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="306" />
+      <location filename="../../ui/main_window.py" line="314" />
       <source>Search language:</source>
       <translation>언어 검색:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="307" />
+      <location filename="../../ui/main_window.py" line="315" />
       <source>Spanish, Español, es, es-orig …</source>
       <translation>한국어, Korean, ko, ko-orig …</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="308" />
+      <location filename="../../ui/main_window.py" line="316" />
       <source>Select all</source>
       <translation>모두 선택</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="309" />
+      <location filename="../../ui/main_window.py" line="317" />
       <source>Select none</source>
       <translation>모두 선택 해제</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="310" />
+      <location filename="../../ui/main_window.py" line="318" />
       <source>Manual only</source>
       <translation>수동만</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="311" />
+      <location filename="../../ui/main_window.py" line="319" />
       <source>Automatic only</source>
       <translation>자동만</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="313" />
+      <location filename="../../ui/main_window.py" line="321" />
       <source>All</source>
       <translation>모두</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="314" />
+      <location filename="../../ui/main_window.py" line="322" />
       <source>Subtitles</source>
       <translation>자막</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="315" />
+      <location filename="../../ui/main_window.py" line="323" />
       <source>Automatic</source>
       <translation>자동</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="317" />
+      <location filename="../../ui/main_window.py" line="325" />
       <source>Options</source>
       <translation>옵션</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="318" />
+      <location filename="../../ui/main_window.py" line="326" />
       <source>Format:</source>
       <translation>형식:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="319" />
+      <location filename="../../ui/main_window.py" line="327" />
       <source>Also create clean TXT file</source>
       <translation>정리된 TXT 파일도 만들기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="320" />
+      <location filename="../../ui/main_window.py" line="328" />
       <source>TXT mode:</source>
       <translation>TXT 모드:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="321" />
+      <location filename="../../ui/main_window.py" line="329" />
       <source>Save to:</source>
       <translation>저장 위치:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="322" />
+      <location filename="../../ui/main_window.py" line="330" />
       <source>Browse…</source>
       <translation>찾아보기…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="323" />
+      <location filename="../../ui/main_window.py" line="331" />
       <source>File name:</source>
       <translation>파일 이름:</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="325" />
+      <location filename="../../ui/main_window.py" line="333" />
       <source>Preview</source>
       <translation>미리 보기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="327" />
+      <location filename="../../ui/main_window.py" line="335" />
       <source>Preview the selected subtitle (double-click a row)</source>
       <translation>선택한 자막 미리 보기 (행을 두 번 클릭)</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="329" />
+      <location filename="../../ui/main_window.py" line="337" />
       <source>Cancel</source>
       <translation>취소</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="330" />
+      <location filename="../../ui/main_window.py" line="338" />
       <source>Download selected</source>
       <translation>선택 항목 다운로드</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="332" />
+      <location filename="../../ui/main_window.py" line="340" />
       <source>Details / Log</source>
       <translation>세부 정보 / 로그</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="333" />
+      <location filename="../../ui/main_window.py" line="341" />
       <source>Copy log</source>
       <translation>로그 복사</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="334" />
+      <location filename="../../ui/main_window.py" line="342" />
       <source>Clear log</source>
       <translation>로그 지우기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="339" />
+      <location filename="../../ui/main_window.py" line="347" />
       <source>Continuous text</source>
       <translation>연속 텍스트</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="340" />
+      <location filename="../../ui/main_window.py" line="348" />
       <source>Paragraphs</source>
       <translation>문단</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="341" />
+      <location filename="../../ui/main_window.py" line="349" />
       <source>One line per subtitle</source>
       <translation>자막당 한 줄</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="351" />
+      <location filename="../../ui/main_window.py" line="359" />
       <source>Title - Language</source>
       <translation>제목 - 언어</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="355" />
+      <location filename="../../ui/main_window.py" line="363" />
       <source>Title [ID] - Language</source>
       <translation>제목 [ID] - 언어</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="359" />
+      <location filename="../../ui/main_window.py" line="367" />
       <source>ID - Language</source>
       <translation>ID - 언어</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="362" />
+      <location filename="../../ui/main_window.py" line="370" />
       <source>Custom</source>
       <translation>사용자 지정</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="423" />
+      <location filename="../../ui/main_window.py" line="437" />
       <source>&amp;File</source>
       <translation>&amp;파일</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="424" />
+      <location filename="../../ui/main_window.py" line="438" />
       <source>&amp;New URL</source>
       <translation>새 &amp;URL</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="425" />
+      <location filename="../../ui/main_window.py" line="439" />
       <source>Open &amp;downloads folder</source>
       <translation>다운로드 &amp;폴더 열기</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="426" />
+      <location filename="../../ui/main_window.py" line="440" />
       <source>&amp;History…</source>
       <translation>&amp;기록…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="427" />
+      <location filename="../../ui/main_window.py" line="441" />
       <source>&amp;Quit</source>
       <translation>&amp;종료</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="429" />
+      <location filename="../../ui/main_window.py" line="443" />
       <source>&amp;Tools</source>
       <translation>&amp;도구</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="430" />
+      <location filename="../../ui/main_window.py" line="444" />
       <source>&amp;Settings…</source>
       <translation>&amp;설정…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="431" />
+      <location filename="../../ui/main_window.py" line="445" />
       <source>&amp;Check yt-dlp</source>
       <translation>yt-dlp &amp;확인</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="434" />
-      <location filename="../../ui/main_window.py" line="433" />
+      <location filename="../../ui/main_window.py" line="446" />
+      <source>&amp;Check for yt-dlp update</source>
+      <translation>yt-dlp 업데이트 확인(&amp;C)</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="449" />
+      <location filename="../../ui/main_window.py" line="448" />
       <source>&amp;Help</source>
       <translation>&amp;도움말</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="435" />
+      <location filename="../../ui/main_window.py" line="450" />
       <source>&amp;System info</source>
       <translation>&amp;시스템 정보</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="436" />
+      <location filename="../../ui/main_window.py" line="451" />
       <source>&amp;About</source>
       <translation>&amp;정보</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="492" />
+      <location filename="../../ui/main_window.py" line="507" />
       <source>Ready — yt-dlp %1</source>
       <translation>준비됨 — yt-dlp %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="492" />
+      <location filename="../../ui/main_window.py" line="548" />
+      <location filename="../../ui/main_window.py" line="507" />
       <source>unknown</source>
       <translation>알 수 없음</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="495" />
+      <location filename="../../ui/main_window.py" line="510" />
       <source>yt-dlp is not installed.</source>
       <translation>yt-dlp가 설치되어 있지 않습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="498" />
+      <location filename="../../ui/main_window.py" line="513" />
       <source>yt-dlp not found</source>
       <translation>yt-dlp를 찾을 수 없음</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="499" />
+      <location filename="../../ui/main_window.py" line="514" />
       <source>yt-dlp was not found.
 
 This application uses yt-dlp to communicate with YouTube.
@@ -505,178 +511,228 @@ On Debian/Ubuntu you can install it with your package manager or by following th
 Debian/Ubuntu에서는 패키지 관리자로 설치하거나 공식 yt-dlp 문서를 따라 설치할 수 있습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="513" />
+      <location filename="../../ui/main_window.py" line="534" />
+      <source>Checking for yt-dlp updates…</source>
+      <translation>yt-dlp 업데이트 확인 중…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="566" />
+      <location filename="../../ui/main_window.py" line="552" />
+      <source>A new version of yt-dlp is available: %1 (you have %2).
+
+To update it, open a terminal and run:
+
+    yt-dlp --update</source>
+      <translation>yt-dlp의 새 버전을 사용할 수 있습니다: %1 (현재: %2).
+
+업데이트하려면 터미널을 열고 다음을 실행하세요:
+
+    yt-dlp --update</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="564" />
+      <source>yt-dlp update available</source>
+      <translation>yt-dlp 업데이트 사용 가능</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="578" />
+      <source>A new version of yt-dlp is available: %1 (you have %2). To update it, open a terminal and run: yt-dlp --update</source>
+      <translation>yt-dlp의 새 버전을 사용할 수 있습니다: %1 (현재: %2). 업데이트하려면 터미널을 열고 다음을 실행하세요: yt-dlp --update</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="589" />
+      <source>yt-dlp up to date</source>
+      <translation>yt-dlp 최신 버전</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="590" />
+      <source>yt-dlp is up to date (version %1).</source>
+      <translation>yt-dlp가 최신 버전입니다 (버전 %1).</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="600" />
+      <location filename="../../ui/main_window.py" line="594" />
+      <source>Could not check for yt-dlp updates.</source>
+      <translation>yt-dlp 업데이트를 확인할 수 없습니다.</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="599" />
+      <source>yt-dlp update check</source>
+      <translation>yt-dlp 업데이트 확인</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="613" />
       <source>Enter a YouTube URL first.</source>
       <translation>먼저 YouTube URL을 입력하세요.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="522" />
+      <location filename="../../ui/main_window.py" line="622" />
       <source>Analyzing…</source>
       <translation>분석 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="530" />
+      <location filename="../../ui/main_window.py" line="630" />
       <source>Analyzing video…</source>
       <translation>동영상 분석 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="544" />
+      <location filename="../../ui/main_window.py" line="644" />
       <source>%1 manual / %2 automatic subtitle track(s).</source>
       <translation>수동 %1개 / 자동 %2개의 자막 트랙.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="552" />
+      <location filename="../../ui/main_window.py" line="652" />
       <source>Playlist detected</source>
       <translation>재생 목록 감지됨</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="555" />
+      <location filename="../../ui/main_window.py" line="655" />
       <source>This URL belongs to the playlist “%1” with %2 video(s).</source>
       <translation>이 URL은 %2개의 동영상이 있는 재생 목록 “%1”에 속합니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="561" />
+      <location filename="../../ui/main_window.py" line="661" />
       <source>Analyze only this video</source>
       <translation>이 동영상만 분석</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="564" />
+      <location filename="../../ui/main_window.py" line="664" />
       <source>Analyze entire playlist</source>
       <translation>전체 재생 목록 분석</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="583" />
+      <location filename="../../ui/main_window.py" line="683" />
       <source>No videos selected from the playlist.</source>
       <translation>재생 목록에서 선택된 동영상이 없습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="588" />
+      <location filename="../../ui/main_window.py" line="688" />
       <source>Playlist: %1 video(s) selected; analyzing the first one for subtitle selection.</source>
       <translation>재생 목록: %1개의 동영상을 선택했습니다. 자막 선택을 위해 첫 번째 동영상을 분석합니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="600" />
+      <location filename="../../ui/main_window.py" line="700" />
       <source>Analyzing video %1/%2…</source>
       <translation>동영상 %1/%2 분석 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="611" />
+      <location filename="../../ui/main_window.py" line="711" />
       <source>Analyze a video first.</source>
       <translation>먼저 동영상을 분석하세요.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="920" />
-      <location filename="../../ui/main_window.py" line="616" />
+      <location filename="../../ui/main_window.py" line="1020" />
+      <location filename="../../ui/main_window.py" line="716" />
       <source>Select at least one subtitle to download.</source>
       <translation>다운로드할 자막을 하나 이상 선택하세요.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="948" />
-      <location filename="../../ui/main_window.py" line="944" />
-      <location filename="../../ui/main_window.py" line="627" />
+      <location filename="../../ui/main_window.py" line="1048" />
+      <location filename="../../ui/main_window.py" line="1044" />
+      <location filename="../../ui/main_window.py" line="727" />
       <source>Error</source>
       <translation>오류</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="629" />
+      <location filename="../../ui/main_window.py" line="729" />
       <source>Cannot create the destination folder:
 %1</source>
       <translation>대상 폴더를 만들 수 없습니다:
 %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="658" />
+      <location filename="../../ui/main_window.py" line="758" />
       <source>Downloading…</source>
       <translation>다운로드 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="661" />
+      <location filename="../../ui/main_window.py" line="761" />
       <source>Downloading %1 track(s) for %2 video(s) into %3…</source>
       <translation>%2개 동영상의 %1개 트랙을 %3으로 다운로드 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="673" />
+      <location filename="../../ui/main_window.py" line="773" />
       <source>Progress: %1/%2</source>
       <translation>진행률: %1/%2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="680" />
+      <location filename="../../ui/main_window.py" line="780" />
       <source>Completed: %1 → %2</source>
       <translation>완료: %1 → %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="686" />
+      <location filename="../../ui/main_window.py" line="786" />
       <source>Skipped: %1 — %2</source>
       <translation>건너뜀: %1 — %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="692" />
+      <location filename="../../ui/main_window.py" line="792" />
       <source>Failed: %1 — %2</source>
       <translation>실패: %1 — %2</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="698" />
+      <location filename="../../ui/main_window.py" line="798" />
       <source>Download finished.</source>
       <translation>다운로드가 끝났습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="709" />
+      <location filename="../../ui/main_window.py" line="809" />
       <source>Download finished</source>
       <translation>다운로드 완료</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="711" />
+      <location filename="../../ui/main_window.py" line="811" />
       <source>Downloaded %1 subtitle(s).</source>
       <translation>%1개의 자막을 다운로드했습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="735" />
+      <location filename="../../ui/main_window.py" line="835" />
       <source>Cancellation requested…</source>
       <translation>취소를 요청했습니다…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="736" />
+      <location filename="../../ui/main_window.py" line="836" />
       <source>Cancelling…</source>
       <translation>취소 중…</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="751" />
+      <location filename="../../ui/main_window.py" line="851" />
       <source>Published %1</source>
       <translation>%1 게시됨</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="755" />
+      <location filename="../../ui/main_window.py" line="855" />
       <source>ID: %1</source>
       <translation>ID: %1</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="789" />
+      <location filename="../../ui/main_window.py" line="889" />
       <source>Pasted a YouTube URL from the clipboard.</source>
       <translation>클립보드에서 YouTube URL을 붙여넣었습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="794" />
+      <location filename="../../ui/main_window.py" line="894" />
       <source>The clipboard does not contain a YouTube URL.</source>
       <translation>클립보드에 YouTube URL이 없습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="833" />
-      <location filename="../../ui/main_window.py" line="806" />
+      <location filename="../../ui/main_window.py" line="933" />
+      <location filename="../../ui/main_window.py" line="906" />
       <source>Ready.</source>
       <translation>준비됨.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="812" />
+      <location filename="../../ui/main_window.py" line="912" />
       <source>Select destination folder</source>
       <translation>대상 폴더 선택</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="848" />
+      <location filename="../../ui/main_window.py" line="948" />
       <source>Help</source>
       <translation>도움말</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="849" />
+      <location filename="../../ui/main_window.py" line="949" />
       <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).
 2. Press Analyze to fetch the video and its subtitles.
 3. Check the languages you want (tabs filter manual/automatic).
@@ -693,22 +749,22 @@ Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · 
 단축키: Ctrl+L URL · Ctrl+F 검색 · Ctrl+D 다운로드 · Ctrl+, 설정 · Ctrl+Q 종료.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="866" />
+      <location filename="../../ui/main_window.py" line="966" />
       <source>Select exactly one subtitle to preview.</source>
       <translation>미리 볼 자막을 정확히 하나 선택하세요.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="951" />
+      <location filename="../../ui/main_window.py" line="1051" />
       <source>Cancelled.</source>
       <translation>취소됨.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="954" />
+      <location filename="../../ui/main_window.py" line="1054" />
       <source>Operation cancelled.</source>
       <translation>작업이 취소되었습니다.</translation>
     </message>
     <message>
-      <location filename="../../ui/main_window.py" line="972" />
+      <location filename="../../ui/main_window.py" line="1072" />
       <source>Dropped a URL onto the window.</source>
       <translation>창에 URL을 놓았습니다.</translation>
     </message>

@@ -53,6 +53,24 @@ For deb packages distros like: Ubuntu, Linux Mint, Debian, MX Linux, antiX, etc,
 sudo apt install python3 python3-pyqt6 ffmpeg
 ```
 
+## Updating yt-dlp
+
+YouTube changes its internals frequently, and an outdated yt-dlp will
+eventually stop working. **Update yt-dlp about once a month** from a terminal:
+
+```bash
+yt-dlp --update
+```
+
+yt-dlp will show you whether an update is available and, if so, the steps to
+apply it — just follow what it prints. After updating, launch the application
+again as usual.
+
+> If yt-dlp was installed with a package manager (apt, pip, pipx, …),
+> `yt-dlp --update` cannot replace it and will instead print the correct
+> command for your installation (for example `sudo apt install
+> --only-upgrade yt-dlp` or `pip install -U yt-dlp`). Follow what it says.
+
 ## Installation
 
 Clone or download this repository:

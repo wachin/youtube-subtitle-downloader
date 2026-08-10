@@ -6,11 +6,13 @@ changes in yt-dlp by editing mostly this file (roadmap section 24).
 
 from __future__ import annotations
 
+import json
 import logging
 import re
 import shutil
 import subprocess
 import urllib.error
+import urllib.request
 from pathlib import Path
 
 import yt_dlp
@@ -36,6 +38,9 @@ BROWSERS: dict[str, str] = {
 
 _YOUTUBE_HINT = re.compile(r"youtube\.com|youtu\.be|youtube-nocookie\.com", re.IGNORECASE)
 
+#: GitHub endpoint used to check for the latest stable yt-dlp release.
+_GITHUB_LATEST_RELEASE_URL = "https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest"
+
 
 def version() -> str | None:
     """yt-dlp library version, or None when not importable."""
@@ -43,6 +48,55 @@ def version() -> str | None:
         return yt_dlp.version.__version__
     except Exception:
         return None
+
+
+def latest_version(timeout: int = 10) -> str | None:
+    """Latest stable yt-dlp release tag (e.g. ``2026.07.04``) or None.
+
+    Returns ``None`` when the check cannot be performed (no network, GitHub
+    unreachable, malformed response). This is a read-only query: it never
+    installs or modifies anything (roadmap section 40).
+    """
+    request = urllib.request.Request(
+        _GITHUB_LATEST_RELEASE_URL,
+        headers={"User-Agent": "youtube-subtitle-downloader"},
+    )
+    try:
+        response = urllib.request.urlopen(request, timeout=timeout)
+        try:
+            payload = json.load(response)
+        finally:
+            response.close()
+    except Exception:  # noqa: BLE001 - any failure means "cannot check"
+        return None
+    tag = str(payload.get("tag_name") or "").strip().lstrip("v")
+    return tag or None
+
+
+def _version_key(version: str) -> tuple[int, ...]:
+    """Normalize a version like ``2026.07.04`` into a comparable tuple."""
+    parts: list[int] = []
+    for part in version.replace("-", ".").split("."):
+        digits = "".join(ch for ch in part if ch.isdigit())
+        if digits:
+            parts.append(int(digits))
+    return tuple(parts)
+
+
+def check_update() -> tuple[bool, str | None]:
+    """Return ``(update_available, latest_version)``.
+
+    ``latest_version`` is ``None`` when the check could not be performed;
+    ``update_available`` is only ever True when a genuinely newer stable
+    release exists and the installed version is known.
+    """
+    latest = latest_version()
+    if latest is None:
+        return False, None
+    installed = version()
+    if not installed:
+        return False, latest
+    return _version_key(latest) > _version_key(installed), latest
 
 
 def ffmpeg_version() -> str | None:
