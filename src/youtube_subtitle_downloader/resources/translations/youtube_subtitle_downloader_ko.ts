@@ -26,8 +26,8 @@
     </message>
     <message>
       <location filename="../../ui/about_dialog.py" line="49" />
-      <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library. English is the primary language; Spanish is the first translation.&lt;/p&gt;</source>
-      <translation>&lt;p&gt;&lt;b&gt;yt-dlp&lt;/b&gt; 라이브러리를 사용하여 YouTube 자막을 다운로드하는 데스크톱 애플리케이션(Python 3 + PyQt6)입니다. 기본 언어는 영어이며 스페인어가 첫 번째 번역입니다.&lt;/p&gt;</translation>
+      <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;yt-dlp&lt;/b&gt; 라이브러리를 사용하여 YouTube 자막을 다운로드하는 데스크톱 애플리케이션(Python 3 + PyQt6)입니다.&lt;/p&gt;</translation>
     </message>
     <message>
       <location filename="../../ui/about_dialog.py" line="54" />

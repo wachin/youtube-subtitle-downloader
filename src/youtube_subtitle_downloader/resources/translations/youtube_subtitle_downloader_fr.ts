@@ -26,8 +26,8 @@
     </message>
     <message>
       <location filename="../../ui/about_dialog.py" line="49" />
-      <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library. English is the primary language; Spanish is the first translation.&lt;/p&gt;</source>
-      <translation>&lt;p&gt;Une application de bureau (Python 3 + PyQt6) qui télécharge les sous-titres YouTube à l'aide de la bibliothèque &lt;b&gt;yt-dlp&lt;/b&gt;. L'anglais est la langue principale ; l'espagnol est la première traduction.&lt;/p&gt;</translation>
+      <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;Une application de bureau (Python 3 + PyQt6) qui télécharge les sous-titres YouTube à l'aide de la bibliothèque &lt;b&gt;yt-dlp&lt;/b&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
       <location filename="../../ui/about_dialog.py" line="54" />

@@ -48,8 +48,7 @@ class AboutDialog(QDialog):
             f"<p>{translate_args(self.tr('Version %1'), __version__)}</p>"
             + self.tr(
                 "<p>A desktop application (Python 3 + PyQt6) that downloads YouTube "
-                "subtitles using the <b>yt-dlp</b> library. English is the primary "
-                "language; Spanish is the first translation.</p>"
+                "subtitles using the <b>yt-dlp</b> library.</p>"
             )
             + self.tr("<p>Licensed under the <b>GNU GPL v3 or later</b>.</p>")
         )
