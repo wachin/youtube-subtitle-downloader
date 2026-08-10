@@ -10,8 +10,6 @@ available subtitles, select one or more languages and download them.
 > The primary language of the application is **English**. A Spanish translation
 > (via Qt Linguist) is available and can be selected in Settings → General → Language.
 
-<!-- Add a screenshot of the main window here once available: ![Screenshot](docs/screenshot.png) -->
-
 ## Features
 
 - Fetch video info and thumbnails without freezing the GUI (background threads).
@@ -42,39 +40,34 @@ available subtitles, select one or more languages and download them.
 
 - Python 3.9+ (tested on 3.13)
 - PyQt6
-- yt-dlp
 - FFmpeg (optional; only used when the chosen format needs conversion)
+- yt-dlp (For this tutorial, yt-dlp from the MX-Linux repositories was used.)
+
+### Dependencies from the repository
+
+For deb packages distros like: Ubuntu, Linux Mint, Debian, MX Linux, antiX, etc, etc
+
+```bash
+sudo apt install python3 python3-pyqt6 ffmpeg
+```
 
 ## Installation
 
-### From the repository (development)
+Clone or download this repository:
 
-```bash
-sudo apt install python3 python3-pyqt6 python3-pip ffmpeg
-python3 -m pip install --user yt-dlp   # or install python3-yt-dlp from Debian
-```
+[https://github.com/wachin/youtube-subtitle-downloader](https://github.com/wachin/youtube-subtitle-downloader)
 
-Create a virtual environment (recommended):
+Open a terminal in the repository folder
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
-```
-
-Run the application:
+## Run the application
 
 ```bash
 python3 run.py
 ```
 
-(also works without installing: `PYTHONPATH=src python3 -m youtube_subtitle_downloader`).
+![](images/youtube-subtitle-downloader-ezgif.com.gif)
 
-After `pip install -e .` you can also use the installed command:
-
-```bash
-youtube-subtitle-downloader
-```
+(also work with this command `PYTHONPATH=src python3 -m youtube_subtitle_downloader`).
 
 ## Usage
 
