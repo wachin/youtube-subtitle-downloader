@@ -139,10 +139,33 @@ Cookie contents are never read, stored or logged by this application.
 
 ## Development
 
+> **Optional — regular users do not need pip.** On Debian-family distributions
+> (Ubuntu, Linux Mint, Debian, MX Linux, antiX, …) the dependencies are
+> available in the repositories: `sudo apt install python3 python3-pyqt6
+> yt-dlp ffmpeg` and then `python3 run.py` is enough.
+
+Pip is only useful for **developers** or for systems where the dependencies
+are not available in the repositories (or are too old), for example:
+
+- your distribution does not package PyQt6 and/or yt-dlp;
+- you want an isolated environment that does not modify system packages;
+- you want a newer yt-dlp than the repository version.
+
+To set up an isolated virtual environment (recommended for development):
+
 ```bash
-pip install -e ".[dev]"
-python -m pytest
+# Debian/Ubuntu/MX users may need this first:
+# sudo apt install python3-venv
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"   # runtime deps + dev tools (pytest, ruff, black, mypy)
+python -m pytest          # run the test suite
 ```
+
+After that you can also launch the app from the virtual environment with
+`youtube-subtitle-downloader` or `python run.py`. To install only the runtime
+dependencies with pip (no dev tools), use `pip install -r requirements.txt`
+instead.
 
 The project uses `ruff`, `black` and `mypy` for style and typing (development
 dependencies only — end users do not need them).
