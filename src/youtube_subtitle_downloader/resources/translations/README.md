@@ -1,16 +1,19 @@
 # Translations (Qt Linguist)
 
-The primary language of the application is **English**. A complete **Spanish**
-translation is bundled (`youtube_subtitle_downloader_es.qm`) and can be
-enabled from **Settings → General → Language**; it applies immediately,
-without restarting.
+The primary language of the application is **English**. Bundled translations
+(`.qm` files below) can be enabled from **Settings → General → Language**;
+they apply immediately, without restarting.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `youtube_subtitle_downloader_es.ts` | Qt Linguist source catalog (edit this to translate) |
-| `youtube_subtitle_downloader_es.qm` | Compiled catalog, loaded at runtime |
+| `youtube_subtitle_downloader_<lang>.ts` | Qt Linguist source catalog (edit this to translate) |
+| `youtube_subtitle_downloader_<lang>.qm` | Compiled catalog, loaded at runtime |
+
+Bundled languages: `es` (Español), `de` (Deutsch), `fr` (Français),
+`ja` (日本語), `ko` (한국어), `pt_BR` (Português do Brasil),
+`ru` (Русский), `zh_CN` (简体中文), `zh_TW` (繁體中文).
 
 ## Workflow
 
@@ -39,6 +42,21 @@ application stays in English.
 ## Adding a new language
 
 1. Add the code to `AVAILABLE_LANGUAGES` in
-   `src/youtube_subtitle_downloader/i18n/__init__.py`.
-2. Generate and translate a new `.ts` (e.g. `youtube_subtitle_downloader_pt.ts`).
-3. Compile it to `.qm` and ship it in this folder.
+   `src/youtube_subtitle_downloader/i18n/__init__.py` **and** to the
+   `LANGUAGES` list in `src/youtube_subtitle_downloader/ui/settings_dialog.py`.
+2. Generate and translate a new `.ts` (e.g. `youtube_subtitle_downloader_pt.ts`):
+
+   ```bash
+   pylupdate6 $(find src/youtube_subtitle_downloader -name '*.py') \
+     -ts src/youtube_subtitle_downloader/resources/translations/youtube_subtitle_downloader_pt.ts
+   ```
+
+3. Compile it to `.qm` and ship it in this folder:
+
+   ```bash
+   lrelease src/youtube_subtitle_downloader/resources/translations/youtube_subtitle_downloader_pt.ts \
+     -qm src/youtube_subtitle_downloader/resources/translations/youtube_subtitle_downloader_pt.qm
+   ```
+
+4. `system_language()` automatically detects the system locale, so a user
+   whose system speaks the new language will get it by default.

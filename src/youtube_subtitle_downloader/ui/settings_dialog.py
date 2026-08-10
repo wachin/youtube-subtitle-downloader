@@ -18,12 +18,15 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
+from ..i18n import AVAILABLE_LANGUAGES
 from ..services.settings_service import SettingsService
 from ..utils.filenames import PRESET_TEMPLATES
 
 FORMATS = [("SRT", "srt"), ("VTT", "vtt"), ("TTML", "ttml"), ("JSON3", "json3"), ("Original", "original")]
 BROWSERS = ["", "Firefox", "Chromium", "Chrome", "Brave", "Edge"]
-LANGUAGES = [("English", "en"), ("Español", "es")]
+#: UI languages offered in the settings dialog. Single source of truth is
+#: ``AVAILABLE_LANGUAGES`` in the i18n module (name, code) pairs.
+LANGUAGES = list(AVAILABLE_LANGUAGES.items())
 PREFERRED = ["", "en", "es", "fr", "de", "it", "pt", "pt-BR", "pt-PT", "ja", "zh", "zh-Hans", "zh-Hant", "ru"]
 
 

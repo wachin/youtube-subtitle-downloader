@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1">
+  <context>
+    <name>AboutDialog</name>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="34" />
+      <location filename="../../ui/about_dialog.py" line="30" />
+      <source>About</source>
+      <translation>關於</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="35" />
+      <source>System info</source>
+      <translation>系統資訊</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="36" />
+      <source>Close</source>
+      <translation>關閉</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="48" />
+      <source>Version %1</source>
+      <translation>版本 %1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="49" />
+      <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library. English is the primary language; Spanish is the first translation.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;一個使用 &lt;b&gt;yt-dlp&lt;/b&gt; 程式庫下載 YouTube 字幕的桌面應用程式（Python 3 + PyQt6）。主要語言為英文；西班牙文是第一種翻譯。&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="54" />
+      <source>&lt;p&gt;Licensed under the &lt;b&gt;GNU GPL v3 or later&lt;/b&gt;.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;根據 &lt;b&gt;GNU GPL v3 或更新版本&lt;/b&gt; 授權。&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="65" />
+      <source>not found</source>
+      <translation>找不到</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="67" />
+      <source>Python</source>
+      <translation>Python</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="68" />
+      <source>Qt</source>
+      <translation>Qt</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="69" />
+      <source>PyQt6</source>
+      <translation>PyQt6</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="70" />
+      <source>yt-dlp</source>
+      <translation>yt-dlp</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="71" />
+      <source>FFmpeg</source>
+      <translation>FFmpeg</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="72" />
+      <source>Operating system</source>
+      <translation>作業系統</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="73" />
+      <source>Architecture</source>
+      <translation>架構</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="74" />
+      <source>Executable</source>
+      <translation>可執行檔</translation>
+    </message>
+  </context>
+  <context>
+    <name>DownloadCompleteDialog</name>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="32" />
+      <source>Download completed</source>
+      <translation>下載完成</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="38" />
+      <source>&lt;h3&gt;Download completed.&lt;/h3&gt;</source>
+      <translation>&lt;h3&gt;下載完成。&lt;/h3&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="41" />
+      <source>&lt;p&gt;&lt;b&gt;%1&lt;/b&gt; subtitle(s) downloaded.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;已下載 &lt;b&gt;%1&lt;/b&gt; 個字幕。&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="47" />
+      <source>&lt;p&gt;%1 subtitle(s) were not available.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;%1 個字幕無法使用。&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="54" />
+      <source>&lt;p&gt;%1 subtitle(s) failed.&lt;/p&gt;</source>
+      <translation>&lt;p&gt;%1 個字幕下載失敗。&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="63" />
+      <source>&lt;p&gt;Folder: &lt;code&gt;%1&lt;/code&gt;&lt;/p&gt;</source>
+      <translation>&lt;p&gt;資料夾：&lt;code&gt;%1&lt;/code&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="73" />
+      <source>View files</source>
+      <translation>檢視檔案</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="75" />
+      <source>Open folder</source>
+      <translation>開啟資料夾</translation>
+    </message>
+    <message>
+      <location filename="../../ui/download_complete_dialog.py" line="77" />
+      <source>Close</source>
+      <translation>關閉</translation>
+    </message>
+  </context>
+  <context>
+    <name>HistoryDialog</name>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="28" />
+      <source>History</source>
+      <translation>歷史紀錄</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="35" />
+      <source>Date</source>
+      <translation>日期</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="36" />
+      <source>Title</source>
+      <translation>標題</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="37" />
+      <source>URL</source>
+      <translation>URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="38" />
+      <source>Languages</source>
+      <translation>語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="39" />
+      <source>Folder</source>
+      <translation>資料夾</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="52" />
+      <source>Open URL</source>
+      <translation>開啟 URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="54" />
+      <source>Open folder</source>
+      <translation>開啟資料夾</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="56" />
+      <source>Copy URL</source>
+      <translation>複製 URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="62" />
+      <source>Delete entry</source>
+      <translation>刪除項目</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="64" />
+      <source>Clear all</source>
+      <translation>全部清除</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="66" />
+      <source>Close</source>
+      <translation>關閉</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="90" />
+      <source>No history yet.</source>
+      <translation>尚無歷史紀錄。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="129" />
+      <source>Clear history</source>
+      <translation>清除歷史紀錄</translation>
+    </message>
+    <message>
+      <location filename="../../ui/history_dialog.py" line="130" />
+      <source>Delete the whole history? This cannot be undone.</source>
+      <translation>刪除所有歷史紀錄？此操作無法復原。</translation>
+    </message>
+  </context>
+  <context>
+    <name>MainWindow</name>
+    <message>
+      <location filename="../../ui/main_window.py" line="286" />
+      <source>URL:</source>
+      <translation>URL：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="288" />
+      <source>https://www.youtube.com/watch?v=… or any supported YouTube URL</source>
+      <translation>https://www.youtube.com/watch?v=… 或任何受支援的 YouTube URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="290" />
+      <source>Paste URL</source>
+      <translation>貼上 URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="291" />
+      <source>Paste a YouTube URL from the clipboard</source>
+      <translation>從剪貼簿貼上 YouTube URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="292" />
+      <source>Analyze</source>
+      <translation>分析</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="294" />
+      <source>Fetch the video info and its subtitles (Ctrl+L focuses the URL)</source>
+      <translation>擷取影片資訊及其字幕（Ctrl+L 聚焦 URL 欄位）</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="802" />
+      <location filename="../../ui/main_window.py" line="778" />
+      <location filename="../../ui/main_window.py" line="521" />
+      <location filename="../../ui/main_window.py" line="298" />
+      <source>No image</source>
+      <translation>無圖片</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="803" />
+      <location filename="../../ui/main_window.py" line="300" />
+      <source>No video analyzed yet.</source>
+      <translation>尚未分析影片。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="306" />
+      <source>Search language:</source>
+      <translation>搜尋語言：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="307" />
+      <source>Spanish, Español, es, es-orig …</source>
+      <translation>中文, Chinese, zh, zh-orig …</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="308" />
+      <source>Select all</source>
+      <translation>全選</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="309" />
+      <source>Select none</source>
+      <translation>全不選</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="310" />
+      <source>Manual only</source>
+      <translation>僅手動</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="311" />
+      <source>Automatic only</source>
+      <translation>僅自動</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="313" />
+      <source>All</source>
+      <translation>全部</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="314" />
+      <source>Subtitles</source>
+      <translation>字幕</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="315" />
+      <source>Automatic</source>
+      <translation>自動</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="317" />
+      <source>Options</source>
+      <translation>選項</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="318" />
+      <source>Format:</source>
+      <translation>格式：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="319" />
+      <source>Also create clean TXT file</source>
+      <translation>同時建立乾淨的 TXT 檔案</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="320" />
+      <source>TXT mode:</source>
+      <translation>TXT 模式：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="321" />
+      <source>Save to:</source>
+      <translation>儲存至：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="322" />
+      <source>Browse…</source>
+      <translation>瀏覽…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="323" />
+      <source>File name:</source>
+      <translation>檔案名稱：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="325" />
+      <source>Preview</source>
+      <translation>預覽</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="327" />
+      <source>Preview the selected subtitle (double-click a row)</source>
+      <translation>預覽所選字幕（按兩下資料列）</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="329" />
+      <source>Cancel</source>
+      <translation>取消</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="330" />
+      <source>Download selected</source>
+      <translation>下載所選項目</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="332" />
+      <source>Details / Log</source>
+      <translation>詳細資料 / 記錄</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="333" />
+      <source>Copy log</source>
+      <translation>複製記錄</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="334" />
+      <source>Clear log</source>
+      <translation>清除記錄</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="339" />
+      <source>Continuous text</source>
+      <translation>連續文字</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="340" />
+      <source>Paragraphs</source>
+      <translation>段落</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="341" />
+      <source>One line per subtitle</source>
+      <translation>每個字幕一行</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="351" />
+      <source>Title - Language</source>
+      <translation>標題 - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="355" />
+      <source>Title [ID] - Language</source>
+      <translation>標題 [ID] - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="359" />
+      <source>ID - Language</source>
+      <translation>ID - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="362" />
+      <source>Custom</source>
+      <translation>自訂</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="423" />
+      <source>&amp;File</source>
+      <translation>&amp;檔案</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="424" />
+      <source>&amp;New URL</source>
+      <translation>新增 &amp;URL</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="425" />
+      <source>Open &amp;downloads folder</source>
+      <translation>開啟下載 &amp;資料夾</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="426" />
+      <source>&amp;History…</source>
+      <translation>&amp;歷史紀錄…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="427" />
+      <source>&amp;Quit</source>
+      <translation>&amp;結束</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="429" />
+      <source>&amp;Tools</source>
+      <translation>&amp;工具</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="430" />
+      <source>&amp;Settings…</source>
+      <translation>&amp;設定…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="431" />
+      <source>&amp;Check yt-dlp</source>
+      <translation>&amp;檢查 yt-dlp</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="434" />
+      <location filename="../../ui/main_window.py" line="433" />
+      <source>&amp;Help</source>
+      <translation>&amp;說明</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="435" />
+      <source>&amp;System info</source>
+      <translation>&amp;系統資訊</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="436" />
+      <source>&amp;About</source>
+      <translation>&amp;關於</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="492" />
+      <source>Ready — yt-dlp %1</source>
+      <translation>就緒 — yt-dlp %1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="492" />
+      <source>unknown</source>
+      <translation>未知</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="495" />
+      <source>yt-dlp is not installed.</source>
+      <translation>未安裝 yt-dlp。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="498" />
+      <source>yt-dlp not found</source>
+      <translation>找不到 yt-dlp</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="499" />
+      <source>yt-dlp was not found.\n\nThis application uses yt-dlp to communicate with YouTube.\nOn Debian/Ubuntu you can install it with your package manager or by following the official yt-dlp documentation.</source>
+      <translation>找不到 yt-dlp。\n\n此應用程式使用 yt-dlp 與 YouTube 通訊。\n在 Debian/Ubuntu 上，您可以使用套件管理員安裝，或依照 yt-dlp 官方文件操作。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="513" />
+      <source>Enter a YouTube URL first.</source>
+      <translation>請先輸入 YouTube URL。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="522" />
+      <source>Analyzing…</source>
+      <translation>正在分析…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="530" />
+      <source>Analyzing video…</source>
+      <translation>正在分析影片…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="544" />
+      <source>%1 manual / %2 automatic subtitle track(s).</source>
+      <translation>%1 條手動 / %2 條自動字幕軌。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="552" />
+      <source>Playlist detected</source>
+      <translation>偵測到播放清單</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="555" />
+      <source>This URL belongs to the playlist “%1” with %2 video(s).</source>
+      <translation>此 URL 屬於播放清單「%1」，包含 %2 個影片。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="561" />
+      <source>Analyze only this video</source>
+      <translation>僅分析此影片</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="564" />
+      <source>Analyze entire playlist</source>
+      <translation>分析整個播放清單</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="583" />
+      <source>No videos selected from the playlist.</source>
+      <translation>未從播放清單選取影片。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="588" />
+      <source>Playlist: %1 video(s) selected; analyzing the first one for subtitle selection.</source>
+      <translation>播放清單：已選取 %1 個影片；正在分析第一個影片以選取字幕。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="600" />
+      <source>Analyzing video %1/%2…</source>
+      <translation>正在分析影片 %1/%2…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="611" />
+      <source>Analyze a video first.</source>
+      <translation>請先分析影片。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="920" />
+      <location filename="../../ui/main_window.py" line="616" />
+      <source>Select at least one subtitle to download.</source>
+      <translation>請至少選取一個要下載的字幕。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="948" />
+      <location filename="../../ui/main_window.py" line="944" />
+      <location filename="../../ui/main_window.py" line="627" />
+      <source>Error</source>
+      <translation>錯誤</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="629" />
+      <source>Cannot create the destination folder:\n%1</source>
+      <translation>無法建立目的地資料夾：\n%1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="658" />
+      <source>Downloading…</source>
+      <translation>正在下載…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="661" />
+      <source>Downloading %1 track(s) for %2 video(s) into %3…</source>
+      <translation>正在將 %2 個影片的 %1 條字幕軌下載至 %3…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="673" />
+      <source>Progress: %1/%2</source>
+      <translation>進度：%1/%2</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="680" />
+      <source>Completed: %1 → %2</source>
+      <translation>已完成：%1 → %2</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="686" />
+      <source>Skipped: %1 — %2</source>
+      <translation>已略過：%1 — %2</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="692" />
+      <source>Failed: %1 — %2</source>
+      <translation>失敗：%1 — %2</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="698" />
+      <source>Download finished.</source>
+      <translation>下載完成。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="709" />
+      <source>Download finished</source>
+      <translation>下載完成</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="711" />
+      <source>Downloaded %1 subtitle(s).</source>
+      <translation>已下載 %1 個字幕。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="735" />
+      <source>Cancellation requested…</source>
+      <translation>已要求取消…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="736" />
+      <source>Cancelling…</source>
+      <translation>正在取消…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="751" />
+      <source>Published %1</source>
+      <translation>發布於 %1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="755" />
+      <source>ID: %1</source>
+      <translation>ID：%1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="789" />
+      <source>Pasted a YouTube URL from the clipboard.</source>
+      <translation>已從剪貼簿貼上 YouTube URL。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="794" />
+      <source>The clipboard does not contain a YouTube URL.</source>
+      <translation>剪貼簿中沒有 YouTube URL。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="833" />
+      <location filename="../../ui/main_window.py" line="806" />
+      <source>Ready.</source>
+      <translation>就緒。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="812" />
+      <source>Select destination folder</source>
+      <translation>選取目的地資料夾</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="848" />
+      <source>Help</source>
+      <translation>說明</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="849" />
+      <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).\n2. Press Analyze to fetch the video and its subtitles.\n3. Check the languages you want (tabs filter manual/automatic).\n4. Choose format, TXT option, destination folder and file name.\n5. Press Download selected.\n\nShortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · Ctrl+Q quit.</source>
+      <translation>1. 貼上 YouTube URL（或將其拖放到視窗中）。\n2. 按「分析」以擷取影片及其字幕。\n3. 勾選您需要的語言（索引標籤可篩選手動/自動）。\n4. 選擇格式、TXT 選項、目的地資料夾與檔案名稱。\n5. 按「下載所選項目」。\n\n快速鍵：Ctrl+L URL · Ctrl+F 搜尋 · Ctrl+D 下載 · Ctrl+, 設定 · Ctrl+Q 結束。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="866" />
+      <source>Select exactly one subtitle to preview.</source>
+      <translation>請只選取一個字幕進行預覽。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="951" />
+      <source>Cancelled.</source>
+      <translation>已取消。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="954" />
+      <source>Operation cancelled.</source>
+      <translation>操作已取消。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/main_window.py" line="972" />
+      <source>Dropped a URL onto the window.</source>
+      <translation>已將 URL 拖放到視窗。</translation>
+    </message>
+  </context>
+  <context>
+    <name>PlaylistDialog</name>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="28" />
+      <source>Playlist</source>
+      <translation>播放清單</translation>
+    </message>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="35" />
+      <source>(%1 video(s)) — select the videos to process</source>
+      <translation>（%1 個影片）— 選取要處理的影片</translation>
+    </message>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="47" />
+      <source>?</source>
+      <translation>？</translation>
+    </message>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="49" />
+      <source>unknown channel</source>
+      <translation>未知頻道</translation>
+    </message>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="59" />
+      <source>Select all</source>
+      <translation>全選</translation>
+    </message>
+    <message>
+      <location filename="../../ui/playlist_dialog.py" line="61" />
+      <source>Select none</source>
+      <translation>全不選</translation>
+    </message>
+  </context>
+  <context>
+    <name>PreviewDialog</name>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="45" />
+      <source>Subtitle preview</source>
+      <translation>字幕預覽</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="63" />
+      <source>Loading…</source>
+      <translation>正在載入…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="67" />
+      <source>Find:</source>
+      <translation>尋找：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="72" />
+      <source>Previous</source>
+      <translation>上一個</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="74" />
+      <source>Next</source>
+      <translation>下一個</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="81" />
+      <source>Copy</source>
+      <translation>複製</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="83" />
+      <source>Copy clean text</source>
+      <translation>複製乾淨文字</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="85" />
+      <source>Select all</source>
+      <translation>全選</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="87" />
+      <source>Save as…</source>
+      <translation>另存新檔…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="89" />
+      <source>Close</source>
+      <translation>關閉</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="114" />
+      <source>Could not load the subtitle:\n%1</source>
+      <translation>無法載入字幕：\n%1</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="145" />
+      <source>Save subtitle as…</source>
+      <translation>將字幕另存新檔…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="147" />
+      <source>Text files (*.txt);;All files (*)</source>
+      <translation>文字檔 (*.txt);;所有檔案 (*)</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="156" />
+      <source>Error</source>
+      <translation>錯誤</translation>
+    </message>
+    <message>
+      <location filename="../../ui/preview_dialog.py" line="157" />
+      <source>Cannot write the file:\n%1</source>
+      <translation>無法寫入檔案：\n%1</translation>
+    </message>
+  </context>
+  <context>
+    <name>SettingsDialog</name>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="36" />
+      <source>Settings</source>
+      <translation>設定</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="40" />
+      <source>General</source>
+      <translation>一般</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="41" />
+      <source>YouTube</source>
+      <translation>YouTube</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="42" />
+      <source>Output</source>
+      <translation>輸出</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="43" />
+      <source>Privacy</source>
+      <translation>隱私權</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="74" />
+      <source>Analyze automatically after pasting a URL</source>
+      <translation>貼上 URL 後自動分析</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="77" />
+      <source>Show a desktop notification when a download finishes and the window is not active</source>
+      <translation>下載完成且視窗不活動時顯示桌面通知</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="83" />
+      <source>Language:</source>
+      <translation>語言：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="84" />
+      <source>Preferred subtitle language:</source>
+      <translation>偏好的字幕語言：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="100" />
+      <source>Browse…</source>
+      <translation>瀏覽…</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="105" />
+      <source>Cookies from browser:</source>
+      <translation>瀏覽器 Cookie：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="106" />
+      <source>Cookies file:</source>
+      <translation>Cookie 檔案：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="108" />
+      <source>Cookies are only used through yt-dlp; their content is never read or stored by this application.</source>
+      <translation>Cookie 僅透過 yt-dlp 使用；本應用程式絕不讀取或儲存其內容。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="125" />
+      <source>Also create a clean TXT file</source>
+      <translation>同時建立乾淨的 TXT 檔案</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="128" />
+      <source>Continuous text</source>
+      <translation>連續文字</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="129" />
+      <source>Paragraphs</source>
+      <translation>段落</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="130" />
+      <source>One line per subtitle</source>
+      <translation>每個字幕一行</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="136" />
+      <source>Title - Language</source>
+      <translation>標題 - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="140" />
+      <source>Title [ID] - Language</source>
+      <translation>標題 [ID] - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="144" />
+      <source>ID - Language</source>
+      <translation>ID - 語言</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="147" />
+      <source>Custom</source>
+      <translation>自訂</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="149" />
+      <source>Default format:</source>
+      <translation>預設格式：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="151" />
+      <source>TXT mode:</source>
+      <translation>TXT 模式：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="152" />
+      <source>File name template:</source>
+      <translation>檔案名稱範本：</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="159" />
+      <source>Save a history of processed videos (dates, titles and URLs)</source>
+      <translation>儲存已處理影片的歷史紀錄（日期、標題和 URL）</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="164" />
+      <source>History is stored locally in the user data folder and can be cleared at any time from the File → History dialog.</source>
+      <translation>歷史紀錄儲存在使用者資料資料夾中，可隨時透過「檔案 → 歷史紀錄」清除。</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="224" />
+      <source>Select cookies file</source>
+      <translation>選取 Cookie 檔案</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="226" />
+      <source>Cookies (*.txt);;All files (*)</source>
+      <translation>Cookie (*.txt);;所有檔案 (*)</translation>
+    </message>
+  </context>
+  <context>
+    <name>SubtitleKind</name>
+    <message>
+      <location filename="../../i18n/__init__.py" line="69" />
+      <source>Manual</source>
+      <translation>手動</translation>
+    </message>
+    <message>
+      <location filename="../../i18n/__init__.py" line="70" />
+      <source>Automatic</source>
+      <translation>自動</translation>
+    </message>
+  </context>
+</TS>

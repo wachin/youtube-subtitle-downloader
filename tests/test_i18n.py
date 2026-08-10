@@ -1,6 +1,8 @@
-"""Tests for the Spanish translation catalog (roadmap section 36)."""
+"""Tests for the translation catalogs (roadmap section 36)."""
 
 import os
+
+import pytest  # noqa: E402
 
 os.environ.setdefault("QT_QPA_PLATFORM", "offscreen")
 
@@ -33,6 +35,15 @@ def test_spanish_catalog_exists() -> None:
     assert (translations_dir() / "youtube_subtitle_downloader_es.qm").is_file()
 
 
+def test_every_available_language_has_a_catalog() -> None:
+    for code in i18n_mod.AVAILABLE_LANGUAGES:
+        if code == "en":
+            continue  # English is the source language, no catalog needed.
+        assert (
+            translations_dir() / f"youtube_subtitle_downloader_{code}.qm"
+        ).is_file(), f"missing catalog for {code}"
+
+
 def test_spanish_translation_applies() -> None:
     app = _app()
     install_translator(app, "es")
@@ -61,8 +72,43 @@ def test_english_is_default() -> None:
 
 def test_unknown_language_falls_back_to_english() -> None:
     app = _app()
-    install_translator(app, "fr")  # no catalog: stays in English
+    install_translator(app, "xx")  # no catalog: stays in English
     assert QCoreApplication.translate("MainWindow", "Analyze") == "Analyze"
+
+
+# -- every bundled translation spot-checked -------------------------------
+
+#: language code -> expected translation of "Analyze" and "Close".
+CATALOG_SPOT_CHECKS: dict[str, tuple[str, str]] = {
+    "es": ("Analizar", "Cerrar"),
+    "de": ("Analysieren", "Schließen"),
+    "fr": ("Analyser", "Fermer"),
+    "ja": ("解析", "閉じる"),
+    "ko": ("분석", "닫기"),
+    "pt_BR": ("Analisar", "Fechar"),
+    "ru": ("Анализировать", "Закрыть"),
+    "zh_CN": ("分析", "关闭"),
+    "zh_TW": ("分析", "關閉"),
+}
+
+
+@pytest.mark.parametrize("code", sorted(CATALOG_SPOT_CHECKS))
+def test_catalog_translation_applies(code: str) -> None:
+    analyze, close = CATALOG_SPOT_CHECKS[code]
+    app = _app()
+    install_translator(app, code)
+    try:
+        assert (
+            QCoreApplication.translate("MainWindow", "Analyze") == analyze
+        ), f"Analyze not translated in {code}"
+        assert (
+            QCoreApplication.translate("AboutDialog", "Close") == close
+        ), f"Close not translated in {code}"
+    finally:
+        install_translator(app, "en")
+
+
+# -- system language detection -------------------------------------------
 
 
 # -- system language detection -------------------------------------------
@@ -95,10 +141,43 @@ def test_system_language_unsupported_falls_back_to_english(monkeypatch) -> None:
         i18n_mod.QLocale,
         "system",
         staticmethod(
-            lambda: QLocale(QLocale.Language.French, QLocale.Country.France)
+            lambda: QLocale(QLocale.Language.Greek, QLocale.Country.Greece)
         ),
     )
     assert system_language() == "en"
+
+
+def test_system_language_full_code_brazilian_portuguese(monkeypatch) -> None:
+    monkeypatch.setattr(
+        i18n_mod.QLocale,
+        "system",
+        staticmethod(
+            lambda: QLocale(QLocale.Language.Portuguese, QLocale.Country.Brazil)
+        ),
+    )
+    assert system_language() == "pt_BR"
+
+
+def test_system_language_full_code_chinese_simplified(monkeypatch) -> None:
+    monkeypatch.setattr(
+        i18n_mod.QLocale,
+        "system",
+        staticmethod(
+            lambda: QLocale(QLocale.Language.Chinese, QLocale.Country.China)
+        ),
+    )
+    assert system_language() == "zh_CN"
+
+
+def test_system_language_full_code_chinese_traditional(monkeypatch) -> None:
+    monkeypatch.setattr(
+        i18n_mod.QLocale,
+        "system",
+        staticmethod(
+            lambda: QLocale(QLocale.Language.Chinese, QLocale.Country.Taiwan)
+        ),
+    )
+    assert system_language() == "zh_TW"
 
 
 def test_settings_language_follows_system_when_unset(monkeypatch) -> None:

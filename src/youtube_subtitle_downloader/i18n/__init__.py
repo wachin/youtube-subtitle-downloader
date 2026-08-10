@@ -16,6 +16,14 @@ from PyQt6.QtCore import QCoreApplication, QLibraryInfo, QLocale, QTranslator
 AVAILABLE_LANGUAGES: dict[str, str] = {
     "en": "English",
     "es": "Español",
+    "de": "Deutsch",
+    "fr": "Français",
+    "ja": "日本語",
+    "ko": "한국어",
+    "pt_BR": "Português (Brasil)",
+    "ru": "Русский",
+    "zh_CN": "简体中文",
+    "zh_TW": "繁體中文",
 }
 
 #: Attribute used to remember the installed translators so they can be
@@ -38,9 +46,14 @@ def system_language() -> str:
     """
     locale = QLocale.system()
     for tag in locale.uiLanguages():
-        code = tag.replace("-", "_").split("_")[0].lower()
+        code = tag.replace("-", "_")
+        # Prefer the full code (e.g. ``pt_BR``, ``zh_CN``) and fall back to
+        # the bare language part (e.g. ``es`` from ``es_EC``).
         if code in AVAILABLE_LANGUAGES:
             return code
+        base = code.split("_")[0].lower()
+        if base in AVAILABLE_LANGUAGES:
+            return base
     return "en"
 
 
