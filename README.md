@@ -50,8 +50,11 @@ available subtitles, select one or more languages and download them.
 For deb packages distros like: Ubuntu, Linux Mint, Debian, MX Linux, antiX, etc, etc
 
 ```bash
-sudo apt install python3 python3-pyqt6 ffmpeg
+sudo apt install python3 python3-pyqt6 python3-pyqt6.qtsvg ffmpeg
 ```
+
+(`python3-pyqt6.qtsvg` provides Qt's SVG support, needed to load the
+application logo.)
 
 ## Updating yt-dlp
 
@@ -162,7 +165,7 @@ Cookie contents are never read, stored or logged by this application.
 > **Optional — regular users do not need pip.** On Debian-family distributions
 > (Ubuntu, Linux Mint, Debian, MX Linux, antiX, …) the dependencies are
 > available in the repositories: `sudo apt install python3 python3-pyqt6
-> yt-dlp ffmpeg` and then `python3 run.py` is enough.
+> python3-pyqt6.qtsvg yt-dlp ffmpeg` and then `python3 run.py` is enough.
 
 Pip is only useful for **developers** or for systems where the dependencies
 are not available in the repositories (or are too old), for example:
