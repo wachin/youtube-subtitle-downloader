@@ -7,6 +7,7 @@ from typing import Any
 
 from PyQt6.QtCore import QSettings
 
+from ..i18n import system_language
 from ..utils.filenames import DEFAULT_TEMPLATE
 from ..utils.paths import default_download_dir, ensure_dirs, history_file
 
@@ -35,7 +36,16 @@ class SettingsService:
 
     # -- general -----------------------------------------------------------
     def language(self) -> str:
-        return str(self.value("general/language", "en"))
+        """Effective UI language: the stored preference, or the system language.
+
+        Once the user picks a language in the settings dialog that choice is
+        stored and takes precedence; otherwise the application follows the
+        language of the operating system (English as the final fallback).
+        """
+        stored = self.value("general/language", None)
+        if stored:
+            return str(stored)
+        return system_language()
 
     def set_language(self, language: str) -> None:
         self.set_value("general/language", language)

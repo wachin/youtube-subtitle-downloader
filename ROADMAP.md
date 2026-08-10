@@ -909,7 +909,7 @@ No interceptar `Ctrl+V` globalmente de manera que impida pegar normalmente en ot
 
 # [x] 36. Internacionalización
 
-> Hecho: todos los textos visibles envueltos con tr(), traducción al español completa generada con Qt Linguist (pylupdate6/lrelease) y cambio de idioma en caliente desde Configuración → General → Idioma.
+> Hecho: todos los textos visibles envueltos con tr(), traducción al español completa generada con Qt Linguist (pylupdate6/lrelease), cambio de idioma en caliente desde Configuración → General → Idioma y detección automática del idioma del sistema operativo por defecto (si el usuario elige un idioma en Configuración, esa elección tiene prioridad).
 
 El **idioma principal de la aplicación es el inglés**.
 
@@ -948,7 +948,7 @@ Italiano
 etc.
 ```
 
-El idioma por defecto es el **inglés**; mientras no exista traducción a otro idioma, la aplicación se muestra siempre en inglés.
+El idioma por defecto se detecta automáticamente del sistema operativo (inglés como respaldo); mientras no exista traducción a otro idioma, la aplicación se muestra en inglés.
 
 Permitir cambiar el idioma desde:
 

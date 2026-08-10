@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from PyQt6.QtCore import QCoreApplication, QLibraryInfo, QTranslator
+from PyQt6.QtCore import QCoreApplication, QLibraryInfo, QLocale, QTranslator
 
 #: Language code -> display name (native).
 AVAILABLE_LANGUAGES: dict[str, str] = {
@@ -26,6 +26,22 @@ _TRANSLATOR_ATTR = "_youtube_subtitle_translators"
 def translations_dir() -> Path:
     """Directory where packaged ``.qm`` files live."""
     return Path(__file__).resolve().parent.parent / "resources" / "translations"
+
+
+def system_language() -> str:
+    """Best supported language for the current system locale.
+
+    The system UI language preferences are honoured (on Linux these come
+    from ``LANGUAGE``/``LANG``). The first supported language is used and
+    ``en`` is returned when none of the supported languages matches, so the
+    application always opens in a language it can actually display.
+    """
+    locale = QLocale.system()
+    for tag in locale.uiLanguages():
+        code = tag.replace("-", "_").split("_")[0].lower()
+        if code in AVAILABLE_LANGUAGES:
+            return code
+    return "en"
 
 
 def translate_args(text: str, *values) -> str:
