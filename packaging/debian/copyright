@@ -2,11 +2,11 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: youtube-subtitle-downloader
 
 Files: *
-Copyright: 2026 youtube-subtitle-downloader contributors
+Copyright: 2026 Washington Indacochea Delgado
 License: GPL-3.0-or-later
 
 Files: debian/*
-Copyright: 2026 youtube-subtitle-downloader contributors
+Copyright: 2026 Washington Indacochea Delgado
 License: GPL-3.0-or-later
 
 License: GPL-3.0-or-later

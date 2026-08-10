@@ -135,6 +135,49 @@ def test_clicking_a_row_checks_it():
     window.close()
 
 
+def test_about_dialog_shows_author_links_and_big_icon():
+    """The About dialog shows the author info, clickable links and a big logo."""
+    from PyQt6.QtWidgets import QLabel, QTabWidget
+
+    from youtube_subtitle_downloader.ui.about_dialog import AboutDialog
+
+    _app()
+    dialog = AboutDialog(SettingsService())
+    tabs = dialog.findChild(QTabWidget)
+    assert tabs is not None
+    assert tabs.count() == 2  # About + System info
+
+    about_widget = tabs.widget(0)
+    labels = about_widget.findChildren(QLabel)
+
+    icon_labels = [
+        lbl
+        for lbl in labels
+        if lbl.pixmap() is not None and not lbl.pixmap().isNull()
+    ]
+    text_labels = [lbl for lbl in labels if lbl not in icon_labels]
+
+    # The application logo is shown large on the left.
+    assert len(icon_labels) == 1
+    pixmap = icon_labels[0].pixmap()
+    assert pixmap.width() >= 160 and pixmap.height() >= 160
+
+    # Author, licence, contact, website and technologies are present.
+    content = "".join(lbl.text() for lbl in text_labels)
+    assert "© 2026 Washington Indacochea Delgado" in content
+    assert "mailto:linuxfrontier@proton.me" in content
+    assert "GPL-3.0-or-later" in content
+    assert "https://github.com/wachin/youtube-subtitle-downloader" in content
+    assert "Python 3" in content and "yt-dlp" in content
+
+    # Email and website are real clickable links (open external apps).
+    link_label = next(lbl for lbl in text_labels if lbl.openExternalLinks())
+    assert link_label.textInteractionFlags() & (
+        Qt.TextInteractionFlag.TextBrowserInteraction
+    )
+    dialog.close()
+
+
 def test_clicking_the_checkbox_indicator_checks_it():
     """Direct clicks on the checkbox indicator toggle the state once."""
     from PyQt6.QtCore import QPoint

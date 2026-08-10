@@ -78,23 +78,25 @@ def test_unknown_language_falls_back_to_english() -> None:
 
 # -- every bundled translation spot-checked -------------------------------
 
-#: language code -> expected translation of "Analyze" and "Close".
-CATALOG_SPOT_CHECKS: dict[str, tuple[str, str]] = {
-    "es": ("Analizar", "Cerrar"),
-    "de": ("Analysieren", "Schließen"),
-    "fr": ("Analyser", "Fermer"),
-    "ja": ("解析", "閉じる"),
-    "ko": ("분석", "닫기"),
-    "pt_BR": ("Analisar", "Fechar"),
-    "ru": ("Анализировать", "Закрыть"),
-    "zh_CN": ("分析", "关闭"),
-    "zh_TW": ("分析", "關閉"),
+#: language code -> expected translation of "Analyze", "Close" and the
+#: About-dialog "License" row (added with the author info redesign).
+LICENSE_SOURCE = "<p><b>License:</b> GPL-3.0-or-later</p>"
+CATALOG_SPOT_CHECKS: dict[str, tuple[str, str, str]] = {
+    "es": ("Analizar", "Cerrar", "<p><b>Licencia:</b> GPL-3.0-or-later</p>"),
+    "de": ("Analysieren", "Schließen", "<p><b>Lizenz:</b> GPL-3.0-or-later</p>"),
+    "fr": ("Analyser", "Fermer", "<p><b>Licence :</b> GPL-3.0-or-later</p>"),
+    "ja": ("解析", "閉じる", "<p><b>ライセンス:</b> GPL-3.0-or-later</p>"),
+    "ko": ("분석", "닫기", "<p><b>라이선스:</b> GPL-3.0-or-later</p>"),
+    "pt_BR": ("Analisar", "Fechar", "<p><b>Licença:</b> GPL-3.0-or-later</p>"),
+    "ru": ("Анализировать", "Закрыть", "<p><b>Лицензия:</b> GPL-3.0-or-later</p>"),
+    "zh_CN": ("分析", "关闭", "<p><b>许可证：</b> GPL-3.0-or-later</p>"),
+    "zh_TW": ("分析", "關閉", "<p><b>授權條款：</b> GPL-3.0-or-later</p>"),
 }
 
 
 @pytest.mark.parametrize("code", sorted(CATALOG_SPOT_CHECKS))
 def test_catalog_translation_applies(code: str) -> None:
-    analyze, close = CATALOG_SPOT_CHECKS[code]
+    analyze, close, license_row = CATALOG_SPOT_CHECKS[code]
     app = _app()
     install_translator(app, code)
     try:
@@ -104,6 +106,9 @@ def test_catalog_translation_applies(code: str) -> None:
         assert (
             QCoreApplication.translate("AboutDialog", "Close") == close
         ), f"Close not translated in {code}"
+        assert (
+            QCoreApplication.translate("AboutDialog", LICENSE_SOURCE) == license_row
+        ), f"About License row not translated in {code}"
     finally:
         install_translator(app, "en")
 

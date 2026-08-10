@@ -4,78 +4,93 @@
   <context>
     <name>AboutDialog</name>
     <message>
-      <location filename="../../ui/about_dialog.py" line="34" />
-      <location filename="../../ui/about_dialog.py" line="30" />
+      <location filename="../../ui/about_dialog.py" line="36" />
+      <location filename="../../ui/about_dialog.py" line="32" />
       <source>About</source>
       <translation>關於</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="35" />
+      <location filename="../../ui/about_dialog.py" line="37" />
       <source>System info</source>
       <translation>系統資訊</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="36" />
+      <location filename="../../ui/about_dialog.py" line="38" />
       <source>Close</source>
       <translation>關閉</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="48" />
+      <location filename="../../ui/about_dialog.py" line="65" />
       <source>Version %1</source>
       <translation>版本 %1</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="49" />
+      <location filename="../../ui/about_dialog.py" line="66" />
       <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library.&lt;/p&gt;</source>
       <translation>&lt;p&gt;一個使用 &lt;b&gt;yt-dlp&lt;/b&gt; 程式庫下載 YouTube 字幕的桌面應用程式（Python 3 + PyQt6）。&lt;/p&gt;</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="54" />
-      <source>&lt;p&gt;Licensed under the &lt;b&gt;GNU GPL v3 or later&lt;/b&gt;.&lt;/p&gt;</source>
-      <translation>&lt;p&gt;根據 &lt;b&gt;GNU GPL v3 或更新版本&lt;/b&gt; 授權。&lt;/p&gt;</translation>
+      <location filename="../../ui/about_dialog.py" line="72" />
+      <source>&lt;p&gt;&lt;b&gt;Email:&lt;/b&gt; &lt;a href="mailto:linuxfrontier@proton.me"&gt;linuxfrontier@proton.me&lt;/a&gt;&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;電子郵件：&lt;/b&gt; &lt;a href="mailto:linuxfrontier@proton.me"&gt;linuxfrontier@proton.me&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="65" />
+      <location filename="../../ui/about_dialog.py" line="76" />
+      <source>&lt;p&gt;&lt;b&gt;License:&lt;/b&gt; GPL-3.0-or-later&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;授權條款：&lt;/b&gt; GPL-3.0-or-later&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="77" />
+      <source>&lt;p&gt;&lt;b&gt;Website:&lt;/b&gt; &lt;a href="https://github.com/wachin/youtube-subtitle-downloader"&gt;github.com/wachin/youtube-subtitle-downloader&lt;/a&gt;&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;網站：&lt;/b&gt; &lt;a href="https://github.com/wachin/youtube-subtitle-downloader"&gt;github.com/wachin/youtube-subtitle-downloader&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="82" />
+      <source>&lt;p&gt;&lt;b&gt;Technologies used:&lt;/b&gt; Python 3, PyQt6, yt-dlp&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;使用的技術：&lt;/b&gt; Python 3, PyQt6, yt-dlp&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="93" />
       <source>not found</source>
       <translation>找不到</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="67" />
+      <location filename="../../ui/about_dialog.py" line="95" />
       <source>Python</source>
       <translation>Python</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="68" />
+      <location filename="../../ui/about_dialog.py" line="96" />
       <source>Qt</source>
       <translation>Qt</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="69" />
+      <location filename="../../ui/about_dialog.py" line="97" />
       <source>PyQt6</source>
       <translation>PyQt6</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="70" />
+      <location filename="../../ui/about_dialog.py" line="98" />
       <source>yt-dlp</source>
       <translation>yt-dlp</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="71" />
+      <location filename="../../ui/about_dialog.py" line="99" />
       <source>FFmpeg</source>
       <translation>FFmpeg</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="72" />
+      <location filename="../../ui/about_dialog.py" line="100" />
       <source>Operating system</source>
       <translation>作業系統</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="73" />
+      <location filename="../../ui/about_dialog.py" line="101" />
       <source>Architecture</source>
       <translation>架構</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="74" />
+      <location filename="../../ui/about_dialog.py" line="102" />
       <source>Executable</source>
       <translation>可執行檔</translation>
     </message>
@@ -480,8 +495,14 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="499" />
-      <source>yt-dlp was not found.\n\nThis application uses yt-dlp to communicate with YouTube.\nOn Debian/Ubuntu you can install it with your package manager or by following the official yt-dlp documentation.</source>
-      <translation>找不到 yt-dlp。\n\n此應用程式使用 yt-dlp 與 YouTube 通訊。\n在 Debian/Ubuntu 上，您可以使用套件管理員安裝，或依照 yt-dlp 官方文件操作。</translation>
+      <source>yt-dlp was not found.
+
+This application uses yt-dlp to communicate with YouTube.
+On Debian/Ubuntu you can install it with your package manager or by following the official yt-dlp documentation.</source>
+      <translation>找不到 yt-dlp。
+
+此應用程式使用 yt-dlp 與 YouTube 通訊。
+在 Debian/Ubuntu 上，您可以使用套件管理員安裝，或依照 yt-dlp 官方文件操作。</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="513" />
@@ -558,8 +579,10 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="629" />
-      <source>Cannot create the destination folder:\n%1</source>
-      <translation>無法建立目的地資料夾：\n%1</translation>
+      <source>Cannot create the destination folder:
+%1</source>
+      <translation>無法建立目的地資料夾：
+%1</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="658" />
@@ -654,8 +677,20 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="849" />
-      <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).\n2. Press Analyze to fetch the video and its subtitles.\n3. Check the languages you want (tabs filter manual/automatic).\n4. Choose format, TXT option, destination folder and file name.\n5. Press Download selected.\n\nShortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · Ctrl+Q quit.</source>
-      <translation>1. 貼上 YouTube URL（或將其拖放到視窗中）。\n2. 按「分析」以擷取影片及其字幕。\n3. 勾選您需要的語言（索引標籤可篩選手動/自動）。\n4. 選擇格式、TXT 選項、目的地資料夾與檔案名稱。\n5. 按「下載所選項目」。\n\n快速鍵：Ctrl+L URL · Ctrl+F 搜尋 · Ctrl+D 下載 · Ctrl+, 設定 · Ctrl+Q 結束。</translation>
+      <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).
+2. Press Analyze to fetch the video and its subtitles.
+3. Check the languages you want (tabs filter manual/automatic).
+4. Choose format, TXT option, destination folder and file name.
+5. Press Download selected.
+
+Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · Ctrl+Q quit.</source>
+      <translation>1. 貼上 YouTube URL（或將其拖放到視窗中）。
+2. 按「分析」以擷取影片及其字幕。
+3. 勾選您需要的語言（索引標籤可篩選手動/自動）。
+4. 選擇格式、TXT 選項、目的地資料夾與檔案名稱。
+5. 按「下載所選項目」。
+
+快速鍵：Ctrl+L URL · Ctrl+F 搜尋 · Ctrl+D 下載 · Ctrl+, 設定 · Ctrl+Q 結束。</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="866" />
@@ -765,8 +800,10 @@
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="114" />
-      <source>Could not load the subtitle:\n%1</source>
-      <translation>無法載入字幕：\n%1</translation>
+      <source>Could not load the subtitle:
+%1</source>
+      <translation>無法載入字幕：
+%1</translation>
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="145" />
@@ -785,149 +822,151 @@
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="157" />
-      <source>Cannot write the file:\n%1</source>
-      <translation>無法寫入檔案：\n%1</translation>
+      <source>Cannot write the file:
+%1</source>
+      <translation>無法寫入檔案：
+%1</translation>
     </message>
   </context>
   <context>
     <name>SettingsDialog</name>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="36" />
+      <location filename="../../ui/settings_dialog.py" line="39" />
       <source>Settings</source>
       <translation>設定</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="40" />
+      <location filename="../../ui/settings_dialog.py" line="43" />
       <source>General</source>
       <translation>一般</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="41" />
+      <location filename="../../ui/settings_dialog.py" line="44" />
       <source>YouTube</source>
       <translation>YouTube</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="42" />
+      <location filename="../../ui/settings_dialog.py" line="45" />
       <source>Output</source>
       <translation>輸出</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="43" />
+      <location filename="../../ui/settings_dialog.py" line="46" />
       <source>Privacy</source>
       <translation>隱私權</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="74" />
+      <location filename="../../ui/settings_dialog.py" line="77" />
       <source>Analyze automatically after pasting a URL</source>
       <translation>貼上 URL 後自動分析</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="77" />
+      <location filename="../../ui/settings_dialog.py" line="80" />
       <source>Show a desktop notification when a download finishes and the window is not active</source>
       <translation>下載完成且視窗不活動時顯示桌面通知</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="83" />
+      <location filename="../../ui/settings_dialog.py" line="86" />
       <source>Language:</source>
       <translation>語言：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="84" />
+      <location filename="../../ui/settings_dialog.py" line="87" />
       <source>Preferred subtitle language:</source>
       <translation>偏好的字幕語言：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="100" />
+      <location filename="../../ui/settings_dialog.py" line="103" />
       <source>Browse…</source>
       <translation>瀏覽…</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="105" />
+      <location filename="../../ui/settings_dialog.py" line="108" />
       <source>Cookies from browser:</source>
       <translation>瀏覽器 Cookie：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="106" />
+      <location filename="../../ui/settings_dialog.py" line="109" />
       <source>Cookies file:</source>
       <translation>Cookie 檔案：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="108" />
+      <location filename="../../ui/settings_dialog.py" line="111" />
       <source>Cookies are only used through yt-dlp; their content is never read or stored by this application.</source>
       <translation>Cookie 僅透過 yt-dlp 使用；本應用程式絕不讀取或儲存其內容。</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="125" />
+      <location filename="../../ui/settings_dialog.py" line="128" />
       <source>Also create a clean TXT file</source>
       <translation>同時建立乾淨的 TXT 檔案</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="128" />
+      <location filename="../../ui/settings_dialog.py" line="131" />
       <source>Continuous text</source>
       <translation>連續文字</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="129" />
+      <location filename="../../ui/settings_dialog.py" line="132" />
       <source>Paragraphs</source>
       <translation>段落</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="130" />
+      <location filename="../../ui/settings_dialog.py" line="133" />
       <source>One line per subtitle</source>
       <translation>每個字幕一行</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="136" />
+      <location filename="../../ui/settings_dialog.py" line="139" />
       <source>Title - Language</source>
       <translation>標題 - 語言</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="140" />
+      <location filename="../../ui/settings_dialog.py" line="143" />
       <source>Title [ID] - Language</source>
       <translation>標題 [ID] - 語言</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="144" />
+      <location filename="../../ui/settings_dialog.py" line="147" />
       <source>ID - Language</source>
       <translation>ID - 語言</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="147" />
+      <location filename="../../ui/settings_dialog.py" line="150" />
       <source>Custom</source>
       <translation>自訂</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="149" />
+      <location filename="../../ui/settings_dialog.py" line="152" />
       <source>Default format:</source>
       <translation>預設格式：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="151" />
+      <location filename="../../ui/settings_dialog.py" line="154" />
       <source>TXT mode:</source>
       <translation>TXT 模式：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="152" />
+      <location filename="../../ui/settings_dialog.py" line="155" />
       <source>File name template:</source>
       <translation>檔案名稱範本：</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="159" />
+      <location filename="../../ui/settings_dialog.py" line="162" />
       <source>Save a history of processed videos (dates, titles and URLs)</source>
       <translation>儲存已處理影片的歷史紀錄（日期、標題和 URL）</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="164" />
+      <location filename="../../ui/settings_dialog.py" line="167" />
       <source>History is stored locally in the user data folder and can be cleared at any time from the File → History dialog.</source>
       <translation>歷史紀錄儲存在使用者資料資料夾中，可隨時透過「檔案 → 歷史紀錄」清除。</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="224" />
+      <location filename="../../ui/settings_dialog.py" line="227" />
       <source>Select cookies file</source>
       <translation>選取 Cookie 檔案</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="226" />
+      <location filename="../../ui/settings_dialog.py" line="229" />
       <source>Cookies (*.txt);;All files (*)</source>
       <translation>Cookie (*.txt);;所有檔案 (*)</translation>
     </message>
@@ -935,12 +974,12 @@
   <context>
     <name>SubtitleKind</name>
     <message>
-      <location filename="../../i18n/__init__.py" line="69" />
+      <location filename="../../i18n/__init__.py" line="82" />
       <source>Manual</source>
       <translation>手動</translation>
     </message>
     <message>
-      <location filename="../../i18n/__init__.py" line="70" />
+      <location filename="../../i18n/__init__.py" line="83" />
       <source>Automatic</source>
       <translation>自動</translation>
     </message>

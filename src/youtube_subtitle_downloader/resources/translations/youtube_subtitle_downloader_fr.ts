@@ -4,78 +4,93 @@
   <context>
     <name>AboutDialog</name>
     <message>
-      <location filename="../../ui/about_dialog.py" line="34" />
-      <location filename="../../ui/about_dialog.py" line="30" />
+      <location filename="../../ui/about_dialog.py" line="36" />
+      <location filename="../../ui/about_dialog.py" line="32" />
       <source>About</source>
       <translation>À propos</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="35" />
+      <location filename="../../ui/about_dialog.py" line="37" />
       <source>System info</source>
       <translation>Informations système</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="36" />
+      <location filename="../../ui/about_dialog.py" line="38" />
       <source>Close</source>
       <translation>Fermer</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="48" />
+      <location filename="../../ui/about_dialog.py" line="65" />
       <source>Version %1</source>
       <translation>Version %1</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="49" />
+      <location filename="../../ui/about_dialog.py" line="66" />
       <source>&lt;p&gt;A desktop application (Python 3 + PyQt6) that downloads YouTube subtitles using the &lt;b&gt;yt-dlp&lt;/b&gt; library.&lt;/p&gt;</source>
-      <translation>&lt;p&gt;Une application de bureau (Python 3 + PyQt6) qui télécharge les sous-titres YouTube à l'aide de la bibliothèque &lt;b&gt;yt-dlp&lt;/b&gt;.&lt;/p&gt;</translation>
+      <translation>&lt;p&gt;Une application de bureau (Python 3 + PyQt6) qui télécharge les sous-titres YouTube à l&amp;apos;aide de la bibliothèque &lt;b&gt;yt-dlp&lt;/b&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="54" />
-      <source>&lt;p&gt;Licensed under the &lt;b&gt;GNU GPL v3 or later&lt;/b&gt;.&lt;/p&gt;</source>
-      <translation>&lt;p&gt;Sous licence &lt;b&gt;GNU GPL v3 ou ultérieure&lt;/b&gt;.&lt;/p&gt;</translation>
+      <location filename="../../ui/about_dialog.py" line="72" />
+      <source>&lt;p&gt;&lt;b&gt;Email:&lt;/b&gt; &lt;a href="mailto:linuxfrontier@proton.me"&gt;linuxfrontier@proton.me&lt;/a&gt;&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;Courriel :&lt;/b&gt; &lt;a href="mailto:linuxfrontier@proton.me"&gt;linuxfrontier@proton.me&lt;/a&gt;&lt;/p&gt;</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="65" />
+      <location filename="../../ui/about_dialog.py" line="76" />
+      <source>&lt;p&gt;&lt;b&gt;License:&lt;/b&gt; GPL-3.0-or-later&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;Licence :&lt;/b&gt; GPL-3.0-or-later&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="77" />
+      <source>&lt;p&gt;&lt;b&gt;Website:&lt;/b&gt; &lt;a href="https://github.com/wachin/youtube-subtitle-downloader"&gt;github.com/wachin/youtube-subtitle-downloader&lt;/a&gt;&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;Site web :&lt;/b&gt; &lt;a href="https://github.com/wachin/youtube-subtitle-downloader"&gt;github.com/wachin/youtube-subtitle-downloader&lt;/a&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="82" />
+      <source>&lt;p&gt;&lt;b&gt;Technologies used:&lt;/b&gt; Python 3, PyQt6, yt-dlp&lt;/p&gt;</source>
+      <translation>&lt;p&gt;&lt;b&gt;Technologies utilisées :&lt;/b&gt; Python 3, PyQt6, yt-dlp&lt;/p&gt;</translation>
+    </message>
+    <message>
+      <location filename="../../ui/about_dialog.py" line="93" />
       <source>not found</source>
       <translation>introuvable</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="67" />
+      <location filename="../../ui/about_dialog.py" line="95" />
       <source>Python</source>
       <translation>Python</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="68" />
+      <location filename="../../ui/about_dialog.py" line="96" />
       <source>Qt</source>
       <translation>Qt</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="69" />
+      <location filename="../../ui/about_dialog.py" line="97" />
       <source>PyQt6</source>
       <translation>PyQt6</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="70" />
+      <location filename="../../ui/about_dialog.py" line="98" />
       <source>yt-dlp</source>
       <translation>yt-dlp</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="71" />
+      <location filename="../../ui/about_dialog.py" line="99" />
       <source>FFmpeg</source>
       <translation>FFmpeg</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="72" />
+      <location filename="../../ui/about_dialog.py" line="100" />
       <source>Operating system</source>
-      <translation>Système d'exploitation</translation>
+      <translation>Système d&amp;apos;exploitation</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="73" />
+      <location filename="../../ui/about_dialog.py" line="101" />
       <source>Architecture</source>
       <translation>Architecture</translation>
     </message>
     <message>
-      <location filename="../../ui/about_dialog.py" line="74" />
+      <location filename="../../ui/about_dialog.py" line="102" />
       <source>Executable</source>
       <translation>Exécutable</translation>
     </message>
@@ -163,7 +178,7 @@
     <message>
       <location filename="../../ui/history_dialog.py" line="52" />
       <source>Open URL</source>
-      <translation>Ouvrir l'URL</translation>
+      <translation>Ouvrir l&amp;apos;URL</translation>
     </message>
     <message>
       <location filename="../../ui/history_dialog.py" line="54" />
@@ -173,12 +188,12 @@
     <message>
       <location filename="../../ui/history_dialog.py" line="56" />
       <source>Copy URL</source>
-      <translation>Copier l'URL</translation>
+      <translation>Copier l&amp;apos;URL</translation>
     </message>
     <message>
       <location filename="../../ui/history_dialog.py" line="62" />
       <source>Delete entry</source>
-      <translation>Supprimer l'entrée</translation>
+      <translation>Supprimer l&amp;apos;entrée</translation>
     </message>
     <message>
       <location filename="../../ui/history_dialog.py" line="64" />
@@ -198,12 +213,12 @@
     <message>
       <location filename="../../ui/history_dialog.py" line="129" />
       <source>Clear history</source>
-      <translation>Effacer l'historique</translation>
+      <translation>Effacer l&amp;apos;historique</translation>
     </message>
     <message>
       <location filename="../../ui/history_dialog.py" line="130" />
       <source>Delete the whole history? This cannot be undone.</source>
-      <translation>Supprimer tout l'historique ? Cette action est irréversible.</translation>
+      <translation>Supprimer tout l&amp;apos;historique ? Cette action est irréversible.</translation>
     </message>
   </context>
   <context>
@@ -221,7 +236,7 @@
     <message>
       <location filename="../../ui/main_window.py" line="290" />
       <source>Paste URL</source>
-      <translation>Coller l'URL</translation>
+      <translation>Coller l&amp;apos;URL</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="291" />
@@ -471,7 +486,7 @@
     <message>
       <location filename="../../ui/main_window.py" line="495" />
       <source>yt-dlp is not installed.</source>
-      <translation>yt-dlp n'est pas installé.</translation>
+      <translation>yt-dlp n&amp;apos;est pas installé.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="498" />
@@ -480,13 +495,19 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="499" />
-      <source>yt-dlp was not found.\n\nThis application uses yt-dlp to communicate with YouTube.\nOn Debian/Ubuntu you can install it with your package manager or by following the official yt-dlp documentation.</source>
-      <translation>yt-dlp est introuvable.\n\nCette application utilise yt-dlp pour communiquer avec YouTube.\nSur Debian/Ubuntu, vous pouvez l'installer avec votre gestionnaire de paquets ou en suivant la documentation officielle de yt-dlp.</translation>
+      <source>yt-dlp was not found.
+
+This application uses yt-dlp to communicate with YouTube.
+On Debian/Ubuntu you can install it with your package manager or by following the official yt-dlp documentation.</source>
+      <translation>yt-dlp est introuvable.
+
+Cette application utilise yt-dlp pour communiquer avec YouTube.
+Sur Debian/Ubuntu, vous pouvez l&amp;apos;installer avec votre gestionnaire de paquets ou en suivant la documentation officielle de yt-dlp.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="513" />
       <source>Enter a YouTube URL first.</source>
-      <translation>Saisissez d'abord une URL YouTube.</translation>
+      <translation>Saisissez d&amp;apos;abord une URL YouTube.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="522" />
@@ -541,7 +562,7 @@
     <message>
       <location filename="../../ui/main_window.py" line="611" />
       <source>Analyze a video first.</source>
-      <translation>Analysez d'abord une vidéo.</translation>
+      <translation>Analysez d&amp;apos;abord une vidéo.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="920" />
@@ -558,8 +579,10 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="629" />
-      <source>Cannot create the destination folder:\n%1</source>
-      <translation>Impossible de créer le dossier de destination :\n%1</translation>
+      <source>Cannot create the destination folder:
+%1</source>
+      <translation>Impossible de créer le dossier de destination :
+%1</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="658" />
@@ -634,7 +657,7 @@
     <message>
       <location filename="../../ui/main_window.py" line="794" />
       <source>The clipboard does not contain a YouTube URL.</source>
-      <translation>Le presse-papiers ne contient pas d'URL YouTube.</translation>
+      <translation>Le presse-papiers ne contient pas d&amp;apos;URL YouTube.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="833" />
@@ -654,13 +677,25 @@
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="849" />
-      <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).\n2. Press Analyze to fetch the video and its subtitles.\n3. Check the languages you want (tabs filter manual/automatic).\n4. Choose format, TXT option, destination folder and file name.\n5. Press Download selected.\n\nShortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · Ctrl+Q quit.</source>
-      <translation>1. Collez une URL YouTube (ou glissez-déposez-la sur la fenêtre).\n2. Cliquez sur Analyser pour récupérer la vidéo et ses sous-titres.\n3. Cochez les langues souhaitées (les onglets filtrent manuel/automatique).\n4. Choisissez le format, l'option TXT, le dossier de destination et le nom de fichier.\n5. Cliquez sur Télécharger la sélection.\n\nRaccourcis : Ctrl+L URL · Ctrl+F recherche · Ctrl+D téléchargement · Ctrl+, paramètres · Ctrl+Q quitter.</translation>
+      <source>1. Paste a YouTube URL (or drag &amp; drop it onto the window).
+2. Press Analyze to fetch the video and its subtitles.
+3. Check the languages you want (tabs filter manual/automatic).
+4. Choose format, TXT option, destination folder and file name.
+5. Press Download selected.
+
+Shortcuts: Ctrl+L URL · Ctrl+F search · Ctrl+D download · Ctrl+, settings · Ctrl+Q quit.</source>
+      <translation>1. Collez une URL YouTube (ou glissez-déposez-la sur la fenêtre).
+2. Cliquez sur Analyser pour récupérer la vidéo et ses sous-titres.
+3. Cochez les langues souhaitées (les onglets filtrent manuel/automatique).
+4. Choisissez le format, l&amp;apos;option TXT, le dossier de destination et le nom de fichier.
+5. Cliquez sur Télécharger la sélection.
+
+Raccourcis : Ctrl+L URL · Ctrl+F recherche · Ctrl+D téléchargement · Ctrl+, paramètres · Ctrl+Q quitter.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="866" />
       <source>Select exactly one subtitle to preview.</source>
-      <translation>Sélectionnez exactement un sous-titre pour l'aperçu.</translation>
+      <translation>Sélectionnez exactement un sous-titre pour l&amp;apos;aperçu.</translation>
     </message>
     <message>
       <location filename="../../ui/main_window.py" line="951" />
@@ -765,8 +800,10 @@
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="114" />
-      <source>Could not load the subtitle:\n%1</source>
-      <translation>Impossible de charger le sous-titre :\n%1</translation>
+      <source>Could not load the subtitle:
+%1</source>
+      <translation>Impossible de charger le sous-titre :
+%1</translation>
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="145" />
@@ -785,149 +822,151 @@
     </message>
     <message>
       <location filename="../../ui/preview_dialog.py" line="157" />
-      <source>Cannot write the file:\n%1</source>
-      <translation>Impossible d'écrire le fichier :\n%1</translation>
+      <source>Cannot write the file:
+%1</source>
+      <translation>Impossible d&amp;apos;écrire le fichier :
+%1</translation>
     </message>
   </context>
   <context>
     <name>SettingsDialog</name>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="36" />
+      <location filename="../../ui/settings_dialog.py" line="39" />
       <source>Settings</source>
       <translation>Paramètres</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="40" />
+      <location filename="../../ui/settings_dialog.py" line="43" />
       <source>General</source>
       <translation>Général</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="41" />
+      <location filename="../../ui/settings_dialog.py" line="44" />
       <source>YouTube</source>
       <translation>YouTube</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="42" />
+      <location filename="../../ui/settings_dialog.py" line="45" />
       <source>Output</source>
       <translation>Sortie</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="43" />
+      <location filename="../../ui/settings_dialog.py" line="46" />
       <source>Privacy</source>
       <translation>Confidentialité</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="74" />
-      <source>Analyze automatically after pasting a URL</source>
-      <translation>Analyser automatiquement après le collage d'une URL</translation>
-    </message>
-    <message>
       <location filename="../../ui/settings_dialog.py" line="77" />
-      <source>Show a desktop notification when a download finishes and the window is not active</source>
-      <translation>Afficher une notification de bureau à la fin d'un téléchargement si la fenêtre n'est pas active</translation>
+      <source>Analyze automatically after pasting a URL</source>
+      <translation>Analyser automatiquement après le collage d&amp;apos;une URL</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="83" />
+      <location filename="../../ui/settings_dialog.py" line="80" />
+      <source>Show a desktop notification when a download finishes and the window is not active</source>
+      <translation>Afficher une notification de bureau à la fin d&amp;apos;un téléchargement si la fenêtre n&amp;apos;est pas active</translation>
+    </message>
+    <message>
+      <location filename="../../ui/settings_dialog.py" line="86" />
       <source>Language:</source>
       <translation>Langue :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="84" />
+      <location filename="../../ui/settings_dialog.py" line="87" />
       <source>Preferred subtitle language:</source>
       <translation>Langue de sous-titres préférée :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="100" />
+      <location filename="../../ui/settings_dialog.py" line="103" />
       <source>Browse…</source>
       <translation>Parcourir…</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="105" />
+      <location filename="../../ui/settings_dialog.py" line="108" />
       <source>Cookies from browser:</source>
       <translation>Cookies du navigateur :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="106" />
+      <location filename="../../ui/settings_dialog.py" line="109" />
       <source>Cookies file:</source>
       <translation>Fichier de cookies :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="108" />
+      <location filename="../../ui/settings_dialog.py" line="111" />
       <source>Cookies are only used through yt-dlp; their content is never read or stored by this application.</source>
-      <translation>Les cookies ne sont utilisés que via yt-dlp ; leur contenu n'est jamais lu ni stocké par cette application.</translation>
+      <translation>Les cookies ne sont utilisés que via yt-dlp ; leur contenu n&amp;apos;est jamais lu ni stocké par cette application.</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="125" />
+      <location filename="../../ui/settings_dialog.py" line="128" />
       <source>Also create a clean TXT file</source>
       <translation>Créer aussi un fichier TXT propre</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="128" />
+      <location filename="../../ui/settings_dialog.py" line="131" />
       <source>Continuous text</source>
       <translation>Texte continu</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="129" />
+      <location filename="../../ui/settings_dialog.py" line="132" />
       <source>Paragraphs</source>
       <translation>Paragraphes</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="130" />
+      <location filename="../../ui/settings_dialog.py" line="133" />
       <source>One line per subtitle</source>
       <translation>Une ligne par sous-titre</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="136" />
+      <location filename="../../ui/settings_dialog.py" line="139" />
       <source>Title - Language</source>
       <translation>Titre - Langue</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="140" />
+      <location filename="../../ui/settings_dialog.py" line="143" />
       <source>Title [ID] - Language</source>
       <translation>Titre [ID] - Langue</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="144" />
+      <location filename="../../ui/settings_dialog.py" line="147" />
       <source>ID - Language</source>
       <translation>ID - Langue</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="147" />
+      <location filename="../../ui/settings_dialog.py" line="150" />
       <source>Custom</source>
       <translation>Personnalisé</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="149" />
+      <location filename="../../ui/settings_dialog.py" line="152" />
       <source>Default format:</source>
       <translation>Format par défaut :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="151" />
+      <location filename="../../ui/settings_dialog.py" line="154" />
       <source>TXT mode:</source>
       <translation>Mode TXT :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="152" />
+      <location filename="../../ui/settings_dialog.py" line="155" />
       <source>File name template:</source>
       <translation>Modèle de nom de fichier :</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="159" />
+      <location filename="../../ui/settings_dialog.py" line="162" />
       <source>Save a history of processed videos (dates, titles and URLs)</source>
       <translation>Enregistrer un historique des vidéos traitées (dates, titres et URL)</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="164" />
+      <location filename="../../ui/settings_dialog.py" line="167" />
       <source>History is stored locally in the user data folder and can be cleared at any time from the File → History dialog.</source>
-      <translation>L'historique est stocké localement dans le dossier de données de l'utilisateur et peut être effacé à tout moment depuis Fichier → Historique.</translation>
+      <translation>L&amp;apos;historique est stocké localement dans le dossier de données de l&amp;apos;utilisateur et peut être effacé à tout moment depuis Fichier → Historique.</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="224" />
+      <location filename="../../ui/settings_dialog.py" line="227" />
       <source>Select cookies file</source>
       <translation>Sélectionner le fichier de cookies</translation>
     </message>
     <message>
-      <location filename="../../ui/settings_dialog.py" line="226" />
+      <location filename="../../ui/settings_dialog.py" line="229" />
       <source>Cookies (*.txt);;All files (*)</source>
       <translation>Cookies (*.txt);;Tous les fichiers (*)</translation>
     </message>
@@ -935,12 +974,12 @@
   <context>
     <name>SubtitleKind</name>
     <message>
-      <location filename="../../i18n/__init__.py" line="69" />
+      <location filename="../../i18n/__init__.py" line="82" />
       <source>Manual</source>
       <translation>Manuel</translation>
     </message>
     <message>
-      <location filename="../../i18n/__init__.py" line="70" />
+      <location filename="../../i18n/__init__.py" line="83" />
       <source>Automatic</source>
       <translation>Automatique</translation>
     </message>

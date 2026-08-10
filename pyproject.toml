@@ -9,8 +9,8 @@ description = "Desktop application (PyQt6) to download YouTube subtitles using y
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "GPL-3.0-or-later" }
-authors = [{ name = "youtube-subtitle-downloader contributors" }]
-maintainers = [{ name = "youtube-subtitle-downloader contributors" }]
+authors = [{ name = "Washington Indacochea Delgado", email = "linuxfrontier@proton.me" }]
+maintainers = [{ name = "Washington Indacochea Delgado", email = "linuxfrontier@proton.me" }]
 keywords = ["youtube", "subtitles", "captions", "yt-dlp", "pyqt6", "desktop", "gui"]
 classifiers = [
     "Development Status :: 3 - Alpha",
