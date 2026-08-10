@@ -250,6 +250,21 @@ with the application logo and the desktop launcher. Install it with:
 sudo dpkg -i dist/youtube-subtitle-downloader_0.1.0_all.deb
 ```
 
+### Build dependencies
+
+The build script only needs `dpkg-deb` (provided by the `dpkg` package,
+already installed by default on Debian-based systems) plus the standard
+`coreutils` (`sed`, `gzip`, `find`, …). For the full packaging toolchain and
+validation, install:
+
+```bash
+sudo apt install dpkg-dev lintian
+```
+
+Installing the resulting `.deb` automatically pulls in its runtime
+dependencies (`python3`, `python3-pyqt6`, `python3-pyqt6.qtsvg`, `yt-dlp`)
+via `apt`; `ffmpeg` is pulled in when recommended packages are enabled.
+
 Full details (layout, dependencies, validation) live in
 [`packaging/debian/README.md`](packaging/debian/README.md). The project
 follows Debian policy: no runtime downloads, no system modification,
