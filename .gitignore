@@ -216,3 +216,16 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Temporary development scripts (e.g. one-off translation migrations)
+_tmp_*.py
+tmp_*.py
+
+# Editor / merge backups and leftovers
+*.orig
+*.rej
+*.bak
+*~
+
+# Build output for the .deb package (also covered by dist/ above)
+*.deb
